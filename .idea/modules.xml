@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Project-Growth-master.iml" filepath="$PROJECT_DIR$/.idea/Project-Growth-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NewGrowth.iml" filepath="$PROJECT_DIR$/NewGrowth.iml" />
     </modules>
   </component>
 </project>
