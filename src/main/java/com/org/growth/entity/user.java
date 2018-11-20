@@ -1,4 +1,4 @@
-package com.org.growth.model;
+package com.org.growth.entity;
 
 public class user {
     private Long id;
