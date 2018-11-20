@@ -1,4 +1,4 @@
-package com.org.growth.entity;
+package com.org.growth.model;
 
 import java.util.Date;
 
