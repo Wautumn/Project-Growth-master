@@ -23,12 +23,12 @@ public class EXAMPLEDAOIMPTest {
     @Test
     public void saveDemo() {
         EXAMPLE demoEntity = new EXAMPLE();
-        demoEntity.setId(1L);
+        //demoEntity.setId(1L);
         demoEntity.setAge(1);
         demoEntity.setName("rua");
         demoDao.saveDemo(demoEntity);
 
-        demoEntity.setId(2L);
+        //demoEntity.setId(2L);
         demoEntity.setAge(2);
         demoEntity.setName("raa");
         demoDao.saveDemo(demoEntity);

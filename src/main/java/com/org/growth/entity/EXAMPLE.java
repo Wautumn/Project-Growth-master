@@ -1,12 +1,15 @@
 package com.org.growth.entity;
 
+import com.org.growth.Other.AutoIncrement;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "TEST")
 public class EXAMPLE {
     @Id
+    @AutoIncrement
     private Long id;
+
     private String name;
     private int age;
 
