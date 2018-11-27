@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="beb8ddf0-666e-4e42-90db-ecde51c4e9de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Other/AutoIncrement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Other/SaveEventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/EXAMPLE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/EXAMPLE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/EXAMPLEDAOIMPTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/EXAMPLEDAOIMPTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,7 +61,7 @@
     <session id="69190709">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.2" value="1" />
@@ -94,14 +90,14 @@
         <counts>
           <entry key="java" value="1013" />
           <entry key="properties" value="44" />
-          <entry key="txt" value="13" />
+          <entry key="txt" value="25" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="1013" />
-          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="PLAIN_TEXT" value="25" />
           <entry key="Properties" value="44" />
           <entry key="XML" value="2" />
         </counts>
@@ -113,7 +109,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/EXAMPLE.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
+            <state relative-caret-position="313">
               <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -288,7 +284,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1166" />
+    <option name="x" value="1165" />
     <option name="y" value="105" />
     <option name="width" value="1115" />
     <option name="height" value="935" />
@@ -410,7 +406,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543244750426" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543244790730" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../实验室/KAOS-service" />
@@ -554,7 +550,7 @@
       <workItem from="1542715877351" duration="1522000" />
       <workItem from="1542785660778" duration="16000" />
       <workItem from="1543150360878" duration="2815000" />
-      <workItem from="1543242613008" duration="2145000" />
+      <workItem from="1543242613008" duration="2191000" />
     </task>
     <task id="LOCAL-00001" summary="DATABASE CONF">
       <created>1542716375694</created>
@@ -570,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543151006420</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="实现ID自增（有问题!）">
+      <created>1543244785777</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1543244785777</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -606,11 +609,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20823000" />
+    <option name="totallyTimeSpent" value="20869000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1689008" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -622,7 +624,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33002833" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33002833" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.34844193" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -655,7 +657,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="DATABASE CONF" />
-    <option name="LAST_COMMIT_MESSAGE" value="DATABASE CONF" />
+    <MESSAGE value="实现ID自增（有问题!）" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现ID自增（有问题!）" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -900,7 +903,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/EXAMPLE.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
+        <state relative-caret-position="313">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />

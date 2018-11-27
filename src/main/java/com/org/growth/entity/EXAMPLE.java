@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class EXAMPLE {
     @Id
     @AutoIncrement
-    private Long id;
+    private long id;
 
     private String name;
     private int age;
