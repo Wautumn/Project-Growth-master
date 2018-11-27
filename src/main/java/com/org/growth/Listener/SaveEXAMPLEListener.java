@@ -1,5 +1,6 @@
-package com.org.growth.Other;
+package com.org.growth.Listener;
 
+import com.org.growth.Other.AutoIncrement;
 import com.org.growth.entity.EXAMPLE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -14,7 +15,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
 //use for auto increment
-public class SaveEventListener extends AbstractMongoEventListener<Object> {
+public class SaveEXAMPLEListener extends AbstractMongoEventListener<Object> {
     @Autowired
     private MongoTemplate mongo;
 

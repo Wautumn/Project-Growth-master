@@ -13,7 +13,7 @@ public class EXAMPLE {
     private String name;
     private int age;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
