@@ -1,29 +1,5 @@
 package com.org.growth.entity;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-
-import java.util.Date;
-
-@Document(collection = "History")
-public class History {
-
-    @Id
-    private long id;
-
-    @Field("userId")
-    private long userId;
-
-    @Field("startTime")
-    private Date startTime;
-
-    @Field("tomatoLength")
-    private int tomatoLength;
-
-    @Field("status")
-    private int status;//0 undone,1 done
-
-    @Field("taskId")
-    private long taskId;//-1 代表没有
+public class history {
+    //历史记录的完成状态和任务的完成情况有什么不一样？？？
 }

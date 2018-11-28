@@ -1,29 +1,22 @@
 package com.org.growth.entity;
 
-import org.springframework.data.mongodb.core.mapping.Field;
-
-public class ListTree {
-
-    @Field("parentListId")
-    private long parentListId;
-
-    @Field("sonListId")
-    private long sonListId;
-
+public class listtree {
+    private Long sonlistid;
+    private Long parentlistid;
 
     public Long getSonlistid() {
-        return sonListId;
+        return sonlistid;
     }
 
-    public void setSonlistid(Long sonListId) {
-        this.sonListId = sonListId;
+    public void setSonlistid(Long sonlistid) {
+        this.sonlistid = sonlistid;
     }
 
     public Long getParentlistid() {
-        return parentListId;
+        return parentlistid;
     }
 
-    public void setParentlistid(Long parentListId) {
-        this.parentListId = parentListId;
+    public void setParentlistid(Long parentlistid) {
+        this.parentlistid = parentlistid;
     }
 }
