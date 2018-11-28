@@ -1,11 +1,22 @@
 package com.org.growth.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.Date;
 
-public class summary {
-    private Long id;
-    private Long UserId;
+public class Summary {
+
+    @Id
+    private long id;
+
+    @Field("userId")
+    private long userId;
+
+    @Field("content")
     private String content;
+
+    @Field("time")
     private Date time;
 
     public Long getId() {
@@ -17,11 +28,11 @@ public class summary {
     }
 
     public Long getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(Long userId) {
-        UserId = userId;
+        userId = userId;
     }
 
     public String getContent() {

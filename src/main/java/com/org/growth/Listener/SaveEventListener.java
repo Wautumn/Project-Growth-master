@@ -1,21 +1,22 @@
 package com.org.growth.Listener;
 
+import java.lang.reflect.Field;
+
 import com.org.growth.Other.AutoIncrement;
-import com.org.growth.entity.EXAMPLE;
+import com.org.growth.entity.SequenceId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
 import org.springframework.data.mongodb.core.mapping.event.BeforeSaveEvent;
-import org.springframework.util.ReflectionUtils;
-import java.lang.reflect.Field;
-
-import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.stereotype.Component;
+import org.springframework.util.ReflectionUtils;
 
-//use for auto increment
-public class SaveEXAMPLEListener extends AbstractMongoEventListener<Object> {
+@Component
+public class SaveEventListener extends AbstractMongoEventListener<Object> {
     @Autowired
     private MongoTemplate mongo;
 
@@ -51,11 +52,11 @@ public class SaveEXAMPLEListener extends AbstractMongoEventListener<Object> {
     private Long getNextId(String collName) {
         Query query = new Query(Criteria.where("coll_name").is(collName));
         Update update = new Update();
-        update.inc("id", 1);
+        update.inc("seq_id", 1);
         FindAndModifyOptions options = new FindAndModifyOptions();
         options.upsert(true);
         options.returnNew(true);
-        EXAMPLE seq = mongo.findAndModify(query, update, options, EXAMPLE.class);
-        return seq.getId();
+        SequenceId seq = mongo.findAndModify(query, update, options, SequenceId.class);
+        return seq.getSeqId();
     }
 }

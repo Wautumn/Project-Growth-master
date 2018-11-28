@@ -1,9 +1,16 @@
 package com.org.growth.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Date;
 
-public class feedback {
-    private Long id;
+@Document(collection = "")
+public class Feedback {
+    @Id
+    private long id;
+
+
     private Date time;
     private Long userid;
     private String content;

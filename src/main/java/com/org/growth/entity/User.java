@@ -1,14 +1,36 @@
 package com.org.growth.entity;
 
-public class user {
-    private Long id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+
+public class User {
+
+    @Id
+    private long id;
+
+    @Field("username")
     private String username;
+
+    @Field("password")
     private String password;
-    private int tomatolength;//以分钟为单位
-    private int tomatoamount;
-    private int tomatoweekly;//已经完成的番茄数量
+
+    @Field("tomatoLength")
+    private int tomatoLength;//以分钟为单位
+
+    @Field("tomatoAmount")
+    private int tomatoAmount;
+
+    @Field("tomatoWeekly")
+    private int tomatoWeekly;//本周已经完成的番茄数量
+
+    @Field("email")
     private String email;
-    private String userface;//头像
+
+    @Field("userFace")
+    private String userFace;//头像
+
+    @Field("music")
     private String music;
 
     public Long getId() {
@@ -36,27 +58,27 @@ public class user {
     }
 
     public int getTomatolength() {
-        return tomatolength;
+        return tomatoLength;
     }
 
-    public void setTomatolength(int tomatolength) {
-        this.tomatolength = tomatolength;
+    public void setTomatolength(int tomatoLength) {
+        this.tomatoLength = tomatoLength;
     }
 
     public int getTomatoamount() {
-        return tomatoamount;
+        return tomatoAmount;
     }
 
-    public void setTomatoamount(int tomatoamount) {
-        this.tomatoamount = tomatoamount;
+    public void setTomatoamount(int tomatoAmount) {
+        this.tomatoAmount = tomatoAmount;
     }
 
     public int getTomatoweekly() {
-        return tomatoweekly;
+        return tomatoWeekly;
     }
 
     public void setTomatoweekly(int tomatoweekly) {
-        this.tomatoweekly = tomatoweekly;
+        this.tomatoWeekly = tomatoWeekly;
     }
 
     public String getEmail() {
@@ -68,11 +90,11 @@ public class user {
     }
 
     public String getUserface() {
-        return userface;
+        return userFace;
     }
 
     public void setUserface(String userface) {
-        this.userface = userface;
+        this.userFace = userFace;
     }
 
     public String getMusic() {
