@@ -3,19 +3,42 @@ package com.org.growth.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.annotation.Generated;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.util.Date;
 
-@Document(collection = "")
+/*
+users' Feedback
+ */
+@Document(collection = "Feedback")
 public class Feedback {
-    @Id
-    private long id;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private Date time;
-    private Long userid;
-    private String content;
-    //反馈情况是什么？？？
 
+    private Long userid;
+
+    private String content;
+
+    private int state;
+
+    @Column(nullable = true)
+    private String answer;//反馈情况，可为空，就还没来得及反馈
+
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 
     public Long getId() {
         return id;
