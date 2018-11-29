@@ -17,7 +17,7 @@ users' Feedback
 public class Feedback {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Generated(strategy = GenerationType.AUTO)
     private Long id;
 
     private Date time;
