@@ -1,5 +1,6 @@
 package com.org.growth.entity;
 
+import com.org.growth.Other.AutoIncrement;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -7,6 +8,7 @@ import java.util.Date;
 
 public class Summary {
 
+    @AutoIncrement
     @Id
     private long id;
 
