@@ -1,5 +1,6 @@
 package com.org.growth.entity;
 
+import com.org.growth.Other.AutoIncrement;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,6 +13,7 @@ users' Feedback
 @Document(collection = "Feedback")
 public class Feedback {
 
+    @AutoIncrement
     @Id
     private Long id;
 

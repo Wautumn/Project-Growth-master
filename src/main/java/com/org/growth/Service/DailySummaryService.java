@@ -17,7 +17,7 @@ public class DailySummaryService implements SummaryDao {
 
 
     @Override
-    public boolean save(long userid, String content, Date time) {
+    public boolean saveSummary(long userid, String content, Date time) {
         try {
             Summary dailySummary = new Summary();
             dailySummary.setUserId(userid);
@@ -26,8 +26,7 @@ public class DailySummaryService implements SummaryDao {
 
             mongoTemplate.insert(dailySummary);
             return true;
-        }
-        catch (Exception e){
+        } catch (Exception e){
             return false;
         }
     }

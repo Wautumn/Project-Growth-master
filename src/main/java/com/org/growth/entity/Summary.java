@@ -2,10 +2,12 @@ package com.org.growth.entity;
 
 import com.org.growth.Other.AutoIncrement;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
+@Document(collection = "SUMMARY")
 public class Summary {
 
     @AutoIncrement
@@ -21,20 +23,13 @@ public class Summary {
     @Field("time")
     private Date time;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getUserId() {
         return userId;
     }
 
     public void setUserId(Long userId) {
-        userId = userId;
+        this.userId = userId;
     }
 
     public String getContent() {
