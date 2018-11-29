@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="beb8ddf0-666e-4e42-90db-ecde51c4e9de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/HistoryDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/TomatoServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/SummaryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/SummaryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/DailySummaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/DailySummaryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/DailySummaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/DailySummaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/EXAMPLE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/EXAMPLE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Feedback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/History.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/ListTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/ListTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Summary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Summary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/DailySummaryServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/DailySummaryServiceTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -113,7 +103,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="3204" />
-          <entry key="PLAIN_TEXT" value="79" />
+          <entry key="PLAIN_TEXT" value="111" />
           <entry key="Properties" value="44" />
           <entry key="XML" value="2" />
         </counts>
@@ -178,8 +168,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/TomatoServiceTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="93">
-                  <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+                <state relative-caret-position="293">
+                  <caret line="31" column="15" lean-forward="true" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
                 </state>
               </provider>
             </entry>
@@ -227,11 +217,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="259">
-                  <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+                <state relative-caret-position="139">
+                  <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -262,7 +252,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/ListTree.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="40">
@@ -548,7 +538,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/99349/Desktop/workingSpace/JAVAEE_Final_Project/Project-Growth-master/src/main/java/com/org/growth/DAO/HistoryDao.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543501194979" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543501498275" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../实验室/KAOS-service" />
@@ -701,7 +691,7 @@
       <workItem from="1543286342723" duration="453000" />
       <workItem from="1543412156872" duration="238000" />
       <workItem from="1543484228812" duration="7784000" />
-      <workItem from="1543499738922" duration="1333000" />
+      <workItem from="1543499738922" duration="1652000" />
     </task>
     <task id="LOCAL-00001" summary="DATABASE CONF">
       <created>1542716375694</created>
@@ -752,7 +742,21 @@
       <option name="project" value="LOCAL" />
       <updated>1543487299476</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="DailySummary">
+      <created>1543501109884</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1543501109884</updated>
+    </task>
+    <task id="LOCAL-00009" summary="part of TomatoService">
+      <created>1543501257197</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1543501257197</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -788,13 +792,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31319000" />
+    <option name="totallyTimeSpent" value="31638000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23257373" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23257373" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -812,7 +816,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="10" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Spring" order="11" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.3286119" />
@@ -876,7 +880,8 @@
     <MESSAGE value="EXAMPLE id autoincrement" />
     <MESSAGE value="structure modified" />
     <MESSAGE value="DailySummary" />
-    <option name="LAST_COMMIT_MESSAGE" value="DailySummary" />
+    <MESSAGE value="part of TomatoService" />
+    <option name="LAST_COMMIT_MESSAGE" value="part of TomatoService" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -886,6 +891,12 @@
           <line>38</line>
           <properties />
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/TomatoServiceTest.java</url>
+          <line>34</line>
+          <properties />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1043,6 +1054,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1146,13 +1160,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/ListTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/History.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
@@ -1211,18 +1218,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+        <state relative-caret-position="139">
+          <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/ListTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/TomatoServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        <state relative-caret-position="293">
+          <caret line="31" column="15" lean-forward="true" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
         </state>
       </provider>
     </entry>
