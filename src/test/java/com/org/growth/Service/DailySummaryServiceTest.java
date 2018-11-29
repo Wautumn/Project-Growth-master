@@ -23,7 +23,7 @@ public class DailySummaryServiceTest {
     @Resource
     private MongoTemplate mongoTemplate;
     @Autowired
-    DailySummaryService dailySummSaryService;
+    private DailySummaryService dailySummSaryService;
     @Autowired
     Summary summary;
 
@@ -42,7 +42,7 @@ public class DailySummaryServiceTest {
 
     @Test
     public void saveDailySummary() {
-        if (dailySummaryService.save(userId, content, time))
+        if (dailySummSaryService.save(userId, content, time))
             System.out.println("Test succeed");
         else
             System.out.println("Test failed");
