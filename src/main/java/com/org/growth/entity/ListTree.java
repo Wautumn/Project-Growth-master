@@ -1,6 +1,6 @@
 package com.org.growth.entity;
 
-public class listtree {
+public class ListTree {
     private Long sonlistid;
     private Long parentlistid;
 

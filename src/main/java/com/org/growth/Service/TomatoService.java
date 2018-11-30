@@ -22,9 +22,9 @@ public class TomatoService implements HistoryDao {
 
 
     @Override
-    public boolean saveStartTomato(long userId, Date startTime) {
+    public boolean saveStartTomato(long userId) {
         try {
-            startTime = new Date();
+            this.startTime = new Date();
             History history = new History();
             history.setStartTime(startTime);
             history.setUserId(userId);

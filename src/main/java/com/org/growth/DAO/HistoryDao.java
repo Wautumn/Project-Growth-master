@@ -4,7 +4,7 @@ import java.util.Date;
 
 public interface HistoryDao {
 
-    boolean saveStartTomato(long userId, Date startTime);
+    boolean saveStartTomato(long userId);
 
     boolean saveBreakTomato(long userId);
 }
