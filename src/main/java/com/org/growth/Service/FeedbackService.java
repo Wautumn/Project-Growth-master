@@ -23,7 +23,9 @@ public class FeedbackService implements FeedbackDAO {
     }
     @Override
     public void addFeedback(Feedback feedback){
+
         mongoTemplate.insert(feedback);
+
     }
 
     @Override
