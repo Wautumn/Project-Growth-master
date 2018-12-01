@@ -15,6 +15,7 @@ public class History {
     @Id
     private long id;
 
+    //userid and starttime are primary key
     @Field("userId")
     private long userId;
 
@@ -80,4 +81,6 @@ public class History {
     public long getUserId() {
         return userId;
     }
+
+
 }

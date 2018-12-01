@@ -17,7 +17,6 @@ public class TomatoServiceTest {
     long userId;
     @Before
     public void setUp() throws Exception {
-        time = new Date();
         userId = 1;
     }
 
@@ -27,7 +26,7 @@ public class TomatoServiceTest {
 
     @Test
     public void saveStartTomato() {
-        if ( tomatoService.saveStartTomato(userId, time)){
+        if (tomatoService.saveStartTomato(userId)){
             System.out.println("Test succeed");
         }else {
             System.out.println("Test Failed");
@@ -37,6 +36,22 @@ public class TomatoServiceTest {
     @Test
     public void saveBreakTomato() {
         if(tomatoService.saveBreakTomato(userId))
+            System.out.println("Test Succeed");
+        else
+            System.out.println("Test Failed");
+    }
+
+    @Test
+    public void saveEndTomato() {
+        if(tomatoService.saveEndTomato(userId, false))
+            System.out.println("Test Succeed");
+        else
+            System.out.println("Test Failed");
+    }
+
+    @Test
+    public void saveEndTomato1() {
+        if(tomatoService.saveEndTomato(userId, true,"Rua"))
             System.out.println("Test Succeed");
         else
             System.out.println("Test Failed");
