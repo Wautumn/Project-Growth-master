@@ -22,7 +22,7 @@ public class ShareTomatoController {
         int count = userService.getTomatoWeeklyCount(userId);
         if (count < 1) {
             //无法分享
-            return new RespBean("error", "没有足够的番茄")
+            return new RespBean("error", "没有足够的番茄");
         } else {
             userService.TomatoCountReduceOne(userId);//数量减一
             //唤起分享接口
