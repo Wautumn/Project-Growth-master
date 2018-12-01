@@ -54,5 +54,36 @@ public class UserService implements UserDAO {
 
     }
 
+    /*
+    修改番茄时长
+     */
+    @Override
+    public boolean changeTomatoLength(Long userId, int tomatoLength){
+        try{
+            Query query = Query.query(Criteria.where("id").is(userId));
+            Update update= new Update().set("tomatoLength", tomatoLength);
+            mongoTemplate.updateFirst(query, update, User.class);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+
+    }
+
+    /*
+    修改音乐
+     */
+    @Override
+    public boolean changeMusic(Long userId, String music) {
+        try{
+            Query query = Query.query(Criteria.where("id").is(userId));
+            Update update= new Update().set("music", music);
+            mongoTemplate.updateFirst(query, update, User.class);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+
+    }
 
 }

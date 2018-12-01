@@ -14,7 +14,7 @@ public class DailySummaryController {
 
     @ResponseBody
     @GetMapping(value = "/savedailysummary ")
-    public boolean saveDailySummary(@RequestParam(value = "userid") long userId, @RequestParam(value = "contetn")String content, @RequestParam(value = "time")Date time){
+    public boolean saveDailySummary(@RequestParam(value = "userid") long userId, @RequestParam(value = "content")String content, @RequestParam(value = "time")Date time){
         return dailySummaryService.saveSummary(userId,content,time);
     }
 }

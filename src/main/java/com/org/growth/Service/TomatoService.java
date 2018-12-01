@@ -30,7 +30,7 @@ public class TomatoService implements HistoryDao {
             history.setUserId(userId);
             Query query = new Query(Criteria.where("userId").is(userId));
             User user = mongoTemplate.findOne(query,User.class);
-            history.setTomatoLength(user.getTomatolength());
+            history.setTomatoLength(user.getTomatoLength());
             history.setTaskId(-1);
             mongoTemplate.insert(history);
             return true;
