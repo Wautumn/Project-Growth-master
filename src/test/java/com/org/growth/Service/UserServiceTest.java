@@ -18,6 +18,10 @@ public class UserServiceTest {
     private long userId;
     private int tomatoLength;
     private String music;
+    private String username;
+    private String password;
+    private String email;
+    private String userFace;
 
     @Resource
     private MongoTemplate mongoTemplate;
@@ -31,6 +35,10 @@ public class UserServiceTest {
         userId = 111;
         tomatoLength = 30;
         music = "1";
+        username = "yyy";
+        password = "pass";
+        email = "emailBefore";
+        userFace = "faceBefore";
     }
 
     @After
@@ -63,5 +71,36 @@ public class UserServiceTest {
             System.out.println("Test fail");
     }
 
+    @Test
+    public void changeUsername() {
+        if( userService.changeUsername(111L, "zzz") )
+            System.out.println("Test succeed");
+        else
+            System.out.println("Test fail");
+    }
+
+    @Test
+    public void changePassword() {
+        if( userService.changePassword(111L, "word") )
+            System.out.println("Test succeed");
+        else
+            System.out.println("Test fail");
+    }
+
+    @Test
+    public void changeEmail() {
+        if( userService.changeEmail(111L, "emailAfter") )
+            System.out.println("Test succeed");
+        else
+            System.out.println("Test fail");
+    }
+
+    @Test
+    public void changeUserFace() {
+        if( userService.changeUserFace(111L, "faceAfter") )
+            System.out.println("Test succeed");
+        else
+            System.out.println("Test fail");
+    }
 
 }

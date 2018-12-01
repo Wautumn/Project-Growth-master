@@ -1,6 +1,5 @@
 package com.org.growth.Service;
 
-
 import com.org.growth.DAO.UserDAO;
 import com.org.growth.entity.User;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -9,15 +8,72 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
-
-
 import javax.annotation.Resource;
-
 
 @Component
 public class UserService implements UserDAO {
     @Resource
     private MongoTemplate mongoTemplate;
+
+    /*
+    修改昵称
+     */
+    @Override
+    public boolean changeUsername(Long UserId, String username){
+        try{
+            Query query = Query.query(Criteria.where("id").is(UserId));
+            Update update= new Update().set("username", username);
+            mongoTemplate.updateFirst(query, update, User.class);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    /*
+    修改密码
+     */
+    @Override
+    public boolean changePassword(Long UserId, String password){
+        try{
+            Query query = Query.query(Criteria.where("id").is(UserId));
+            Update update= new Update().set("password", password);
+            mongoTemplate.updateFirst(query, update, User.class);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    /*
+    修改邮箱
+     */
+    @Override
+    public boolean changeEmail(Long UserId, String email){
+        try{
+            Query query = Query.query(Criteria.where("id").is(UserId));
+            Update update= new Update().set("email", email);
+            mongoTemplate.updateFirst(query, update, User.class);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    /*
+    修改头像
+     */
+    @Override
+    public boolean changeUserFace(Long UserId, String userFace){
+        try{
+            Query query = Query.query(Criteria.where("id").is(UserId));
+            Update update= new Update().set("userFace", userFace);
+            mongoTemplate.updateFirst(query, update, User.class);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
 
     /*
     得到一周的番茄数
