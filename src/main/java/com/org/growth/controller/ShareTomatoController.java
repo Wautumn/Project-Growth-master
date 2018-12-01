@@ -4,6 +4,7 @@ import com.org.growth.entity.RespBean;
 import com.org.growth.entity.User;
 import com.org.growth.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -28,6 +29,16 @@ public class ShareTomatoController {
             //唤起分享接口
             return new RespBean("success", "分享成功！");
         }
+    }
+
+
+    @RequestMapping(value = "/getWeeklyTomatoCount",method= RequestMethod.GET)
+    public int getWeeklyTomatoCount()
+    {
+        User user = Util.getCurrentUser();
+        Long userId = user.getId();
+        int count = userService.getTomatoWeeklyCount(userId);
+        return count;
     }
 
 }
