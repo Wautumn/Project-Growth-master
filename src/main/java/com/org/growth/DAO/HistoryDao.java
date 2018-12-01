@@ -1,8 +1,10 @@
 package com.org.growth.DAO;
 
-import java.util.Date;
+import com.org.growth.entity.History;
+import java.util.List;
 
 public interface HistoryDao {
+    List<History> viewHistory(long userId);
 
     boolean saveStartTomato(long userId);
 
@@ -11,4 +13,5 @@ public interface HistoryDao {
     boolean saveEndTomato(long userId, boolean needAssociation);
 
     boolean saveEndTomato(long userId, boolean needAssociation, String taskName);
+    
 }

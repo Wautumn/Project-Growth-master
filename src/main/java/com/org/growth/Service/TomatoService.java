@@ -20,7 +20,11 @@ public class TomatoService implements HistoryDao {
 
     Date startTime, endTime;
 
-
+    @Override
+    public java.util.List<History> viewHistory(long userId) {
+        Query query = Query.query(Criteria.where("userId").is(userId));
+        return mongoTemplate.find(query, History.class);
+    }
 
     @Override
     public boolean saveStartTomato(long userId) {

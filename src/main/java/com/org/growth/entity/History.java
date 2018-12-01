@@ -82,5 +82,4 @@ public class History {
         return userId;
     }
 
-
 }
