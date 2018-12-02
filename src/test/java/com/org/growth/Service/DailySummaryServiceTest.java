@@ -42,7 +42,7 @@ public class DailySummaryServiceTest {
 
     @Test
     public void saveDailySummary() {
-        if (dailySummSaryService.saveSummary(userId, content, time))
+        if (dailySummSaryService.saveSummary(userId, content, time,4))
             System.out.println("Test succeed");
         else
             System.out.println("Test failed");

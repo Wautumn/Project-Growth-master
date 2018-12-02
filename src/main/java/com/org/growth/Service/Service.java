@@ -2,7 +2,7 @@ package com.org.growth.Service;
 
 import com.org.growth.DAO.HistoryDao;
 import com.org.growth.entity.History;
-import com.org.growth.entity.List;
+import com.org.growth.entity.Task;
 import com.org.growth.entity.User;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 import java.util.Date;
 
 @Component
-public class TomatoService implements HistoryDao {
+public class Service implements HistoryDao {
     @Resource
     private MongoTemplate mongoTemplate;
 
@@ -51,7 +51,7 @@ public class TomatoService implements HistoryDao {
             Query query = Query.query(criteria);
             update.set("endtime", endTime);
             update.set("status", -1);
-            mongoTemplate.updateFirst(query,update,History.class);
+            mongoTemplate.updateFirst(query,update, History.class);
             return true;
         }catch (Exception e){
             return false;
@@ -77,7 +77,7 @@ public class TomatoService implements HistoryDao {
             Update update = new Update();
             update.set("endtime", endTime);
             update.set("status", 1);
-            mongoTemplate.updateFirst(query,update,History.class);
+            mongoTemplate.updateFirst(query,update, History.class);
 
             if(needAssociation){
                 //query
@@ -85,7 +85,7 @@ public class TomatoService implements HistoryDao {
                 criteria1.and("userId").is(userId);
                 criteria1.and("name").is(taskName);
                 Query query1 = Query.query(criteria1);
-                List list = mongoTemplate.findOne(query1, List.class);
+                Task list = mongoTemplate.findOne(query1, Task.class);
 
                 //update
                 Update update3 = new Update();
@@ -102,18 +102,18 @@ public class TomatoService implements HistoryDao {
                         Update update1 = new Update();
                         update1.set("tomatoCompleted", tomatoCompleted);
                         update1.set("status", 1);
-                        mongoTemplate.updateFirst(query1,update1, List.class);
+                        mongoTemplate.updateFirst(query1,update1, Task.class);
                     }
                     else{
                         Update update2 = new Update();
                         update2.set("tomatoCompleted", tomatoCompleted);
                         update2.set("status", 2);
-                        mongoTemplate.updateFirst(query1,update2, List.class);
+                        mongoTemplate.updateFirst(query1,update2, Task.class);
                     }
                 }
                 else{
                     //task doesn't exist
-                    List list1 = new List();
+                    Task list1 = new Task();
                     list1.setUserId(userId);
                     list1.setName(taskName);
                     list1.setDescription(null);

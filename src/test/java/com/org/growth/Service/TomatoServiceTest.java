@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 
-import static org.junit.Assert.*;
-
 public class TomatoServiceTest {
     @Autowired
-    TomatoService tomatoService;
+    Service tomatoService;
 
     Date time;
     long userId;

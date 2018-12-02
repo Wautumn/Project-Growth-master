@@ -1,6 +1,6 @@
 package com.org.growth.controller;
 
-import com.org.growth.Service.TomatoService;
+import com.org.growth.Service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 public class TomatoController {
 
     @Autowired
-    TomatoService tomatoService;
+    Service tomatoService;
 
     @ResponseBody
     @GetMapping(value = "/starttomato")

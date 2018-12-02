@@ -13,6 +13,7 @@ public class History {
 
     @AutoIncrement
     @Id
+    @Field("id")
     private long id;
 
     //userid and starttime are primary key
