@@ -4,6 +4,7 @@ import com.org.growth.DAO.HistoryDao;
 import com.org.growth.entity.History;
 import com.org.growth.entity.Task;
 import com.org.growth.entity.User;
+import org.springframework.data.domain.*;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -20,7 +21,17 @@ public class Service implements HistoryDao {
 
     Date startTime, endTime;
 
+    @Override
+    public Page<History> viewHistory(long userId, int size, int page) {
 
+        Sort sort = new Sort(Sort.Direction.DESC, "starttime");
+        Pageable pageable = new PageRequest(page-1, size, sort);
+        Query query = Query.query(Criteria.where("userId").is(userId));
+        java.util.List<History> items = mongoTemplate.find(query.with(pageable), History.class);
+        long total = mongoTemplate.count(query, History.class);
+        return new PageImpl(items, pageable, total);
+
+    }
 
     @Override
     public boolean saveStartTomato(long userId) {
@@ -31,7 +42,7 @@ public class Service implements HistoryDao {
             history.setUserId(userId);
             Query query = new Query(Criteria.where("userId").is(userId));
             User user = mongoTemplate.findOne(query,User.class);
-            history.setTomatoLength(user.getTomatolength());
+            history.setTomatoLength(user.getTomatoLength());
             history.setTaskId(-1);
             mongoTemplate.insert(history);
             return true;

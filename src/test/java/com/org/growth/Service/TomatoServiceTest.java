@@ -23,6 +23,15 @@ public class TomatoServiceTest {
     }
 
     @Test
+    public void viewHistory() {
+        if (tomatoService.viewHistory(userId,10,1) != null){
+            System.out.println("Test succeed");
+        }else {
+            System.out.println("Test Failed");
+        }
+    }
+
+    @Test
     public void saveStartTomato() {
         if (tomatoService.saveStartTomato(userId)){
             System.out.println("Test succeed");

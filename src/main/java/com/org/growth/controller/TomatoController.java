@@ -1,14 +1,24 @@
 package com.org.growth.controller;
 
-import com.org.growth.Service.Service;
+import com.org.growth.Service.TomatoService;
+import com.org.growth.entity.History;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class TomatoController {
 
     @Autowired
-    Service tomatoService;
+    TomatoService tomatoService;
+
+    @ResponseBody
+    @GetMapping(value = "/viewHistory")
+    public Page<History> viewHistory(@RequestParam(value = "userId") long userId, @RequestParam(value = "size") int size, @RequestParam(value = "page") int page){
+        return tomatoService.viewHistory(userId, size, page);
+    }
 
     @ResponseBody
     @GetMapping(value = "/starttomato")

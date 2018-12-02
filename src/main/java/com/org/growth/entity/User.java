@@ -57,11 +57,11 @@ public class User {
         this.password = password;
     }
 
-    public int getTomatolength() {
+    public int getTomatoLength() {
         return tomatoLength;
     }
 
-    public void setTomatolength(int tomatoLength) {
+    public void setTomatoLength(int tomatoLength) {
         this.tomatoLength = tomatoLength;
     }
 
@@ -104,4 +104,5 @@ public class User {
     public void setMusic(String music) {
         this.music = music;
     }
+
 }
