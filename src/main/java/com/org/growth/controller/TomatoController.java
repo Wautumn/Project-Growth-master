@@ -3,6 +3,7 @@ package com.org.growth.controller;
 import com.org.growth.Service.TomatoService;
 import com.org.growth.entity.History;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +16,8 @@ public class TomatoController {
 
     @ResponseBody
     @GetMapping(value = "/viewHistory")
-    public List<History> viewHistory(@RequestParam(value = "userId") long userId){
-        return tomatoService.viewHistory(userId);
+    public Page<History> viewHistory(@RequestParam(value = "userId") long userId, @RequestParam(value = "size") int size, @RequestParam(value = "page") int page){
+        return tomatoService.viewHistory(userId, size, page);
     }
 
     @ResponseBody

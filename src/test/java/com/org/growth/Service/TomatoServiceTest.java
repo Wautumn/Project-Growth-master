@@ -26,7 +26,7 @@ public class TomatoServiceTest {
 
     @Test
     public void viewHistory() {
-        if (tomatoService.viewHistory(userId) != null){
+        if (tomatoService.viewHistory(userId,10,1) != null){
             System.out.println("Test succeed");
         }else {
             System.out.println("Test Failed");

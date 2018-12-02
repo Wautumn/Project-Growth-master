@@ -4,7 +4,7 @@ import com.org.growth.DAO.HistoryDao;
 import com.org.growth.entity.History;
 import com.org.growth.entity.List;
 import com.org.growth.entity.User;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -22,14 +22,14 @@ public class TomatoService implements HistoryDao {
     Date startTime, endTime;
 
     @Override
-    public java.util.List<History> viewHistory(long userId) {
+    public Page<History> viewHistory(long userId, int size, int page) {
 
-        int offset = 0;
-        int limit = 10;
+        Sort sort = new Sort(Sort.Direction.DESC, "starttime");
+        Pageable pageable = new PageRequest(page-1, size, sort);
         Query query = Query.query(Criteria.where("userId").is(userId));
-        query.with(new Sort(new Sort.Order(Sort.Direction.DESC, "starttime")));
-        query.skip(offset).limit(limit);
-        return mongoTemplate.find(query, History.class);
+        java.util.List<History> items = mongoTemplate.find(query.with(pageable), History.class);
+        long total = mongoTemplate.count(query, History.class);
+        return new PageImpl(items, pageable, total);
 
     }
 
