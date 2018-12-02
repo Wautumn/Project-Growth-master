@@ -32,9 +32,9 @@ public class UserServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        userId = 111;
+        userId = 111L;
         tomatoLength = 30;
-        music = "1";
+        music = "0";
         username = "yyy";
         password = "pass";
         email = "emailBefore";
@@ -53,6 +53,22 @@ public class UserServiceTest {
 
     @Test
     public void tomatoCountReduceOne() {
+    }
+
+    @Test
+    public void signUp() {
+        if( (userService.signUp("newUser", "newPass", "newEmail", "newFace", 32, "1" ) > 0) )
+            System.out.println("Test succeed");
+        else
+            System.out.println("Test fail");
+    }
+
+    @Test
+    public void logIn() {
+        if( userService.logIn(111L, "pass") )
+            System.out.println("Test succeed");
+        else
+            System.out.println("Test fail");
     }
 
     @Test

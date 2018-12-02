@@ -16,10 +16,58 @@ public class UserService implements UserDAO {
     private MongoTemplate mongoTemplate;
 
     /*
+    登陆
+     */
+    @Override
+    public boolean logIn(long UserId, String password){
+        try{
+            Query query = Query.query(Criteria.where("id").is(UserId));
+            User user = mongoTemplate.findOne(query, User.class);
+            String pass = user.getPassword();
+            if( password.equals(pass) ){
+                return true;
+            }
+            else{
+                return false;
+            }
+        } catch (Exception e){
+            return false;
+        }
+
+    }
+
+    /*
+    注册
+     */
+    @Override
+    public long signUp(String username, String password, String email, String userFace, int tomatoLength, String music){
+        try {
+            User user = new User();
+
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setEmail(email);
+            user.setUserface(userFace);
+            user.setMusic(music);
+            user.setTomatoLength(tomatoLength);
+
+            Query query = Query.query(Criteria.where("id").exists(true));
+            long cnt = mongoTemplate.count(query, User.class);
+            user.setId( cnt+1 );
+
+            mongoTemplate.insert(user);
+            return user.getId();
+        } catch (Exception e){
+            return -1;
+        }
+
+    }
+
+    /*
     修改昵称
      */
     @Override
-    public boolean changeUsername(Long UserId, String username){
+    public boolean changeUsername(long UserId, String username){
         try{
             Query query = Query.query(Criteria.where("id").is(UserId));
             Update update= new Update().set("username", username);
@@ -34,7 +82,7 @@ public class UserService implements UserDAO {
     修改密码
      */
     @Override
-    public boolean changePassword(Long UserId, String password){
+    public boolean changePassword(long UserId, String password){
         try{
             Query query = Query.query(Criteria.where("id").is(UserId));
             Update update= new Update().set("password", password);
@@ -49,7 +97,7 @@ public class UserService implements UserDAO {
     修改邮箱
      */
     @Override
-    public boolean changeEmail(Long UserId, String email){
+    public boolean changeEmail(long UserId, String email){
         try{
             Query query = Query.query(Criteria.where("id").is(UserId));
             Update update= new Update().set("email", email);
@@ -64,7 +112,7 @@ public class UserService implements UserDAO {
     修改头像
      */
     @Override
-    public boolean changeUserFace(Long UserId, String userFace){
+    public boolean changeUserFace(long UserId, String userFace){
         try{
             Query query = Query.query(Criteria.where("id").is(UserId));
             Update update= new Update().set("userFace", userFace);
@@ -114,7 +162,7 @@ public class UserService implements UserDAO {
     修改番茄时长
      */
     @Override
-    public boolean changeTomatoLength(Long userId, int tomatoLength){
+    public boolean changeTomatoLength(long userId, int tomatoLength){
         try{
             Query query = Query.query(Criteria.where("id").is(userId));
             Update update= new Update().set("tomatoLength", tomatoLength);
@@ -130,7 +178,7 @@ public class UserService implements UserDAO {
     修改音乐
      */
     @Override
-    public boolean changeMusic(Long userId, String music) {
+    public boolean changeMusic(long userId, String music) {
         try{
             Query query = Query.query(Criteria.where("id").is(userId));
             Update update= new Update().set("music", music);
