@@ -104,5 +104,4 @@ public class User {
     public void setMusic(String music) {
         this.music = music;
     }
-
 }

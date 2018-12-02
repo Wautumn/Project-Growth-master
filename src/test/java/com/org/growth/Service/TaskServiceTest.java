@@ -52,4 +52,14 @@ public class TaskServiceTest {
             System.out.println("Test Failed!");
         }
     }
+
+    @Test
+    public void endTask() {
+        if (taskService.endTask(111, "rua", new Date())){
+            System.out.println("Test Succeed");
+        }
+        else {
+            System.out.println("Test Failed!");
+        }
+    }
 }
