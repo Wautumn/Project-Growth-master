@@ -4,6 +4,7 @@ import com.org.growth.DAO.HistoryDao;
 import com.org.growth.entity.History;
 import com.org.growth.entity.List;
 import com.org.growth.entity.User;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -22,8 +23,14 @@ public class TomatoService implements HistoryDao {
 
     @Override
     public java.util.List<History> viewHistory(long userId) {
+
+        int offset = 0;
+        int limit = 10;
         Query query = Query.query(Criteria.where("userId").is(userId));
+        query.with(new Sort(new Sort.Order(Sort.Direction.DESC, "starttime")));
+        query.skip(offset).limit(limit);
         return mongoTemplate.find(query, History.class);
+
     }
 
     @Override
