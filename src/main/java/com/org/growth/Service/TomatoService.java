@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 import java.util.Date;
 
 @Component
-public class Service implements HistoryDao {
+public class TomatoService implements HistoryDao {
     @Resource
     private MongoTemplate mongoTemplate;
 

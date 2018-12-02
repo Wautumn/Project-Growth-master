@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class TomatoServiceTest {
     @Autowired
-    Service tomatoService;
+    TomatoService tomatoService;
 
     Date time;
     long userId;
