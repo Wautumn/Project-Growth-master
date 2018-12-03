@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 @Component
 public class UserService implements UserDAO {
     @Resource
-    private MongoTemplate mongoTemplate;
+    private static MongoTemplate mongoTemplate;
 
     /*
     登陆
@@ -126,6 +126,12 @@ public class UserService implements UserDAO {
     /*
     得到一周的番茄数
      */
+    static User findById(long userId){
+        Criteria criteria = new Criteria();
+        criteria.and("id").is(userId);
+        Query query = Query.query(criteria);
+        return  mongoTemplate.findOne(query,User.class);
+    }
     @Override
     public int getTomatoWeeklyCount(Long userId){
         Query query=Query.query(Criteria.where("id").is(userId));

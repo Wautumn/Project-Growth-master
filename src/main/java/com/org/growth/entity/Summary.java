@@ -23,6 +23,16 @@ public class Summary {
     @Field("time")
     private Date time;
 
+    @Field("selfrating")
+    private int selfRating;
+
+    public int getSelfRating() {
+        return selfRating;
+    }
+
+    public void setSelfRating(int selfRating) {
+        this.selfRating = selfRating;
+    }
 
     public Long getUserId() {
         return userId;

@@ -2,11 +2,13 @@ package com.org.growth.entity;
 
 import com.org.growth.Other.AutoIncrement;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
-public class List {
+@Document(collection = "task")
+public class Task {
     @AutoIncrement
     @Id
     private long id;//即任务id
@@ -23,7 +25,6 @@ public class List {
 
     @Field("expectedTomato")
     private int expectedTomato;
-
     @Field("tomatoCompleted")
     private int tomatoCompleted;
 

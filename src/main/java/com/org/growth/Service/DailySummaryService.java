@@ -17,12 +17,13 @@ public class DailySummaryService implements SummaryDao {
 
 
     @Override
-    public boolean saveSummary(long userid, String content, Date time) {
+    public boolean saveSummary(long userid, String content, Date time,int selfRating) {
         try {
             Summary dailySummary = new Summary();
             dailySummary.setUserId(userid);
             dailySummary.setContent(content);
             dailySummary.setTime(time);
+            dailySummary.setSelfRating(selfRating);
 
             mongoTemplate.insert(dailySummary);
             return true;
