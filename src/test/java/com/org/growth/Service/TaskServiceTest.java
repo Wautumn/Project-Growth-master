@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -13,10 +15,12 @@ public class TaskServiceTest {
     TaskService taskService;
     @Test
     public void addTask() {
-        int result = taskService.addTask(111,"rua","hhhhhhhh",10, new Date(), new Date());
-        if(result == 1)
+        List result = taskService.addTask(111,"rua","hhhhhhhh",10, new Date(), new Date());
+        Iterator iterator = result.iterator();
+        Object integer = iterator.next();
+        if((Integer)integer == new Integer(1))
             System.out.println("Test success");
-        else if (result == 0)
+        else if ((Integer)integer == new Integer(0))
             System.out.println("Task exists!");
         else
             System.out.println("Test Failed!");

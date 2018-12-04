@@ -12,8 +12,13 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+/***
+ * @author Rubick
+ */
 @Component
 public class TaskService implements TaskDao, TaskTreeDao {
 
@@ -21,7 +26,8 @@ public class TaskService implements TaskDao, TaskTreeDao {
     private static MongoTemplate mongoTemplate;
 
     @Override
-    public int addTask(long userId, String name, String description, int expectedTomato, Date deadline, Date remindTime) {
+    public List addTask(long userId, String name, String description, int expectedTomato, Date deadline, Date remindTime) {
+        List list = new ArrayList();
         try {
             //primary key
             Criteria criteria = new Criteria();
@@ -29,8 +35,11 @@ public class TaskService implements TaskDao, TaskTreeDao {
             criteria.and("name").is(name);
             Query query = Query.query(criteria);
             Task task1 = mongoTemplate.findOne(query,Task.class);
-            if (task1 != null)
-                return 0;
+            if (task1 != null) {
+                list.add(0);
+                list.add(-1);
+                return list;
+            }
 
             Task task = new Task();
             task.setUserId(userId);
@@ -44,10 +53,16 @@ public class TaskService implements TaskDao, TaskTreeDao {
             task.setStatus(0);
 
             mongoTemplate.insert(task);
-            return 1;
+            //return taskid
+            Task task2 = TaskService.findByNameAndUserId(name,userId);
+            list.add(1);
+            list.add(task2.getId());
+            return list;
         }
         catch (Exception e) {
-            return -1;
+            list.add(-1);
+            list.add(-1);
+            return list;
         }
     }
 
