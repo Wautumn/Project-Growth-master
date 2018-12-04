@@ -18,7 +18,7 @@ public class KeywordTest {
     @Test
     public void test1()throws Exception{
         String s="学习计算机网络，做实验";
-        List<String> l1= keywordRelated.GetKeywords(s,1);
+        List<String> l1= keywordRelated.GetKeywords(s,3);
         for(String s1:l1){
             System.out.println(s1);
         }
