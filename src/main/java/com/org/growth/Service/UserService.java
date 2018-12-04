@@ -6,20 +6,30 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 @Component
 public class UserService implements UserDAO {
     @Resource
+    private  MongoTemplate mongoTemplate1;
+
     private static MongoTemplate mongoTemplate;
 
     /*
     登陆
      */
+
+    @PostConstruct
+    void init(){
+        mongoTemplate = mongoTemplate1;
+    }
     @Override
     public boolean logIn(long UserId, String password){
+        mongoTemplate = mongoTemplate1;
         try{
             Query query = Query.query(Criteria.where("id").is(UserId));
             User user = mongoTemplate.findOne(query, User.class);
@@ -39,8 +49,10 @@ public class UserService implements UserDAO {
     /*
     注册
      */
+
     @Override
     public long signUp(String username, String password, String email, String userFace, int tomatoLength, String music){
+        mongoTemplate = mongoTemplate1;
         try {
             User user = new User();
 
@@ -66,8 +78,10 @@ public class UserService implements UserDAO {
     /*
     修改昵称
      */
+
     @Override
     public boolean changeUsername(long UserId, String username){
+        mongoTemplate = mongoTemplate1;
         try{
             Query query = Query.query(Criteria.where("id").is(UserId));
             Update update= new Update().set("username", username);
@@ -81,8 +95,10 @@ public class UserService implements UserDAO {
     /*
     修改密码
      */
+
     @Override
     public boolean changePassword(long UserId, String password){
+        mongoTemplate = mongoTemplate1;
         try{
             Query query = Query.query(Criteria.where("id").is(UserId));
             Update update= new Update().set("password", password);
@@ -96,8 +112,10 @@ public class UserService implements UserDAO {
     /*
     修改邮箱
      */
+
     @Override
     public boolean changeEmail(long UserId, String email){
+        mongoTemplate = mongoTemplate1;
         try{
             Query query = Query.query(Criteria.where("id").is(UserId));
             Update update= new Update().set("email", email);
@@ -111,8 +129,10 @@ public class UserService implements UserDAO {
     /*
     修改头像
      */
+
     @Override
     public boolean changeUserFace(long UserId, String userFace){
+        mongoTemplate = mongoTemplate1;
         try{
             Query query = Query.query(Criteria.where("id").is(UserId));
             Update update= new Update().set("userFace", userFace);
@@ -126,14 +146,17 @@ public class UserService implements UserDAO {
     /*
     得到一周的番茄数
      */
+
     static User findById(long userId){
         Criteria criteria = new Criteria();
         criteria.and("id").is(userId);
         Query query = Query.query(criteria);
         return  mongoTemplate.findOne(query,User.class);
     }
+
     @Override
     public int getTomatoWeeklyCount(Long userId){
+        mongoTemplate = mongoTemplate1;
         Query query=Query.query(Criteria.where("id").is(userId));
         User user=mongoTemplate.findOne(query, User.class);
         int count=user.getTomatoweekly();
@@ -143,7 +166,9 @@ public class UserService implements UserDAO {
     /*
     分享番茄，周番茄数量减一
      */
+
     public int TomatoCountReduceOne(Long userId){
+        mongoTemplate = mongoTemplate1;
         Query query=Query.query(Criteria.where("id").is(userId));
         User user=mongoTemplate.findOne(query, User.class);
         int count=user.getTomatoweekly();
@@ -168,7 +193,9 @@ public class UserService implements UserDAO {
     修改番茄时长
      */
     @Override
+
     public boolean changeTomatoLength(long userId, int tomatoLength){
+        mongoTemplate = mongoTemplate1;
         try{
             Query query = Query.query(Criteria.where("id").is(userId));
             Update update= new Update().set("tomatoLength", tomatoLength);
@@ -184,7 +211,9 @@ public class UserService implements UserDAO {
     修改音乐
      */
     @Override
+
     public boolean changeMusic(long userId, String music) {
+        mongoTemplate = mongoTemplate1;
         try{
             Query query = Query.query(Criteria.where("id").is(userId));
             Update update= new Update().set("music", music);

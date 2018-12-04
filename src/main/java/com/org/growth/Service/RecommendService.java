@@ -33,7 +33,7 @@ public class RecommendService {
         for(History h:histories){
             Long TaskId=h.getTaskId();
             Query query1=Query.query(Criteria.where("id").is(TaskId));
-            com.org.growth.entity.List list=mongoTemplate.findOne(query1, com.org.growth.entity.List.class);
+            com.org.growth.entity.Task list=mongoTemplate.findOne(query1, com.org.growth.entity.Task.class);
             String TaskConntent=list.getDescription();
             recordContent.add(recordContent.size(),TaskConntent);//顺序
         }

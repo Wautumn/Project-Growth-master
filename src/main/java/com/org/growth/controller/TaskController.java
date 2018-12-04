@@ -19,7 +19,7 @@ public class TaskController {
     TaskService taskService;
 
     @ResponseBody
-    @GetMapping(value = "starttask")
+    @GetMapping(value = "addtask")
     public List addTask(@RequestParam(value = "userid") long userId, @RequestParam(value = "taskname") String taskName,
                         @RequestParam(value = "deadline") Date deadline, @RequestParam(value = "description") String description,
                         @RequestParam(value = "expectedtomato") int expectedTomato, @RequestParam(value = "remnidtime") Date remindTime){

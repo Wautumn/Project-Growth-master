@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,10 +24,19 @@ import java.util.List;
 public class TaskService implements TaskDao, TaskTreeDao {
 
     @Resource
+    private MongoTemplate mongoTemplate1;
+
     private static MongoTemplate mongoTemplate;
+
+
+    @PostConstruct
+    void init(){
+        mongoTemplate = mongoTemplate1;
+    }
 
     @Override
     public List addTask(long userId, String name, String description, int expectedTomato, Date deadline, Date remindTime) {
+        mongoTemplate = mongoTemplate1;
         List list = new ArrayList();
         try {
             //primary key
@@ -69,6 +79,7 @@ public class TaskService implements TaskDao, TaskTreeDao {
 
     @Override
     public boolean startTask(long userId, String taskName,Date startTime) {
+        mongoTemplate = mongoTemplate1;
         try{
             //update task
             Criteria criteria = new Criteria();
@@ -96,8 +107,10 @@ public class TaskService implements TaskDao, TaskTreeDao {
         }
     }
 
+
     @Override
     public boolean breakTask(long userId, String taskName, Date time) {
+        mongoTemplate = mongoTemplate1;
         try{
             //update task
             Criteria criteria = new Criteria();
@@ -130,6 +143,7 @@ public class TaskService implements TaskDao, TaskTreeDao {
 
     @Override
     public boolean endTask(long userId, String taskName, Date endTime) {
+        mongoTemplate = mongoTemplate1;
         try {
             //update task
             Criteria criteria = new Criteria();
@@ -162,6 +176,7 @@ public class TaskService implements TaskDao, TaskTreeDao {
     }
 
     static public Task findByNameAndUserId(String taskname, long userId) {
+
         try {
             Criteria criteria = new Criteria();
             criteria.and("name").is(taskname);
@@ -177,6 +192,7 @@ public class TaskService implements TaskDao, TaskTreeDao {
 
     @Override
     public int addSubTask(long parentId, String sonName) {
+        mongoTemplate = mongoTemplate1;
         // is existed
         try {
             Criteria criteria = new Criteria();
