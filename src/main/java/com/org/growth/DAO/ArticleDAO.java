@@ -1,14 +1,16 @@
 package com.org.growth.DAO;
 
+import com.org.growth.entity.Article;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public interface RecommendDAO {
+public interface ArticleDAO {
     /*
     获取用户关键词权值
      */
-    ArrayList<String> getUserKeyword(Long userId) throws Exception;
+    List<Article> getArticleById(Long UserId);
 
     /*
     关键词匹配

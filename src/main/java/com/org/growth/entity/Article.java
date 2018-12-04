@@ -7,11 +7,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 每一个文章有一些标签，用户关键词与标签匹配
  */
 @Document(collection = "Article")
-public class Recommend {
+public class Article {
 
     private Long id;
 
-    private int[] tags;
+    private int tags;
 
     private String title;
 
@@ -51,11 +51,11 @@ public class Recommend {
         this.clickcount = clickcount;
     }
 
-    public int[] getTags() {
+    public int getTags() {
         return tags;
     }
 
-    public void setTags(int[] tags) {
+    public void setTags(int tags) {
         this.tags = tags;
     }
 }
