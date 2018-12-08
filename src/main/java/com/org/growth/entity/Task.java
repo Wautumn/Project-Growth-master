@@ -28,6 +28,9 @@ public class Task {
     @Field("tomatoCompleted")
     private int tomatoCompleted;
 
+    @Field("setTile")
+    private Date setTime;
+
     @Field("deadline")
     private Date deadline;
 
@@ -118,5 +121,13 @@ public class Task {
 
     public long getId() {
         return id;
+    }
+
+    public Date getSetTime() {
+        return setTime;
+    }
+
+    public void setSetTime(Date setTime) {
+        this.setTime = setTime;
     }
 }
