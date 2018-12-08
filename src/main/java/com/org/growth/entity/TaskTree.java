@@ -40,6 +40,6 @@ public class TaskTree {
 
 
     public void setTaskDone(boolean taskDone) {
-        isTaskDone = taskDone;
+        this.isTaskDone = taskDone;
     }
 }

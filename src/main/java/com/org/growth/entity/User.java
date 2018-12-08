@@ -1,11 +1,13 @@
 package com.org.growth.entity;
 
+import com.org.growth.Other.AutoIncrement;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 
 public class User {
 
+    @AutoIncrement
     @Id
     private long id;
 
@@ -30,8 +32,8 @@ public class User {
     @Field("userFace")
     private String userFace;//头像
 
-    @Field("music")
-    private String music;
+    //@Field("music")
+    //private String music;
 
     public Long getId() {
         return id;
@@ -97,11 +99,11 @@ public class User {
         this.userFace = userFace;
     }
 
-    public String getMusic() {
+    /*public String getMusic() {
         return music;
     }
 
     public void setMusic(String music) {
         this.music = music;
-    }
+    }*/
 }

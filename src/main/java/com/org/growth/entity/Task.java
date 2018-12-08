@@ -40,6 +40,10 @@ public class Task {
     @Field("status")
     private int status;//-1为放弃，0为未开始,1为正在进行，2为已完成
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public long getUserId() {
         return userId;
     }
