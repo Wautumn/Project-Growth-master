@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static org.springframework.data.mongodb.core.aggregation.Aggregation.limit;
+
 
 @Component
 public class AnalyzeDataService implements AnalyzeDataDAO {
@@ -31,16 +31,17 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
        Date earliestDate=history.getStartTime();
        Date current=new Date();
        Calendar currentcal = Calendar.getInstance();
+       currentcal.setTime(new Date());
        int currentmonth = currentcal.get(Calendar.MONTH )+1;
 
         Calendar earliestcalendar = Calendar.getInstance();
         earliestcalendar.setTime(earliestDate);
         int earliestmonth=earliestcalendar.get(Calendar.MONTH)+1;
 
-        int month=currentmonth-earliestmonth;
+        int month=currentcal.get(Calendar.MONTH )-earliestcalendar.get(Calendar.MONTH);
 
         if(month<3)
-            return false;
+            return false;//没有三个月的信息
         else
             return true;
 
@@ -60,7 +61,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         c.add(Calendar.MONTH,-3);
         Date m=c.getTime();//前三个月的Date
 
-        long count=current.getTime()-m.getTime();//总天数
+        long count=differentDaysByMillisecond(m,current);//总天数
         for(int i=0;i<count;i++){
            // AnalyzedataBean analyzedataBean=new AnalyzedataBean();
             Calendar c2=Calendar.getInstance();
@@ -149,6 +150,18 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
             lDate.add(calBegin.getTime());
         }
         return lDate;
+    }
+
+    /**
+     * 通过时间秒毫秒数判断两个时间的间隔
+     * @param date1
+     * @param date2
+     * @return
+     */
+    public static int differentDaysByMillisecond(Date date1,Date date2)
+    {
+        int days = (int) ((date2.getTime() - date1.getTime()) / (1000*3600*24));
+        return days;
     }
 
 
