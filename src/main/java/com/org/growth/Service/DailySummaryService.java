@@ -59,10 +59,16 @@ public class DailySummaryService implements SummaryDao {
             criteria.and("time").is(time);
             Query query = Query.query(criteria);
             Summary summary = mongoTemplate.findOne(query,Summary.class);
-
+            if(summary!=null){
             list.add(true);
             list.add(summary);
             return list;
+            }
+            else {
+                list.add(false);
+                list.add(null);
+                return list;
+            }
         }
         catch (Exception e) {
             list.add(false);

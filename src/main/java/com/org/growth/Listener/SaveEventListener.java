@@ -3,17 +3,21 @@ package com.org.growth.Listener;
 import java.lang.reflect.Field;
 
 import com.org.growth.Other.AutoIncrement;
+import java.lang.reflect.Field;
+
 import com.org.growth.entity.SequenceId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
+import org.springframework.data.mongodb.core.mapping.event.BeforeConvertEvent;
 import org.springframework.data.mongodb.core.mapping.event.BeforeSaveEvent;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ReflectionUtils;
+import org.springframework.util.ReflectionUtils.FieldCallback;
 
 @Component
 public class SaveEventListener extends AbstractMongoEventListener<Object> {
@@ -21,10 +25,11 @@ public class SaveEventListener extends AbstractMongoEventListener<Object> {
     private MongoTemplate mongo;
 
     @Override
-    public void onBeforeSave(BeforeSaveEvent<Object> event) {
-        Object source = event.getSource();
+    public void onBeforeConvert(BeforeConvertEvent<Object> event) {
+        final Object source = event.getSource();
         if (source != null) {
-            ReflectionUtils.doWithFields(source.getClass(), new ReflectionUtils.FieldCallback() {
+            ReflectionUtils.doWithFields(source.getClass(), new FieldCallback() {
+                @Override
                 public void doWith(Field field) throws IllegalArgumentException, IllegalAccessException {
                     ReflectionUtils.makeAccessible(field);
                     // 如果字段添加了我们自定义的AutoValue注解

@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
-@Document(collection = "task")
+@Document(collection = "TASK")
 public class Task {
     @AutoIncrement
     @Id

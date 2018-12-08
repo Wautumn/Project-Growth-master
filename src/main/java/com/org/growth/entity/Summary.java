@@ -10,8 +10,9 @@ import java.util.Date;
 @Document(collection = "SUMMARY")
 public class Summary {
 
-    @AutoIncrement
     @Id
+    @AutoIncrement
+    @Field("_id")
     private long id;
 
     @Field("userId")

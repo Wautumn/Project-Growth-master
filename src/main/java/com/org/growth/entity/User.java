@@ -2,9 +2,10 @@ package com.org.growth.entity;
 
 import com.org.growth.Other.AutoIncrement;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-
+@Document(value = "USER")
 public class User {
 
     @AutoIncrement

@@ -1,7 +1,10 @@
 package com.org.growth.Service;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
 import java.util.Iterator;
@@ -9,6 +12,8 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class TaskServiceTest {
 
     @Autowired
@@ -28,7 +33,7 @@ public class TaskServiceTest {
 
     @Test
     public void addSubTask() {
-        int result = taskService.addSubTask(111, "rua");
+        int result = taskService.addSubTask(3, "rua");
         if(result == 1)
             System.out.println("Test success");
         else if (result == 0)
@@ -39,7 +44,7 @@ public class TaskServiceTest {
 
     @Test
     public void startTask() {
-        if (taskService.startTask(111, "rua", new Date())){
+        if (taskService.startTask(100, "rua", new Date())){
             System.out.println("Test Succeed");
         }
         else {
@@ -49,7 +54,7 @@ public class TaskServiceTest {
 
     @Test
     public void breakTask() {
-        if (taskService.breakTask(111, "rua", new Date())){
+        if (taskService.breakTask(100, "rua", new Date())){
             System.out.println("Test Succeed");
         }
         else {
