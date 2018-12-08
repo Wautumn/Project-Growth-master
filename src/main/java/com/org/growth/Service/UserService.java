@@ -60,7 +60,7 @@ public class UserService implements UserDAO {
             user.setPassword(password);
             user.setEmail(email);
             user.setUserface(userFace);
-            user.setMusic(music);
+      //      user.setMusic(music);
             user.setTomatoLength(tomatoLength);
 
             Query query = Query.query(Criteria.where("id").exists(true));

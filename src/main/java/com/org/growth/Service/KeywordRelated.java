@@ -43,13 +43,12 @@ public class KeywordRelated {
       if(keywords.contains("计算机")) tagspage.add(1);
       if(keywords.contains("Java")) tagspage.add(2);
       if(keywords.contains("网络")) tagspage.add(3);
-      if(keywords.contains("编译")) tagspage.add(4);
+      if(keywords.contains("研发")||keywords.contains("管理")) tagspage.add(4);
       if(keywords.contains("数学")) tagspage.add(5);
       if(keywords.contains("数据库")) tagspage.add(6);
       if(keywords.contains("软件工程")) tagspage.add(7);
       if(keywords.contains("前端")) tagspage.add(8);
-      if(keywords.contains("机器学习")) tagspage.add(9);
-
+      if(keywords.contains("机器")||keywords.contains("智能")) tagspage.add(9);
       if(keywords.contains("学习")) tagspage.add(-1);
       if(keywords.contains("看")) tagspage.add(-1);
 
