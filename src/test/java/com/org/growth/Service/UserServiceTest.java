@@ -68,7 +68,7 @@ public class UserServiceTest {
 
     @Test
     public void logIn() {
-        if( userService.logIn(111L, "pass") )
+        if( userService.logIn("yyy", "pass") != -1 )
             System.out.println("Test succeed");
         else
             System.out.println("Test fail");
@@ -76,12 +76,13 @@ public class UserServiceTest {
 
     @Test
     public void changeTomatoLength() {
-        if( userService.changeTomatoLength(111L, 50) )
+        if( userService.changeTomatoLength(111L, 50) != -1 )
             System.out.println("Test succeed");
         else
             System.out.println("Test fail");
     }
 
+    /*
     @Test
     public void changeMusic() {
         if( userService.changeMusic(111L, "2") )
@@ -89,18 +90,20 @@ public class UserServiceTest {
         else
             System.out.println("Test fail");
     }
+    */
 
     @Test
     public void changeUsername() {
-        if( userService.changeUsername(111L, "zzz") )
-            System.out.println("Test succeed");
-        else
+        if( userService.changeUsername(111L, "zzz").equals("error") )
             System.out.println("Test fail");
+        else
+            System.out.println("Test succeed");
+
     }
 
     @Test
     public void changePassword() {
-        if( userService.changePassword(111L, "word") )
+        if( userService.changePassword("yyy", "pass", "word") )
             System.out.println("Test succeed");
         else
             System.out.println("Test fail");
@@ -108,18 +111,20 @@ public class UserServiceTest {
 
     @Test
     public void changeEmail() {
-        if( userService.changeEmail(111L, "emailAfter") )
-            System.out.println("Test succeed");
-        else
+        if( userService.changeEmail(111L, "emailAfter").equals("error") )
             System.out.println("Test fail");
+        else
+            System.out.println("Test succeed");
+
     }
 
     @Test
     public void changeUserFace() {
-        if( userService.changeUserFace(111L, "faceAfter") )
-            System.out.println("Test succeed");
-        else
+        if( userService.changeUserFace(111L, "faceAfter").equals("error") )
             System.out.println("Test fail");
+        else
+            System.out.println("Test succeed");
+
     }
 
 }

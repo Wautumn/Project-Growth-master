@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="beb8ddf0-666e-4e42-90db-ecde51c4e9de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/HistoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/HistoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/TomatoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/TomatoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/UserServiceTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -181,23 +179,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="32" />
+          <entry key="java" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="32" />
+          <entry key="JAVA" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="757" />
+          <entry key="java" value="855" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="757" />
+          <entry key="JAVA" value="855" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
@@ -208,8 +206,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+            <state relative-caret-position="437">
+              <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#saveEndTomato#0;class#TomatoService#0" />
@@ -219,6 +217,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/UserServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="125" column="47" selection-start-line="125" selection-start-column="47" selection-end-line="125" selection-end-column="47" />
+              <folding>
+                <element signature="method#getTomatoWeeklyCount#0;class#UserServiceTest#0" />
+                <element signature="method#tomatoCountReduceOne#0;class#UserServiceTest#0" />
+                <element signature="method#signUp#0;class#UserServiceTest#0" />
+                <element signature="method#changeUsername#0;class#UserServiceTest#0" />
+                <element signature="method#changePassword#0;class#UserServiceTest#0" />
+                <element signature="method#changeEmail#0;class#UserServiceTest#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1751">
+              <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#739#740#0" expanded="true" />
+                <element signature="e#785#786#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/TomatoController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
@@ -239,8 +268,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/History.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
+            <state relative-caret-position="-95">
               <caret line="24" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/Task.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -328,7 +366,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/org/growth/EntityForTest/HistoryTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/org/growth/EntityForTest/FeedBackTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/User.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/Service/UserServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/org/growth/EntityForTest/UserTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/org/growth/Service/TomatoServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Task.java" />
@@ -346,6 +383,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/HistoryDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/org/growth/controller/TomatoController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/Service/UserServiceTest.java" />
       </list>
     </option>
   </component>
@@ -535,7 +573,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/99349/Desktop/workingSpace/JAVAEE_Final_Project/Project-Growth-master/src/main/java/com/org/growth/DAO/HistoryDao.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544344610150" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544345619736" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
@@ -722,7 +760,7 @@
       <workItem from="1544236261444" duration="5616000" />
       <workItem from="1544255081479" duration="4965000" />
       <workItem from="1544265310612" duration="8564000" />
-      <workItem from="1544337436594" duration="6881000" />
+      <workItem from="1544337436594" duration="8073000" />
     </task>
     <task id="LOCAL-00001" summary="DATABASE CONF">
       <created>1542716375694</created>
@@ -871,7 +909,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544343008354</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="yyy">
+      <created>1544344630568</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1544344630568</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -907,7 +952,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91918000" />
+    <option name="totallyTimeSpent" value="93110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1223" height="735" extended-state="6" />
@@ -1210,25 +1255,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/UserServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="17" selection-start-line="17" selection-end-line="18" selection-end-column="15" />
-          <folding>
-            <element signature="method#getTomatoWeeklyCount#0;class#UserServiceTest#0" />
-            <element signature="method#tomatoCountReduceOne#0;class#UserServiceTest#0" />
-            <element signature="method#signUp#0;class#UserServiceTest#0" />
-            <element signature="method#logIn#0;class#UserServiceTest#0" />
-            <element signature="method#changeTomatoLength#0;class#UserServiceTest#0" />
-            <element signature="method#changeMusic#0;class#UserServiceTest#0" />
-            <element signature="method#changeUsername#0;class#UserServiceTest#0" />
-            <element signature="method#changePassword#0;class#UserServiceTest#0" />
-            <element signature="method#changeEmail#0;class#UserServiceTest#0" />
-            <element signature="method#changeUserFace#0;class#UserServiceTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/EntityForTest/FeedBackTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/EntityForTest/HistoryTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/EntityForTest/SummaryTest.java" />
@@ -1446,18 +1472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1409">
-          <caret line="153" column="25" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#785#786#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeInfoController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -1469,13 +1483,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-551">
-          <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1495,8 +1502,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/History.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
+        <state relative-caret-position="-95">
           <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1509,8 +1523,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+        <state relative-caret-position="437">
+          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#saveEndTomato#0;class#TomatoService#0" />
@@ -1522,6 +1536,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1751">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#739#740#0" expanded="true" />
+            <element signature="e#785#786#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/UserServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="125" column="47" selection-start-line="125" selection-start-column="47" selection-end-line="125" selection-end-column="47" />
+          <folding>
+            <element signature="method#getTomatoWeeklyCount#0;class#UserServiceTest#0" />
+            <element signature="method#tomatoCountReduceOne#0;class#UserServiceTest#0" />
+            <element signature="method#signUp#0;class#UserServiceTest#0" />
+            <element signature="method#changeUsername#0;class#UserServiceTest#0" />
+            <element signature="method#changePassword#0;class#UserServiceTest#0" />
+            <element signature="method#changeEmail#0;class#UserServiceTest#0" />
+          </folding>
         </state>
       </provider>
     </entry>
