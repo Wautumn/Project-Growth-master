@@ -6,11 +6,11 @@ public interface UserDAO {
 
     int getTomatoWeeklyCount(Long UserId);
 
-    boolean changeTomatoLength(long UserId, int tomatoLength);
+    int changeTomatoLength(long UserId, int tomatoLength);
     //boolean changeMusic(long UserId, String music);
 
     boolean changeUsername(long UserId, String username);
-    boolean changePassword(long UserId, String password);
+    boolean changePassword(String username, String oldPassword, String newPassword);
     boolean changeEmail(long UserId, String email);
     boolean changeUserFace(long UserId, String userFace);
 

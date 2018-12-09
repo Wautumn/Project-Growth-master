@@ -103,13 +103,19 @@ public class UserService implements UserDAO {
      */
 
     @Override
-    public boolean changePassword(long UserId, String password){
+    public boolean changePassword(String username, String oldPassword, String newPassword){
         mongoTemplate = mongoTemplate1;
         try{
-            Query query = Query.query(Criteria.where("id").is(UserId));
-            Update update= new Update().set("password", password);
-            mongoTemplate.updateFirst(query, update, User.class);
-            return true;
+            Query query = Query.query(Criteria.where("username").is(username));
+            User user = mongoTemplate.findOne(query, User.class);
+            if( user.getPassword().equals(oldPassword) ){
+                Update update= new Update().set("password", newPassword);
+                mongoTemplate.updateFirst(query, update, User.class);
+                return true;
+            }
+            else{
+                return false;
+            }
         } catch (Exception e){
             return false;
         }
@@ -200,15 +206,15 @@ public class UserService implements UserDAO {
      */
     @Override
 
-    public boolean changeTomatoLength(long userId, int tomatoLength){
+    public int changeTomatoLength(long userId, int tomatoLength){
         mongoTemplate = mongoTemplate1;
         try{
             Query query = Query.query(Criteria.where("id").is(userId));
             Update update= new Update().set("tomatoLength", tomatoLength);
             mongoTemplate.updateFirst(query, update, User.class);
-            return true;
+            return tomatoLength;
         } catch (Exception e){
-            return false;
+            return -1;
         }
 
     }

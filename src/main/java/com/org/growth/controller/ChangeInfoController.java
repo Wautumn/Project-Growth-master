@@ -11,26 +11,26 @@ public class ChangeInfoController {
 
     @ResponseBody
     @GetMapping(value = "/changeUsername ")
-    public boolean changeUsername(@RequestParam(value = "userId") long userId, @RequestParam(value = "username") int username){
-        return userService.changeTomatoLength(userId, username);
+    public boolean changeUsername(@RequestParam(value = "userId") long userId, @RequestParam(value = "username") String username){
+        return userService.changeUsername(userId, username);
     }
 
     @ResponseBody
     @GetMapping(value = "/changePassword ")
-    public boolean changePassword(@RequestParam(value = "userId") long userId, @RequestParam(value = "password") int password){
-        return userService.changeTomatoLength(userId, password);
+    public boolean changePassword(@RequestParam(value = "username") String username, @RequestParam(value = "oldPassword") String oldPassword, @RequestParam(value = "newPassword") String newPassword){
+        return userService.changePassword(username, oldPassword, newPassword);
     }
 
     @ResponseBody
     @GetMapping(value = "/changeEmail ")
-    public boolean changeEmail(@RequestParam(value = "userId") long userId, @RequestParam(value = "email") int email){
-        return userService.changeTomatoLength(userId, email);
+    public boolean changeEmail(@RequestParam(value = "userId") long userId, @RequestParam(value = "email") String email){
+        return userService.changeEmail(userId, email);
     }
 
     @ResponseBody
     @GetMapping(value = "/changeUserFace ")
-    public boolean changeUserFace(@RequestParam(value = "userId") long userId, @RequestParam(value = "userFace") int userFace){
-        return userService.changeTomatoLength(userId, userFace);
+    public boolean changeUserFace(@RequestParam(value = "userId") long userId, @RequestParam(value = "userFace") String userFace){
+        return userService.changeUserFace(userId, userFace);
     }
 
 }

@@ -11,7 +11,7 @@ public class ChangeSettingController {
 
     @ResponseBody
     @GetMapping(value = "/changeTomatoLength ")
-    public boolean changeTomatoLength(@RequestParam(value = "userId") long userId, @RequestParam(value = "tomatoLength") int tomatoLength){
+    public int changeTomatoLength(@RequestParam(value = "userId") long userId, @RequestParam(value = "tomatoLength") int tomatoLength){
         return userService.changeTomatoLength(userId, tomatoLength);
     }
 
