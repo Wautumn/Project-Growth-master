@@ -28,20 +28,20 @@ public class UserService implements UserDAO {
         mongoTemplate = mongoTemplate1;
     }
     @Override
-    public boolean logIn(long UserId, String password){
+    public long logIn(String username, String password){
         mongoTemplate = mongoTemplate1;
         try{
-            Query query = Query.query(Criteria.where("id").is(UserId));
+            Query query = Query.query(Criteria.where("username").is(username));
             User user = mongoTemplate.findOne(query, User.class);
             String pass = user.getPassword();
             if( password.equals(pass) ){
-                return true;
+                return user.getId();
             }
             else{
-                return false;
+                return -1;
             }
         } catch (Exception e){
-            return false;
+            return -1;
         }
 
     }
@@ -209,9 +209,7 @@ public class UserService implements UserDAO {
 
     /*
     修改音乐
-     */
     @Override
-
     public boolean changeMusic(long userId, String music) {
         mongoTemplate = mongoTemplate1;
         try{
@@ -224,5 +222,6 @@ public class UserService implements UserDAO {
         }
 
     }
+    */
 
 }

@@ -11,8 +11,8 @@ public class LogInController {
 
     @ResponseBody
     @GetMapping(value = "/logIn")
-    public boolean logIn(@RequestParam(value = "userId") long userId, @RequestParam(value = "password") String password){
-        return userService.logIn(userId, password);
+    public long logIn(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password){
+        return userService.logIn(username, password);
     }
 
 }

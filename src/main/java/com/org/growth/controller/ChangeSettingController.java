@@ -15,11 +15,13 @@ public class ChangeSettingController {
         return userService.changeTomatoLength(userId, tomatoLength);
     }
 
+    /*
     @ResponseBody
     @GetMapping(value = "/changeMusic ")
     public boolean changeMusic(@RequestParam(value = "userId") long userId, @RequestParam(value = "music") String music){
         return userService.changeMusic(userId, music);
     }
+    */
 
 }
 
