@@ -54,23 +54,29 @@ public class UserService implements UserDAO {
     public long signUp(String username, String password, String email, String userFace, int tomatoLength, String music){
         mongoTemplate = mongoTemplate1;
         try {
-            User user = new User();
+            Query old = Query.query(Criteria.where("username").is(username));
+            User exist= mongoTemplate.findOne(old, User.class);
+            if( exist != null){
+                return -1;
+            }
+            else{
+                User user = new User();
+                user.setUsername(username);
+                user.setPassword(password);
+                user.setEmail(email);
+                user.setUserface(userFace);
+                user.setTomatoLength(tomatoLength);
+                //user.setMusic(music);
 
-            user.setUsername(username);
-            user.setPassword(password);
-            user.setEmail(email);
-            user.setUserface(userFace);
-            //user.setMusic(music);
-            user.setTomatoLength(tomatoLength);
+                Query query = Query.query(Criteria.where("id").exists(true));
+                long cnt = mongoTemplate.count(query, User.class);
+                user.setId( cnt+1 );
 
-            Query query = Query.query(Criteria.where("id").exists(true));
-            long cnt = mongoTemplate.count(query, User.class);
-            user.setId( cnt+1 );
-
-            mongoTemplate.insert(user);
-            return user.getId();
+                mongoTemplate.insert(user);
+                return user.getId();
+            }
         } catch (Exception e){
-            return -1;
+              return -1;
         }
 
     }
