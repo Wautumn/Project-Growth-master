@@ -86,15 +86,15 @@ public class UserService implements UserDAO {
      */
 
     @Override
-    public boolean changeUsername(long UserId, String username){
+    public String changeUsername(long UserId, String username){
         mongoTemplate = mongoTemplate1;
         try{
             Query query = Query.query(Criteria.where("id").is(UserId));
             Update update= new Update().set("username", username);
             mongoTemplate.updateFirst(query, update, User.class);
-            return true;
+            return username;
         } catch (Exception e){
-            return false;
+            return "error";
         }
     }
 
@@ -126,15 +126,15 @@ public class UserService implements UserDAO {
      */
 
     @Override
-    public boolean changeEmail(long UserId, String email){
+    public String changeEmail(long UserId, String email){
         mongoTemplate = mongoTemplate1;
         try{
             Query query = Query.query(Criteria.where("id").is(UserId));
             Update update= new Update().set("email", email);
             mongoTemplate.updateFirst(query, update, User.class);
-            return true;
+            return email;
         } catch (Exception e){
-            return false;
+            return "error";
         }
     }
 
@@ -143,15 +143,15 @@ public class UserService implements UserDAO {
      */
 
     @Override
-    public boolean changeUserFace(long UserId, String userFace){
+    public String changeUserFace(long UserId, String userFace){
         mongoTemplate = mongoTemplate1;
         try{
             Query query = Query.query(Criteria.where("id").is(UserId));
             Update update= new Update().set("userFace", userFace);
             mongoTemplate.updateFirst(query, update, User.class);
-            return true;
+            return userFace;
         } catch (Exception e){
-            return false;
+            return "error";
         }
     }
 

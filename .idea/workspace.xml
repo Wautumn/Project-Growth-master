@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeSettingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeSettingController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -182,23 +181,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="18" />
+          <entry key="java" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="18" />
+          <entry key="JAVA" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="554" />
+          <entry key="java" value="643" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="554" />
+          <entry key="JAVA" value="643" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
@@ -206,11 +205,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="216" column="21" selection-start-line="216" selection-start-column="21" selection-end-line="216" selection-end-column="21" />
+            <state relative-caret-position="-1409">
+              <caret line="153" column="25" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#739#740#0" expanded="true" />
@@ -220,20 +219,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeInfoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeSettingController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="201">
+              <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -241,8 +231,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/DAO/UserDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+            <state relative-caret-position="125">
+              <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -335,10 +325,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/org/growth/GrowthApplication.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/org/growth/Service/DailySummaryServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/org/growth/controller/LogInController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeInfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeSettingController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/UserDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeInfoController.java" />
       </list>
     </option>
   </component>
@@ -528,7 +518,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/99349/Desktop/workingSpace/JAVAEE_Final_Project/Project-Growth-master/src/main/java/com/org/growth/DAO/HistoryDao.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544342176332" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544342990865" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
@@ -715,7 +705,7 @@
       <workItem from="1544236261444" duration="5616000" />
       <workItem from="1544255081479" duration="4965000" />
       <workItem from="1544265310612" duration="8564000" />
-      <workItem from="1544337436594" duration="4638000" />
+      <workItem from="1544337436594" duration="5451000" />
     </task>
     <task id="LOCAL-00001" summary="DATABASE CONF">
       <created>1542716375694</created>
@@ -850,7 +840,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544341243573</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="yyy">
+      <created>1544342220522</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1544342220522</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -886,7 +883,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89675000" />
+    <option name="totallyTimeSpent" value="90488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1223" height="735" extended-state="6" />
@@ -1132,7 +1129,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/RecommendService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/TaskTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="526">
@@ -1444,17 +1440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#saveEndTomato#0;class#TomatoService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/LogInController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -1469,6 +1454,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeSettingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/DAO/HistoryDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#saveEndTomato#0;class#TomatoService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1409">
+          <caret line="153" column="25" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#739#740#0" expanded="true" />
+            <element signature="e#785#786#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/DAO/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -1478,34 +1507,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeInfoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeSettingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/DAO/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="216" column="21" selection-start-line="216" selection-start-column="21" selection-end-line="216" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#785#786#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="201">
+          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
         </state>
       </provider>
     </entry>

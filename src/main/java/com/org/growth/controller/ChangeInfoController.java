@@ -11,7 +11,7 @@ public class ChangeInfoController {
 
     @ResponseBody
     @GetMapping(value = "/changeUsername ")
-    public boolean changeUsername(@RequestParam(value = "userId") long userId, @RequestParam(value = "username") String username){
+    public String changeUsername(@RequestParam(value = "userId") long userId, @RequestParam(value = "username") String username){
         return userService.changeUsername(userId, username);
     }
 
@@ -23,13 +23,13 @@ public class ChangeInfoController {
 
     @ResponseBody
     @GetMapping(value = "/changeEmail ")
-    public boolean changeEmail(@RequestParam(value = "userId") long userId, @RequestParam(value = "email") String email){
+    public String changeEmail(@RequestParam(value = "userId") long userId, @RequestParam(value = "email") String email){
         return userService.changeEmail(userId, email);
     }
 
     @ResponseBody
     @GetMapping(value = "/changeUserFace ")
-    public boolean changeUserFace(@RequestParam(value = "userId") long userId, @RequestParam(value = "userFace") String userFace){
+    public String changeUserFace(@RequestParam(value = "userId") long userId, @RequestParam(value = "userFace") String userFace){
         return userService.changeUserFace(userId, userFace);
     }
 
