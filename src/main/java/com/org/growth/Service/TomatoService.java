@@ -32,6 +32,16 @@ public class TomatoService implements HistoryDao {
         return new PageImpl(items, pageable, total);
 
     }
+    public Page<History> viewHistoryStatus(long userId, int size, int page, int status) {
+
+        Sort sort = new Sort(Sort.Direction.DESC, "starttime");
+        Pageable pageable = new PageRequest(page-1, size, sort);
+        Query query = Query.query(Criteria.where("userId").is(userId).and("status").is(status));
+        java.util.List<History> items = mongoTemplate.find(query.with(pageable), History.class);
+        long total = mongoTemplate.count(query, History.class);
+        return new PageImpl(items, pageable, total);
+
+    }
 
     @Override
     public boolean saveStartTomato(long userId) {
