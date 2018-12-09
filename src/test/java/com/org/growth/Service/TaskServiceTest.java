@@ -20,7 +20,7 @@ public class TaskServiceTest {
     TaskService taskService;
     @Test
     public void addTask() {
-        List result = taskService.addTask(111,"rua","hhhhhhhh",10, new Date(), new Date());
+        List result = taskService.addTask(111,"rua","hhhhhhhh",10, new Date(), new Date(),new Date());
         Iterator iterator = result.iterator();
         Object integer = iterator.next();
         if((Integer)integer == new Integer(1))

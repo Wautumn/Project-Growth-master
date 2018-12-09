@@ -68,7 +68,7 @@ public class UserServiceTest {
 
     @Test
     public void logIn() {
-        if( userService.logIn("yyy", "pass") != -1 )
+        if( userService.logIn("newUser", "newPass") != -1 )
             System.out.println("Test succeed");
         else
             System.out.println("Test fail");
@@ -76,7 +76,7 @@ public class UserServiceTest {
 
     @Test
     public void changeTomatoLength() {
-        if( userService.changeTomatoLength(111L, 50) != -1 )
+        if( userService.changeTomatoLength(2L, 50) != -1 )
             System.out.println("Test succeed");
         else
             System.out.println("Test fail");
@@ -94,7 +94,7 @@ public class UserServiceTest {
 
     @Test
     public void changeUsername() {
-        if( userService.changeUsername(111L, "zzz").equals("error") )
+        if( userService.changeUsername(2L, "zzz").equals("error") )
             System.out.println("Test fail");
         else
             System.out.println("Test succeed");
@@ -103,7 +103,7 @@ public class UserServiceTest {
 
     @Test
     public void changePassword() {
-        if( userService.changePassword("yyy", "pass", "word") )
+        if( userService.changePassword("zzz", "newPass", "word") )
             System.out.println("Test succeed");
         else
             System.out.println("Test fail");
@@ -111,7 +111,7 @@ public class UserServiceTest {
 
     @Test
     public void changeEmail() {
-        if( userService.changeEmail(111L, "emailAfter").equals("error") )
+        if( userService.changeEmail(2L, "emailAfter").equals("error") )
             System.out.println("Test fail");
         else
             System.out.println("Test succeed");
@@ -120,7 +120,7 @@ public class UserServiceTest {
 
     @Test
     public void changeUserFace() {
-        if( userService.changeUserFace(111L, "faceAfter").equals("error") )
+        if( userService.changeUserFace(2L, "faceAfter").equals("error") )
             System.out.println("Test fail");
         else
             System.out.println("Test succeed");

@@ -23,8 +23,10 @@ public class TaskController {
     public List addTask(@RequestParam(value = "userid") long userId, @RequestParam(value = "taskname") String taskName,
                         @RequestParam(value = "deadline") Date deadline, @RequestParam(value = "description") String description,
                         @RequestParam(value = "expectedtomato") int expectedTomato, @RequestParam(value = "remnidtime") Date remindTime){
-        return taskService.addTask(userId,description,taskName, expectedTomato,deadline,remindTime);
+        return taskService.addTask(userId,description,taskName, expectedTomato,deadline,remindTime,new Date());
     }
+
+
     @ResponseBody
     @GetMapping(value = "starttask")
     public boolean startTask(@RequestParam(value = "userid") long userId, @RequestParam(value = "taskname") String taskName,

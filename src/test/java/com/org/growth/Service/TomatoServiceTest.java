@@ -30,7 +30,16 @@ public class TomatoServiceTest {
     @Test
     public void viewHistory() {
         if (tomatoService.viewHistory(userId,10,1) != null){
-            System.out.println("Test succeed");
+            System.out.println(tomatoService.viewHistory(userId,10,1));
+        }else {
+            System.out.println("Test Failed");
+        }
+    }
+
+    @Test
+    public void viewHistoryStatus() {
+        if (tomatoService.viewHistoryStatus(userId,10,1, -1) != null){
+            System.out.println(tomatoService.viewHistoryStatus(userId,10,1, -1));
         }else {
             System.out.println("Test Failed");
         }
