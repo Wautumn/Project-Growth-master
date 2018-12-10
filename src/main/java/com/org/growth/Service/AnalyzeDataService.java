@@ -15,6 +15,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -102,7 +103,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     /*
     某天完成的番茄数
      */
-    public int getSomedayTomato(Date date){
+    private int getSomedayTomato(Date date){
         Query query=Query.query(Criteria.where("starttime").is(date));//开始时间是这个日期的查询
         query.addCriteria(Criteria.where("status").is(1));//正常结束的
         List<History> histories=mongoTemplate.find(query,History.class);//某日期正常结束的历史记录
@@ -113,7 +114,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     /*
     某天的自我评价
      */
-    public int getSomedaySelfEvaluation(Date date){
+    private int getSomedaySelfEvaluation(Date date){
         Query query=Query.query(Criteria.where("time").is(date));
         Summary summary=mongoTemplate.findOne(query, Summary.class);
         int level=summary.getSelfRating();//百分制
@@ -123,7 +124,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     /*
     某天设置的任务数
      */
-    public int getSomedayTask(Date date){
+    private int getSomedayTask(Date date){
         Query query=Query.query(Criteria.where("setTime").is(date));
         List<Task> tasks=mongoTemplate.find(query,Task.class);
         return  tasks.size();
@@ -132,7 +133,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     /*
     两个日期之间的所有天数
      */
-    public static List<Date> findDates(Date dBegin, Date dEnd){
+    private static List<Date> findDates(Date dBegin, Date dEnd){
 
         List lDate = new ArrayList();
         lDate.add(dBegin);
@@ -158,11 +159,79 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
      * @param date2
      * @return
      */
-    public static int differentDaysByMillisecond(Date date1,Date date2)
+    private static int differentDaysByMillisecond(Date date1,Date date2)
     {
         int days = (int) ((date2.getTime() - date1.getTime()) / (1000*3600*24));
         return days;
     }
+
+    /*
+    用完成番茄数来衡量平均的一周中 哪天完成的数量比较多，i代表是每周的第几天
+     */
+    public void getWeekdayData(){
+        int Mon=0,Tues=0,Wed=0,Thur=0,Fri=0,Sat=0,Sun=0;
+
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+
+        Calendar calendar=Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_WEEK,Calendar.MONDAY);//当前时间的周一时间
+        calendar.add(Calendar.DATE,-1);//上一周的周日
+        Date endDate=calendar.getTime();
+
+        Calendar calendar2=Calendar.getInstance();
+        calendar2.set(Calendar.DAY_OF_WEEK,Calendar.MONDAY);//当前时间的周一时间
+        calendar2.add(Calendar.DATE,-28);
+        Date startDate=calendar2.getTime();//四周之前的周一时间
+
+      //  System.out.println(simpleDateFormat.format(lateDate));
+      //  System.out.println(simpleDateFormat.format(endDate));
+
+        for(int z=0;z<4;z++) {
+            for (int i = 0; i < 7; i++) {
+                Calendar calendar3 = Calendar.getInstance();
+                calendar3.setTime(startDate);
+                calendar3.add(Calendar.DATE, z * 7 + i);
+                Date nowDate = calendar3.getTime();
+
+                System.out.println(simpleDateFormat.format(nowDate));
+
+            //    Query query = Query.query(Criteria.where(simpleDateFormat.format("startTime")).is(nowDate));
+          /*      Query query = Query.query(Criteria.where("startTime".).is(nowDate));
+                query.addCriteria(Criteria.where("status").is(1));
+                if (i == 0) Mon += mongoTemplate.find(query, History.class).size();
+                else if (i == 1) Tues += mongoTemplate.find(query, History.class).size();
+                else if (i == 2) Wed += mongoTemplate.find(query, History.class).size();
+                else if (i == 3) Thur += mongoTemplate.find(query, History.class).size();
+                else if (i == 4) Fri += mongoTemplate.find(query, History.class).size();
+                else if (i == 5) Sat += mongoTemplate.find(query, History.class).size();
+                else if (i == 6) Sun += mongoTemplate.find(query, History.class).size();*/
+            }
+        }
+
+
+
+    }
+
+    public  List<History> find(int userID){
+        Query query=Query.query(Criteria.where("userId").is(userID));
+      //  query.addCriteria(Criteria.where("status").is(1));
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+        Date date=new Date();
+        System.out.println(date.toString().substring(0,9));
+        List<History> histories= mongoTemplate.find(query,History.class);
+        List<History> histories2=new LinkedList<>();
+        Date d=new Date();
+        for(int i=0;i<histories.size();i++){
+           if(simpleDateFormat.format(histories.get(i).getStartTime()).toString().substring(0,10).equals(d.toString()))
+           {
+               histories2.add(histories.get(i));
+           }
+
+        }
+        return histories2;
+    }
+
+
 
 
 }
