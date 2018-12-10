@@ -53,4 +53,5 @@ public class EXAMPLEDAOIMPTest {
         EXAMPLE demoEntity = demoDao.findDemoById(2L);
         System.out.println(demoEntity);
     }
+
 }

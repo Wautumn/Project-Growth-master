@@ -27,9 +27,6 @@ public class Feedback {
     @Field("content")
     private String content;
 
-    @Field("state")
-    private int state;
-
     @Field("answer")
     private String answer;//反馈情况，可为空，就还没来得及反馈
 

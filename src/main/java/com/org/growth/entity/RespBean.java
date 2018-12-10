@@ -3,10 +3,8 @@ package com.org.growth.entity;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 public class RespBean {
-    @Field("status")
     private String status;
-
-    @Field("msg")
+    
     private String msg;
 
     public String getStatus() {

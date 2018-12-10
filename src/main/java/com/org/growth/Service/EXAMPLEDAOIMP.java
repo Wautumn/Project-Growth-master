@@ -28,9 +28,10 @@ public class EXAMPLEDAOIMP implements EXAMPLEDAO {
 
     @Override
     public void updateDemo(EXAMPLE demoEntity) {
-        Query query = Query.query(Criteria.where("name").is(demoEntity.getName()));
+        Query query = new Query();
         Update update = new Update();
-        mongoTemplate.updateFirst(query, update, EXAMPLE.class);
+        update.set("name","TEST");
+        mongoTemplate.updateMulti(query, update, EXAMPLE.class);
     }
 
     @Override

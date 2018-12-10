@@ -14,7 +14,7 @@ public class Article {
 
 
     @Id
-    private int id;
+    private long id;
 
     @Field("tags")
     private int tags;
