@@ -20,11 +20,13 @@ public class TomatoController {
         return tomatoService.viewHistory(userId, size, page);
     }
 
+    /*
     @ResponseBody
     @GetMapping(value = "/viewHistoryStatus")
     public Page<History> viewHistoryStatus(@RequestParam(value = "userId") long userId, @RequestParam(value = "size") int size, @RequestParam(value = "page") int page, @RequestParam(value = "status") int status){
         return tomatoService.viewHistoryStatus(userId, size, page, status);
     }
+    */
 
     @ResponseBody
     @GetMapping(value = "/starttomato")
