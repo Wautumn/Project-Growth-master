@@ -7,16 +7,19 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
-@Document(collection = "SUMMARY")
+/***
+ * @author  rubick
+ * 用于存放每日总结
+ */
+@Document(collection = "Summary")
 public class Summary {
 
     @Id
     @AutoIncrement
-    @Field("_id")
     private long id;
 
     @Field("userId")
-    private long userId;
+    private long userId;//与User中的Id保持一致
 
     @Field("content")
     private String content;

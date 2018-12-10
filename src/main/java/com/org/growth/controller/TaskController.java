@@ -32,21 +32,21 @@ public class TaskController {
     @ResponseBody
     @GetMapping(value = "startTask")
     public boolean startTask(@RequestParam(value = "userId") long userId, @RequestParam(value = "taskName") String taskName,
-                             @RequestParam(value = "startTime") Date startTime){
+                             @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") Date startTime){
         return taskService.startTask(userId, taskName, startTime);
     }
 
     @ResponseBody
     @GetMapping(value = "breakTask")
     public boolean breakTask(@RequestParam(value = "userId") long userId, @RequestParam(value = "taskName") String taskName,
-                             @RequestParam(value = "startTime") Date startTime){
+                             @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") Date startTime){
         return taskService.breakTask(userId, taskName, startTime);
     }
 
     @ResponseBody
     @GetMapping(value = "endTask")
     public boolean endTask(@RequestParam(value = "userId") long userId, @RequestParam(value = "taskName") String taskName,
-                           @RequestParam(value = "startTime") Date startTime){
+                           @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") Date startTime){
         return taskService.endTask(userId, taskName, startTime);
     }
     @ResponseBody

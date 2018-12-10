@@ -36,7 +36,6 @@ public class TaskService implements TaskDao, TaskTreeDao {
 
     @Override
     public List addTask(long userId, String name, String description, int expectedTomato, Date setTime,Date deadline, Date remindTime) {
-        mongoTemplate = mongoTemplate1;
         List list = new ArrayList();
         try {
             //primary key

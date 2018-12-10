@@ -8,17 +8,20 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
-@Document(collection = "HISTORY")
+/***
+ * @author Ruabick
+ * 用于存放番茄和任务的历史纪录
+ */
+@Document(collection = "History")
 public class History {
 
     @AutoIncrement
     @Id
-    @Field("id")
     private long id;
 
     //userid and starttime are primary key
     @Field("userId")
-    private long userId;
+    private long userId;//与User中的Id保持一致
 
     @Field("starttime")
     private Date startTime;

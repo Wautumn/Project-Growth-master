@@ -71,4 +71,9 @@ public class TaskServiceTest {
             System.out.println("Test Failed!");
         }
     }
+
+    @Test
+    public void queryTask() {
+        List list = taskService.queryTask(2);
+    }
 }

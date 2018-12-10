@@ -4,8 +4,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-/*
-用于ID自增
+/***
+ * @author rubick
+ * 用于实现id自增
  */
 @Document(collection = "sys_sequence")
 public class SequenceId {

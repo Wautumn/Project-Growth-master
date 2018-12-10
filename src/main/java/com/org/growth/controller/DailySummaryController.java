@@ -22,8 +22,7 @@ public class DailySummaryController {
 
     @ResponseBody
     @GetMapping(value = "/save")
-    public boolean saveDailySummary(@RequestParam(value = "userid")
-                                                long userId, @RequestParam(value = "content")
+    public boolean saveDailySummary(@RequestParam(value = "userid") long userId, @RequestParam(value = "content")
             String content,
                                     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")Date time,
                                     @RequestParam(value = "selfRating") int selfRating){
@@ -38,7 +37,8 @@ public class DailySummaryController {
 
     @ResponseBody
     @GetMapping(value = "/update")
-    public boolean updateDailySummary(@RequestParam(value = "userid") long userId, @RequestParam(value = "content")String content, @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")Date time, @RequestParam(value = "selfRating") int selfRating){
+    public boolean updateDailySummary(@RequestParam(value = "userid") long userId, @RequestParam(value = "content")String content,
+                                      @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")Date time, @RequestParam(value = "selfRating") int selfRating){
         return dailySummaryService.modifySummary(userId,content,time,selfRating);
     }
 }

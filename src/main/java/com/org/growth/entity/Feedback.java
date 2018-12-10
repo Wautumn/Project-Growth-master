@@ -3,6 +3,7 @@ package com.org.growth.entity;
 import com.org.growth.Other.AutoIncrement;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.annotation.Generated;
 import java.util.Date;
@@ -17,14 +18,19 @@ public class Feedback {
     @Id
     private Long id;
 
+    @Field("time")
     private Date time;
 
+    @Field("userid")
     private Long userid;
 
+    @Field("content")
     private String content;
 
+    @Field("state")
     private int state;
 
+    @Field("answer")
     private String answer;//反馈情况，可为空，就还没来得及反馈
 
 
