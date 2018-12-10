@@ -5,12 +5,12 @@ import com.org.growth.entity.User;
 import com.org.growth.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @RestController
-@RequestMapping("/")
 public class ShareTomatoController {
 
     @Autowired
@@ -33,11 +33,10 @@ public class ShareTomatoController {
 
 
     @RequestMapping(value = "/getWeeklyTomatoCount",method= RequestMethod.GET)
-    public int getWeeklyTomatoCount()
+    public int getWeeklyTomatoCount(@RequestParam(value = "userid")long userId)
     {
-        User user = Util.getCurrentUser();
-        Long userId = user.getId();
-        int count = userService.getTomatoWeeklyCount(userId);
+        int count=0;
+        count = userService.getTomatoWeeklyCount(userId);
         return count;
     }
 

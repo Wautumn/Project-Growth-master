@@ -168,7 +168,7 @@ public class UserService implements UserDAO {
 
     @Override
     public int getTomatoWeeklyCount(Long userId){
-        mongoTemplate = mongoTemplate1;
+        //mongoTemplate = mongoTemplate1;
         Query query=Query.query(Criteria.where("id").is(userId));
         User user=mongoTemplate.findOne(query, User.class);
         int count=user.getTomatoweekly();

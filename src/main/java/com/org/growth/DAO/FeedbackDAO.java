@@ -5,7 +5,7 @@ import com.org.growth.entity.Feedback;
 import java.util.List;
 
 public interface FeedbackDAO {
-    void addFeedback(Feedback feedback);
+    int addFeedback(Feedback feedback);
 
     void deleteFeedback(Long feedBackId);
 

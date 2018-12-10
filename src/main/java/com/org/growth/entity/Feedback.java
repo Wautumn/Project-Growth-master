@@ -15,7 +15,7 @@ public class Feedback {
 
     @AutoIncrement
     @Id
-    private Long id;
+    private long id;
 
     private Date time;
 

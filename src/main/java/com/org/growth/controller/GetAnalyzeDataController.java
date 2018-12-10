@@ -15,7 +15,10 @@ public class GetAnalyzeDataController {
     @Autowired
     AnalyzeDataService analyzeDataService=new AnalyzeDataService();
 
-    @RequestMapping(value = "/getAnalyze",method = RequestMethod.GET)
+    /*
+    获取历史的一些信息
+     */
+    @RequestMapping(value = "/getHistoryData",method = RequestMethod.GET)
     public List<AnalyzedataBean> getAnalyzeData(@RequestParam(value = "userid") long userId){
         /*
         判断有多少天的数据,三个月为界限
@@ -25,5 +28,15 @@ public class GetAnalyzeDataController {
         else
             return analyzeDataService.getAllCompletedData(userId);
 
+    }
+
+    /*
+    每周的哪一天效率比较高，每一天的哪个时段完成番茄比较多
+     */
+    @RequestMapping(value = "/getSuggestion",method = RequestMethod.GET)
+    public String getSuggestion(@RequestParam(value = "userid") long userId){
+        String suggestion=null;
+
+        return suggestion;
     }
 }
