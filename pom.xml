@@ -50,6 +50,33 @@
             <artifactId>jsoup</artifactId>
             <version>1.7.3</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.nlp</groupId>
+            <artifactId>commons-cli</artifactId>
+            <version>1.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-cli-1.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fudannlp</groupId>
+            <artifactId>fudannlp</artifactId>
+            <scope>system</scope>
+            <version>1.2</version>
+            <systemPath>${project.basedir}/lib/fudannlp.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fudannlp.core</groupId>
+            <artifactId>fudannlp.core</artifactId>
+            <scope>system</scope>
+            <version>1.2</version>
+            <systemPath>${project.basedir}/lib/fnlp-core-2.1-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>
@@ -57,6 +84,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -54,7 +54,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     public List<AnalyzedataBean> getCompletedData(long userId){
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
         Calendar c=Calendar.getInstance();
-        List<AnalyzedataBean> analyzedataBeans=new LinkedList<>();//用链表类型好一点
+        List<AnalyzedataBean> analyzedataBeans=null;//用链表类型好一点
 
         Date current=new Date();
         c.setTime(new Date());
