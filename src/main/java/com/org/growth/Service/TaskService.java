@@ -176,6 +176,20 @@ public class TaskService implements TaskDao, TaskTreeDao {
         }
     }
 
+    @Override
+    public List queryTask(long userId) {
+        try{
+            Criteria criteria = new Criteria();
+            criteria.and("userId").is(userId);
+            Query  query = Query.query(criteria);
+            List taskList = mongoTemplate.find(query,Task.class);
+            return taskList;
+        }
+        catch (Exception e){
+            return null;
+        }
+    }
+
     static public Task findByNameAndUserId(String taskname, long userId) {
 
         try {

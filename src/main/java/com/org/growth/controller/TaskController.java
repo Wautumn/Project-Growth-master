@@ -50,9 +50,15 @@ public class TaskController {
         return taskService.endTask(userId, taskName, startTime);
     }
     @ResponseBody
-    @GetMapping(value = "addSubtask")
-    public int addSubTask(@RequestParam(value = "taskId") long taskid, @RequestParam(value = "name") String name){
-        return taskService.addSubTask(taskid,name);
+    @GetMapping(value = "addSubTask")
+    public int addSubTask(@RequestParam(value = "taskId") long taskId, @RequestParam(value = "name") String name){
+        return taskService.addSubTask(taskId,name);
+    }
+
+    @ResponseBody
+    @GetMapping(value = "getTask")
+    public List queryTask(@RequestParam(value = "userId") long userId) {
+        return taskService.queryTask(userId);
     }
 
 }
