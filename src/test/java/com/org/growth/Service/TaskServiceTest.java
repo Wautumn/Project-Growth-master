@@ -20,12 +20,15 @@ public class TaskServiceTest {
     TaskService taskService;
     @Test
     public void addTask() {
-        List result = taskService.addTask(111,"rua","hhhhhhhh",10, new Date(), new Date(),new Date());
+        List result = taskService.addTask(2,"aa好","hhhhhhhh",10, new Date(), new Date(),new Date());
         Iterator iterator = result.iterator();
         Object integer = iterator.next();
-        if((Integer)integer == new Integer(1))
+        System.out.println(integer);
+        Integer i1=1;
+        Integer i2=0;
+        if((Integer)integer == i1)
             System.out.println("Test success");
-        else if ((Integer)integer == new Integer(0))
+        else if ((Integer)integer == i2)
             System.out.println("Task exists!");
         else
             System.out.println("Test Failed!");
@@ -44,7 +47,7 @@ public class TaskServiceTest {
 
     @Test
     public void startTask() {
-        if (taskService.startTask(100, "rua", new Date())){
+        if (taskService.startTask(2, "你啊啊好", new Date())){
             System.out.println("Test Succeed");
         }
         else {
@@ -54,7 +57,7 @@ public class TaskServiceTest {
 
     @Test
     public void breakTask() {
-        if (taskService.breakTask(100, "rua", new Date())){
+        if (taskService.breakTask(2, "aa好", new Date())){
             System.out.println("Test Succeed");
         }
         else {
@@ -64,7 +67,7 @@ public class TaskServiceTest {
 
     @Test
     public void endTask() {
-        if (taskService.endTask(111, "rua", new Date())){
+        if (taskService.endTask(2, "你啊啊好", new Date())){
             System.out.println("Test Succeed");
         }
         else {

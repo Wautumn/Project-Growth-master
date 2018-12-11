@@ -3,6 +3,7 @@ package com.org.growth.entity;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /*
@@ -15,17 +16,18 @@ public class AnalyzedataBean {
     @Field("taskCount")
     private int taskCount;
     @Field("date")
-    private Date date;
+    private LocalDate date;
     @Field("level")
     private int level;
 
 
-    public AnalyzedataBean(int tomatocount,int taskCount,Date date,int level){
+    public AnalyzedataBean(int tomatocount,int taskCount,LocalDate date,int level){
         this.tomatocount=tomatocount;
         this.taskCount=taskCount;
         this.date=date;
         this.level=level;
     }
+
 
     public int getTomatocount() {
         return tomatocount;
@@ -43,11 +45,11 @@ public class AnalyzedataBean {
         this.taskCount = taskCount;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

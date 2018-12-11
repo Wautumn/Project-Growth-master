@@ -32,6 +32,9 @@ public class TomatoService implements HistoryDao {
         return new PageImpl(items, pageable, total);
 
     }
+
+    /*
+    @Override
     public Page<History> viewHistoryStatus(long userId, int size, int page, int status) {
 
         Sort sort = new Sort(Sort.Direction.DESC, "starttime");
@@ -42,6 +45,7 @@ public class TomatoService implements HistoryDao {
         return new PageImpl(items, pageable, total);
 
     }
+    */
 
     @Override
     public boolean saveStartTomato(long userId) {

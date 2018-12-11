@@ -4,6 +4,7 @@ import com.org.growth.entity.AnalyzedataBean;
 import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Component
@@ -13,7 +14,10 @@ public interface AnalyzeDataDAO {
      */
     List<AnalyzedataBean> getCompletedData(long userId);
 
-    List<AnalyzedataBean> getAllCompletedData(long userId);
+    List<AnalyzedataBean> getAllCompletedData(long userId)throws Exception;
+   //void getAllCompletedData(long userId);
+
+    AnalyzedataBean getDateData(long userId, LocalDate current)throws Exception;
 
 
 }

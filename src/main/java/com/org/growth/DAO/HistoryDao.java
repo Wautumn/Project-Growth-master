@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface HistoryDao {
     Page<History> viewHistory(long userId, int size, int page);
-    Page<History> viewHistoryStatus(long userId, int size, int page, int status);
+    //Page<History> viewHistoryStatus(long userId, int size, int page, int status);
 
     boolean saveStartTomato(long userId);
 

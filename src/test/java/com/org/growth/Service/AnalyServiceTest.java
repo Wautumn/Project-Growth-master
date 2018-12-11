@@ -1,5 +1,6 @@
 package com.org.growth.Service;
 
+import com.org.growth.entity.AnalyzedataBean;
 import com.org.growth.entity.History;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,13 +19,16 @@ public class AnalyServiceTest {
 
     @Test
     public void test(){
-       // analyzeDataService.getWeekdayData();
-       List<History> c =analyzeDataService.find(100);
-        //if(analyzeDataService.find(100)==null)
-          //  h=null;
-       // SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
-        System.out.println(c.size());
-      //  System.out.println(simpleDateFormat.format(h.getStartTime()).substring(0,10));
-
+      try {
+          List<AnalyzedataBean> a = analyzeDataService.getAllCompletedData(2);
+          for (int i = 0; i < a.size(); i++) {
+              System.out.println(a.get(i).getDate()+"time");
+              System.out.println(a.get(i).getTomatocount()+"amount");
+              System.out.println(a.get(i).getTaskCount()+"taskamount");
+              System.out.println(a.get(i).getLevel()+"level");
+          }
+      }catch (Exception e){
+          e.printStackTrace();
+      }
     }
 }
