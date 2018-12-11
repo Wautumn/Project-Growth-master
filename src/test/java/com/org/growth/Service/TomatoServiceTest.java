@@ -36,14 +36,14 @@ public class TomatoServiceTest {
         }
     }
 
-    @Test
+    /*@Test
     public void viewHistoryStatus() {
         if (tomatoService.viewHistoryStatus(userId,10,1, -1) != null){
             System.out.println(tomatoService.viewHistoryStatus(userId,10,1, -1));
         }else {
             System.out.println("Test Failed");
         }
-    }
+    }*/
 
     @Test
     public void saveStartTomato() {
