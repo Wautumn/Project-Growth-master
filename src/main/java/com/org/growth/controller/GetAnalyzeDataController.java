@@ -20,13 +20,8 @@ public class GetAnalyzeDataController {
      */
     @RequestMapping(value = "/getHistoryData",method = RequestMethod.GET)
     public List<AnalyzedataBean> getAnalyzeData(@RequestParam(value = "userid") long userId){
-        /*
-        判断有多少天的数据,三个月为界限
-         */
-        if(analyzeDataService.isExistHistoryEnough(userId))
-            return analyzeDataService.getCompletedData(userId);
-        else
-            return analyzeDataService.getAllCompletedData(userId);
+        List<AnalyzedataBean> analyzedataBeans= analyzeDataService.getAllCompletedData(userId);
+        return analyzedataBeans;
 
     }
 

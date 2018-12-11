@@ -32,7 +32,7 @@ public class Task {
     @Field("tomatoCompleted")
     private int tomatoCompleted;
 
-    @Field("setTile")
+    @Field("setTime")
     private Date setTime;//任务设置时间
 
     @Field("deadline")

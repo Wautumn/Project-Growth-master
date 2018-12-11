@@ -17,14 +17,18 @@ import org.springframework.stereotype.Component;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
-
-
 
 @Component
 public class AnalyzeDataService implements AnalyzeDataDAO {
     @Autowired
     MongoTemplate mongoTemplate;
+
+    public static LocalDate earlyData;
 
     public boolean isExistHistoryEnough(long userId){
        Query query=new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC,"starttime"))).limit(1);
@@ -57,7 +61,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         Calendar c=Calendar.getInstance();
         List<AnalyzedataBean> analyzedataBeans=null;//用链表类型好一点
 
-        Date current=new Date();
+       /* Date current=new Date();
         c.setTime(new Date());
         c.add(Calendar.MONTH,-3);
         Date m=c.getTime();//前三个月的Date
@@ -75,60 +79,137 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
             AnalyzedataBean analyzedataBean=new AnalyzedataBean(tomatoCount,taskCount,time,level);
             analyzedataBeans.add(analyzedataBean);
 
-        }
+        }*/
         return analyzedataBeans;
     }
 
+    /*
+    从用户最早的历史记录开始所有的图表数据
+     */
     @Override
     public List<AnalyzedataBean> getAllCompletedData(long userId){
-        List<AnalyzedataBean> analyzedataBeans=new LinkedList<>();//用链表类型好一点
-        Query query=new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC,"starttime"))).limit(1);
-        History history=mongoTemplate.findOne(query,History.class);
-        Date earliestDate=history.getStartTime();
-        Date dBegin = new Date();
-        Date dEnd = earliestDate;
-        List<Date> Dates = findDates(dBegin, dEnd);
-        for (Date date : Dates){
-            int tomatoCount=getSomedayTomato(date);
-            int taskCount=getSomedayTask(date);
-            int level=getSomedaySelfEvaluation(date);
-            AnalyzedataBean analyzedataBean=new AnalyzedataBean(tomatoCount,taskCount,date,level);
+
+        List<AnalyzedataBean> analyzedataBeans = new LinkedList<>();//用链表类型好一点
+        Query query = new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC, "starttime"))).limit(1);
+        History history = mongoTemplate.findOne(query, History.class);
+        earlyData=DateToLocalDate(history.getStartTime());
+       // System.out.println(DateToLocalDate(history.getStartTime())+","+history.getTaskId());//最早的历史记录的时间
+        LocalDate startTime=DateToLocalDate(history.getStartTime());
+        LocalDate nowTime=LocalDate.now();
+        long between= ChronoUnit.DAYS.between(startTime,nowTime);
+        int daycliff=(int) between;
+        for(int i=0;i<daycliff;i++)
+        {
+            LocalDate cur=startTime.plusDays(i);
+            AnalyzedataBean analyzedataBean=new AnalyzedataBean(0,0,cur,0);
+            analyzedataBean = getDateData(userId, cur);
             analyzedataBeans.add(analyzedataBean);
         }
         return analyzedataBeans;
-
     }
 
 
     /*
-    某天完成的番茄数
+    某天的分析
      */
-    private int getSomedayTomato(Date date){
-        Query query=Query.query(Criteria.where("starttime").is(date));//开始时间是这个日期的查询
-        query.addCriteria(Criteria.where("status").is(1));//正常结束的
-        List<History> histories=mongoTemplate.find(query,History.class);//某日期正常结束的历史记录
-        int completedTomoto=histories.size();
-        return completedTomoto;
-    }
+    @Override
+    public AnalyzedataBean getDateData(long userId, LocalDate current){
+        Query query=Query.query(Criteria.where("userId").is(userId));
 
-    /*
-    某天的自我评价
-     */
-    private int getSomedaySelfEvaluation(Date date){
-        Query query=Query.query(Criteria.where("time").is(date));
-        Summary summary=mongoTemplate.findOne(query, Summary.class);
-        int level=summary.getSelfRating();//百分制
-        return level;
-    }
-
-    /*
-    某天设置的任务数
-     */
-    private int getSomedayTask(Date date){
-        Query query=Query.query(Criteria.where("setTime").is(date));
+        List<History> histories=mongoTemplate.find(query,History.class);
         List<Task> tasks=mongoTemplate.find(query,Task.class);
-        return  tasks.size();
+        List<Summary> summaries=mongoTemplate.find(query,Summary.class);
+
+        List<History> dateHistory=new LinkedList<>();
+        List<Task> dateTask=new LinkedList<>();
+
+        if(histories!=null&&histories.size()>0) dateHistory=getOneDayHistory(histories,current);//获取当前用户某一天的记录数
+        if(tasks!=null&&tasks.size()>0)    dateTask=getOneDayTask(tasks,current);
+
+        int tomatocount=0;
+        int taskCount=0;
+        int level=0;
+
+        AnalyzedataBean analyzedataBean=new AnalyzedataBean(0,0,current,100);
+        if(dateHistory!=null&&dateHistory.size()>0) {
+            for (int i = 0; i < dateHistory.size(); i++) {
+                if (dateHistory.get(i).getStatus() == 2)
+                    tomatocount++;
+            }
+        }else{
+            tomatocount=0;
+        }
+
+        taskCount=dateTask.size();
+        if(summaries!=null&&summaries.size()>0) level=getOneDayLevel(summaries,current);
+
+        analyzedataBean.setDate(current);
+        analyzedataBean.setTaskCount(taskCount);
+        analyzedataBean.setTomatocount(tomatocount);
+        analyzedataBean.setLevel(level);
+        return analyzedataBean;
+
     }
+
+    private List<History> getOneDayHistory(List<History> histories,LocalDate day){
+        List<History> dayHistories=new LinkedList<>();
+        if(histories!=null&&histories.size()>0) {
+            for (int i = 0; i < histories.size(); i++) {
+                Date starttime = histories.get(i).getStartTime();
+                LocalDate localDate = DateToLocalDate(starttime);
+                if (localDate.equals(day)) {
+                       History history = histories.get(i);
+                       dayHistories.add(history);
+
+                }
+
+            }
+        }
+        return dayHistories;
+    }
+
+    private List<Task> getOneDayTask(List<Task> tasks,LocalDate day){
+        List<Task> dayTasks=new ArrayList<>();
+        LocalDate localDate;
+        if(tasks!=null&&tasks.size()>0) {
+            for (int i = 0; i < tasks.size(); i++) {
+                Date starttime = tasks.get(i).getSetTime();
+                if(starttime!=null) {
+                    localDate = DateToLocalDate(starttime);
+                    if (localDate.equals(day)) {
+                       // System.out.println("d");
+                        Task task=tasks.get(i);
+                      //  System.out.println(task.getName()+"name");
+                        dayTasks.add(task);
+
+                    }
+                }
+
+            }
+        }
+        return dayTasks;
+    }
+
+    private int getOneDayLevel(List<Summary> summary,LocalDate day) {
+        List<Summary> summaries = new LinkedList<>();
+        for (int i = 0; i < summary.size(); i++) {
+            Date time = summary.get(i).getTime();
+            LocalDate localDate = DateToLocalDate(time);
+            if (localDate.equals(day)) {
+                summaries.add(summary.get(i));
+            }
+
+        }
+        return summaries.get(0).getSelfRating();
+    }
+
+    public LocalDate DateToLocalDate(Date date){
+
+            Instant instant = date.toInstant();
+            ZoneId zoneId = ZoneId.systemDefault();
+            LocalDate localDate = instant.atZone(zoneId).toLocalDate();//Date转化为LocalDate
+            return localDate;
+        }
 
     /*
     两个日期之间的所有天数
