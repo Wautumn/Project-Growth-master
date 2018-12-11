@@ -37,4 +37,9 @@ public class AnalyServiceTest {
         analyzeDataService.getWeekdayData(2);
 
     }
+
+    @Test
+    public void test3(){
+        analyzeDataService.getTimeData(2);
+    }
 }

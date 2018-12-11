@@ -166,6 +166,13 @@ public class UserService implements UserDAO {
         return  mongoTemplate.findOne(query,User.class);
     }
 
+    public User findByUserId(long userId){
+        Criteria criteria = new Criteria();
+        criteria.and("id").is(userId);
+        Query query = Query.query(criteria);
+        return  mongoTemplate.findOne(query,User.class);
+    }
+
     @Override
     public int getTomatoWeeklyCount(Long userId){
         //mongoTemplate = mongoTemplate1;

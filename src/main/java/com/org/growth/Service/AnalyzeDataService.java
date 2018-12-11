@@ -18,10 +18,7 @@ import org.springframework.stereotype.Component;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
@@ -205,24 +202,33 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         return summaries.get(0).getSelfRating();
     }
 
-    public LocalDate DateToLocalDate(Date date){
+    public LocalDate DateToLocalDate(Date date) {
 
-            Instant instant = date.toInstant();
-            ZoneId zoneId = ZoneId.systemDefault();
-            LocalDate localDate = instant.atZone(zoneId).toLocalDate();//Date转化为LocalDate
-            return localDate;
-        }
+        Instant instant = date.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+        LocalDate localDate = instant.atZone(zoneId).toLocalDate();//Date转化为LocalDate
+        return localDate;
+    }
+
+    public LocalTime DateToLocalTime(Date date){
+        Instant instant=date.toInstant();
+        ZoneId zoneId=ZoneId.systemDefault();
+        LocalTime localTime=instant.atZone(zoneId).toLocalTime();
+        return localTime;
+    }
 
 
     /*
     用完成番茄数来衡量平均的一周中 哪天完成的数量比较多，前四周的数据
      */
-    public void getWeekdayData(long userId){
+    public int getWeekdayData(long userId){
         int Mon=0,Tues=0,Wed=0,Thur=0,Fri=0,Sat=0,Sun=0;
+        List<Integer> day=new ArrayList<>();
 
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
 
         Query query=Query.query(Criteria.where("userId").is(userId));
+        query.addCriteria(Criteria.where("status").is(2));
         List<History>histories=mongoTemplate.find(query,History.class);//获取所有历史记录
         System.out.println("size his"+histories.size());
 
@@ -241,20 +247,82 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
 
         for(int i=0;i<histories.size();++i) {
             DayOfWeek cur = DateToLocalDate(histories.get(i).getStartTime()).getDayOfWeek();
-            System.out.println(cur.toString() + "星期几");
-            if (cur.getValue() == 1) Mon += mongoTemplate.find(query, History.class).size();
-            else if (cur.getValue() == 2) Tues += mongoTemplate.find(query, History.class).size();
-            else if (cur.getValue() == 3) Wed += mongoTemplate.find(query, History.class).size();
-            else if (cur.getValue() == 4) Thur += mongoTemplate.find(query, History.class).size();
-            else if (cur.getValue() == 5) Fri += mongoTemplate.find(query, History.class).size();
-            else if (cur.getValue() == 6) Sat += mongoTemplate.find(query, History.class).size();
-            else if (cur.getValue() == 7) Sun += mongoTemplate.find(query, History.class).size();
+            System.out.println(cur.toString() + "星期几"+cur.getValue());
+            if (cur.getValue() == 1) Mon ++;
+            else if (cur.getValue() == 2) Tues ++;
+            else if (cur.getValue() == 3) Wed ++;
+            else if (cur.getValue() == 4) Thur ++;
+            else if (cur.getValue() == 5) Fri ++;
+            else if (cur.getValue() == 6) Sat ++;
+            else if (cur.getValue() == 7) Sun ++;
         }
+        day.add(Mon);
+        day.add(Tues);
+        day.add(Wed);
+        day.add(Thur);
+        day.add(Fri);
+        day.add(Sat);
+        day.add(Sun);
+        int Max = Collections.max(day);
+        int dd=0;
+        for(int i=0;i<7;i++){
+            if(day.get(i).equals(Max))
+               dd=i+1;
+        }
+       // Iterator iterator=dd.iterator();
+        //while (iterator.hasNext()) {
+          //  Object o = iterator.next();
+          //  System.out.println(o+"   sssst");
+       // }
+        // System.out.println(Mon+","+Tues+","+Wed+","+Thur+","+Fri+","+Sat+","+Sun+".....");
+        return dd;
 
 
 
 
 
+
+
+
+
+    }
+
+    /*
+    哪个时段的完成数较多
+     */
+    public int getTimeData(long userId){
+        List<Integer> time=new LinkedList<>();
+        LocalTime localTime0=LocalTime.of(0,0);
+        LocalTime localTime1=LocalTime.of(7,0);
+        LocalTime localTime2=LocalTime.of(11,0);
+        LocalTime localTime3=LocalTime.of(13,5);
+        LocalTime localTime4=LocalTime.of(18,10);
+        int mor=0;
+        int aft=0;
+        int eve=0;
+        Query query=Query.query(Criteria.where("userId").is(userId));
+        query.addCriteria(Criteria.where("status").is(2));
+        List<History>histories=mongoTemplate.find(query,History.class);//获取所有完成的历史记录
+        System.out.println("size"+histories.size());
+        for(History history:histories){
+            LocalTime now= DateToLocalTime(history.getStartTime());
+            System.out.println(now+"now");
+            if(now.isBefore(localTime2)&&now.isAfter(localTime0))mor++;
+            else if(now.isBefore(localTime4)&&now.isAfter(localTime2)) aft++;
+            else if(now.isAfter(localTime4)) eve++;
+        }
+        time.add(mor);
+        time.add(aft);
+        time.add(eve);
+        int max=Collections.max(time);
+        int maxtime=0;
+        for(int i=0;i<3;i++){
+            if (time.get(i).equals(max))
+                maxtime=i+1;
+        }
+       // System.out.println("mo"+mor+"af"+aft+"ev"+eve);
+       // System.out.println(maxtime);
+        return maxtime;
 
     }
 
@@ -276,8 +344,5 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         }
         return histories2;
     }
-
-
-
 
 }
