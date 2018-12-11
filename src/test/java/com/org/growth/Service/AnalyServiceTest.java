@@ -31,4 +31,15 @@ public class AnalyServiceTest {
           e.printStackTrace();
       }
     }
+
+    @Test
+    public void test2(){
+        analyzeDataService.getWeekdayData(2);
+
+    }
+
+    @Test
+    public void test3(){
+        analyzeDataService.getTimeData(2);
+    }
 }

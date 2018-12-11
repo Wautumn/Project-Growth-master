@@ -1,22 +1,29 @@
 package com.org.growth.controller;
 
 import com.org.growth.Service.AnalyzeDataService;
+import com.org.growth.Service.UserService;
 import com.org.growth.entity.AnalyzedataBean;
+import com.org.growth.entity.RespBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class GetAnalyzeDataController {
     @Autowired
     AnalyzeDataService analyzeDataService=new AnalyzeDataService();
 
+    @Autowired
+    UserService userService=new UserService();
+
     /*
-    获取历史的一些信息
+    获取历史的图表信息
      */
     @RequestMapping(value = "/getHistoryData",method = RequestMethod.GET)
     public List<AnalyzedataBean> getAnalyzeData(@RequestParam(value = "userid") long userId){
@@ -29,9 +36,35 @@ public class GetAnalyzeDataController {
     每周的哪一天效率比较高，每一天的哪个时段完成番茄比较多
      */
     @RequestMapping(value = "/getSuggestion",method = RequestMethod.GET)
-    public String getSuggestion(@RequestParam(value = "userid") long userId){
-        String suggestion=null;
+    public Map<String,Object> getSuggestion(@RequestParam(value = "userid") long userId){
 
-        return suggestion;
+        Map<String,Object> map=new HashMap<>();
+        if(userService.findByUserId(userId)==null) {
+            map.put("error","用户不存在！");
+            return map;
+        }
+        int weekday=0;
+        weekday=analyzeDataService.getWeekdayData(userId);
+        int time=0;
+        time=analyzeDataService.getTimeData(userId);
+        String day="无数据！";
+        String daytime="无数据！";
+        if(weekday==1)day="星期一";
+        else if(weekday==2)day="星期二";
+        else if(weekday==3)day="星期三";
+        else if(weekday==4)day="星期四";
+        else if(weekday==5)day="星期五";
+        else if(weekday==6)day="星期六";
+        else if(weekday==7)day="星期日";
+
+        if(time==1) daytime="上午";
+        else if (time==2) daytime="下午";
+        else if(time==3) daytime="晚上";
+
+        map.put("day",day);
+        map.put("time",daytime);
+
+        return map;
+
     }
 }
