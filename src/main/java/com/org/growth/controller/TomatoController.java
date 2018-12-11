@@ -21,6 +21,14 @@ public class TomatoController {
         return tomatoService.viewHistory(userId, size, page);
     }
 
+    @ResponseBody
+    @GetMapping(value = "/viewMonthHistory")
+    public java.util.List<History> viewMonthHistory(@RequestParam(value = "userId") long userId, @RequestParam(value = "year") int year, @RequestParam(value = "month") int month){
+        return tomatoService.viewMonthHistory(userId, year, month);
+    }
+
+
+
     /*
     @ResponseBody
     @GetMapping(value = "/viewHistoryStatus")

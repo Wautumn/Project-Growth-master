@@ -10,7 +10,7 @@ public class LogInController {
     UserService userService = new UserService();
 
     @ResponseBody
-    @GetMapping(value = "/logIn")
+    @PostMapping (value = "/logIn")
     public long logIn(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password){
         return userService.logIn(username, password);
     }

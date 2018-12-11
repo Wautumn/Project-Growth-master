@@ -12,7 +12,10 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.Calendar;
 import java.util.Date;
+
+import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 @Component
 public class TomatoService implements HistoryDao {
@@ -26,12 +29,50 @@ public class TomatoService implements HistoryDao {
 
         Sort sort = new Sort(Sort.Direction.DESC, "starttime");
         Pageable pageable = new PageRequest(page-1, size, sort);
-        Query query = Query.query(Criteria.where("userId").is(userId));
+        Query query = Query.query(where("userId").is(userId));
         java.util.List<History> items = mongoTemplate.find(query.with(pageable), History.class);
         long total = mongoTemplate.count(query, History.class);
         return new PageImpl(items, pageable, total);
 
     }
+
+    private static Date getStartTime(int year, int month) {
+        Calendar start = Calendar.getInstance();
+        start.set(Calendar.YEAR, year);
+        start.set(Calendar.MONTH, month-1);
+        start.set(Calendar.DATE, 1);
+        start.set(Calendar.HOUR_OF_DAY, 0);
+        start.set(Calendar.MINUTE, 0);
+        start.set(Calendar.SECOND, 0);
+        start.set(Calendar.MILLISECOND, 0);
+        return start.getTime();
+    }
+
+    private static Date getEndTime(int year, int month) {
+        Calendar end = Calendar.getInstance();
+        end.set(Calendar.YEAR, year);
+        end.set(Calendar.MONTH, month-1);
+        end.set(Calendar.DATE, 31);
+        end.set(Calendar.HOUR_OF_DAY, 23);
+        end.set(Calendar.MINUTE, 59);
+        end.set(Calendar.SECOND, 59);
+        end.set(Calendar.MILLISECOND, 999);
+        return end.getTime();
+    }
+
+    @Override
+    public java.util.List<History> viewMonthHistory(long userId, int year, int month){
+
+        java.util.List<History> items = mongoTemplate.find(Query.query(where("starttime")
+                .gte(getStartTime(year, month))
+                .lte(getEndTime(year, month))
+                .and("userId").is(userId)), History.class);
+        return items;
+
+
+
+    }
+
 
     /*
     @Override
@@ -54,7 +95,7 @@ public class TomatoService implements HistoryDao {
             History history = new History();
             history.setStartTime(startTime);
             history.setUserId(userId);
-            Query query = new Query(Criteria.where("_id").is(userId));
+            Query query = new Query(where("_id").is(userId));
             User user = mongoTemplate.findOne(query,User.class);
             history.setTomatoLength(user.getTomatoLength());
             history.setTaskId(-1);
