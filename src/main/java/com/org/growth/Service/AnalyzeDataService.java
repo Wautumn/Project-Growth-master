@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.AccumulatorOperators;
+import org.springframework.data.mongodb.core.aggregation.ConvertOperators;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Component;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -211,48 +213,18 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
             return localDate;
         }
 
-    /*
-    两个日期之间的所有天数
-     */
-    private static List<Date> findDates(Date dBegin, Date dEnd){
-
-        List lDate = new ArrayList();
-        lDate.add(dBegin);
-        Calendar calBegin = Calendar.getInstance();
-        // 使用给定的 Date 设置此 Calendar 的时间
-        calBegin.setTime(dBegin);
-        Calendar calEnd = Calendar.getInstance();
-        // 使用给定的 Date 设置此 Calendar 的时间
-        calEnd.setTime(dEnd);
-        // 测试此日期是否在指定日期之后
-        while (dEnd.after(calBegin.getTime()))
-        {
-            // 根据日历的规则，为给定的日历字段添加或减去指定的时间量
-            calBegin.add(Calendar.DAY_OF_MONTH, 1);
-            lDate.add(calBegin.getTime());
-        }
-        return lDate;
-    }
-
-    /**
-     * 通过时间秒毫秒数判断两个时间的间隔
-     * @param date1
-     * @param date2
-     * @return
-     */
-    private static int differentDaysByMillisecond(Date date1,Date date2)
-    {
-        int days = (int) ((date2.getTime() - date1.getTime()) / (1000*3600*24));
-        return days;
-    }
 
     /*
-    用完成番茄数来衡量平均的一周中 哪天完成的数量比较多，i代表是每周的第几天
+    用完成番茄数来衡量平均的一周中 哪天完成的数量比较多，前四周的数据
      */
-    public void getWeekdayData(){
+    public void getWeekdayData(long userId){
         int Mon=0,Tues=0,Wed=0,Thur=0,Fri=0,Sat=0,Sun=0;
 
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+
+        Query query=Query.query(Criteria.where("userId").is(userId));
+        List<History>histories=mongoTemplate.find(query,History.class);//获取所有历史记录
+        System.out.println("size his"+histories.size());
 
         Calendar calendar=Calendar.getInstance();
         calendar.set(Calendar.DAY_OF_WEEK,Calendar.MONDAY);//当前时间的周一时间
@@ -267,27 +239,20 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
       //  System.out.println(simpleDateFormat.format(lateDate));
       //  System.out.println(simpleDateFormat.format(endDate));
 
-        for(int z=0;z<4;z++) {
-            for (int i = 0; i < 7; i++) {
-                Calendar calendar3 = Calendar.getInstance();
-                calendar3.setTime(startDate);
-                calendar3.add(Calendar.DATE, z * 7 + i);
-                Date nowDate = calendar3.getTime();
-
-                System.out.println(simpleDateFormat.format(nowDate));
-
-            //    Query query = Query.query(Criteria.where(simpleDateFormat.format("startTime")).is(nowDate));
-          /*      Query query = Query.query(Criteria.where("startTime".).is(nowDate));
-                query.addCriteria(Criteria.where("status").is(1));
-                if (i == 0) Mon += mongoTemplate.find(query, History.class).size();
-                else if (i == 1) Tues += mongoTemplate.find(query, History.class).size();
-                else if (i == 2) Wed += mongoTemplate.find(query, History.class).size();
-                else if (i == 3) Thur += mongoTemplate.find(query, History.class).size();
-                else if (i == 4) Fri += mongoTemplate.find(query, History.class).size();
-                else if (i == 5) Sat += mongoTemplate.find(query, History.class).size();
-                else if (i == 6) Sun += mongoTemplate.find(query, History.class).size();*/
-            }
+        for(int i=0;i<histories.size();++i) {
+            DayOfWeek cur = DateToLocalDate(histories.get(i).getStartTime()).getDayOfWeek();
+            System.out.println(cur.toString() + "星期几");
+            if (cur.getValue() == 1) Mon += mongoTemplate.find(query, History.class).size();
+            else if (cur.getValue() == 2) Tues += mongoTemplate.find(query, History.class).size();
+            else if (cur.getValue() == 3) Wed += mongoTemplate.find(query, History.class).size();
+            else if (cur.getValue() == 4) Thur += mongoTemplate.find(query, History.class).size();
+            else if (cur.getValue() == 5) Fri += mongoTemplate.find(query, History.class).size();
+            else if (cur.getValue() == 6) Sat += mongoTemplate.find(query, History.class).size();
+            else if (cur.getValue() == 7) Sun += mongoTemplate.find(query, History.class).size();
         }
+
+
+
 
 
 

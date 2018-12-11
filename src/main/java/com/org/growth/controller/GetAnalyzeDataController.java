@@ -16,7 +16,7 @@ public class GetAnalyzeDataController {
     AnalyzeDataService analyzeDataService=new AnalyzeDataService();
 
     /*
-    获取历史的一些信息
+    获取历史的图表信息
      */
     @RequestMapping(value = "/getHistoryData",method = RequestMethod.GET)
     public List<AnalyzedataBean> getAnalyzeData(@RequestParam(value = "userid") long userId){
