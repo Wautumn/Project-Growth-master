@@ -22,9 +22,10 @@ public class FeedbackService implements FeedbackDAO {
         return mongoTemplate.findOne(query,Feedback.class);
     }
     @Override
-    public void addFeedback(Feedback feedback){
+    public int addFeedback(Feedback feedback){
 
         mongoTemplate.insert(feedback);
+        return 1;
 
     }
 

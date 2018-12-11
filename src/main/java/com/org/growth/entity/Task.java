@@ -7,13 +7,17 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
-@Document(collection = "TASK")
+/***
+ * @author rubick
+ * 用于存放任务信息
+ */
+@Document(collection = "Task")
 public class Task {
     @AutoIncrement
     @Id
     private long id;//即任务id
 
-    //userId and name are primary key
+    //userId and name 不可重复
     @Field("userId")
     private long userId;
 
@@ -29,7 +33,7 @@ public class Task {
     private int tomatoCompleted;
 
     @Field("setTile")
-    private Date setTime;
+    private Date setTime;//任务设置时间
 
     @Field("deadline")
     private Date deadline;

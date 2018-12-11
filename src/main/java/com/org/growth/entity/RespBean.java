@@ -1,7 +1,10 @@
 package com.org.growth.entity;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
 public class RespBean {
     private String status;
+    
     private String msg;
 
     public String getStatus() {

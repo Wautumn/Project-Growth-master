@@ -1,14 +1,22 @@
 package com.org.growth.entity;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.Date;
 
 /*
 前端需要图表的数据
  */
+@Document(collection = "analyzeDataBean")
 public class AnalyzedataBean {
+    @Field("tomatocount")
     private int tomatocount;
+    @Field("taskCount")
     private int taskCount;
+    @Field("date")
     private Date date;
+    @Field("level")
     private int level;
 
 

@@ -36,7 +36,6 @@ public class TaskService implements TaskDao, TaskTreeDao {
 
     @Override
     public List addTask(long userId, String name, String description, int expectedTomato, Date setTime,Date deadline, Date remindTime) {
-        mongoTemplate = mongoTemplate1;
         List list = new ArrayList();
         try {
             //primary key
@@ -173,6 +172,20 @@ public class TaskService implements TaskDao, TaskTreeDao {
         }
         catch (Exception e){
             return false;
+        }
+    }
+
+    @Override
+    public List queryTask(long userId) {
+        try{
+            Criteria criteria = new Criteria();
+            criteria.and("userId").is(userId);
+            Query  query = Query.query(criteria);
+            List taskList = mongoTemplate.find(query,Task.class);
+            return taskList;
+        }
+        catch (Exception e){
+            return null;
         }
     }
 

@@ -16,33 +16,36 @@ public class TomatoController {
 
     @ResponseBody
     @GetMapping(value = "/viewHistory")
-    public Page<History> viewHistory(@RequestParam(value = "userId") long userId, @RequestParam(value = "size") int size, @RequestParam(value = "page") int page){
+    public Page<History> viewHistory(@RequestParam(value = "userId") long userId, @RequestParam(value = "size") int size,
+                                     @RequestParam(value = "page") int page){
         return tomatoService.viewHistory(userId, size, page);
     }
 
     /*
     @ResponseBody
     @GetMapping(value = "/viewHistoryStatus")
-    public Page<History> viewHistoryStatus(@RequestParam(value = "userId") long userId, @RequestParam(value = "size") int size, @RequestParam(value = "page") int page, @RequestParam(value = "status") int status){
+    public Page<History> viewHistoryStatus(@RequestParam(value = "userId") long userId, @RequestParam(value = "size") int size,
+                                           @RequestParam(value = "page") int page, @RequestParam(value = "status") int status){
         return tomatoService.viewHistoryStatus(userId, size, page, status);
     }
     */
 
     @ResponseBody
-    @GetMapping(value = "/starttomato")
-    public boolean startTomato(@RequestParam(value = "userid") long userId){
+    @GetMapping(value = "/startTomato")
+    public boolean startTomato(@RequestParam(value = "userId") long userId){
         return tomatoService.saveStartTomato(userId);
     }
 
     @ResponseBody
-    @GetMapping(value = "breaktomato")
-    public boolean breakTomato(@RequestParam(value = "userid") long userId){
+    @GetMapping(value = "breakTomato")
+    public boolean breakTomato(@RequestParam(value = "userId") long userId){
         return tomatoService.saveBreakTomato(userId);
     }
 
     @ResponseBody
-    @GetMapping(value = "endtomato")
-    public boolean endTomato(@RequestParam(value = "userid") long userId, @RequestParam(value = "needassociation") boolean needAssociation, @RequestParam(value = "taskname") String taskName){
+    @GetMapping(value = "endTomato")
+    public boolean endTomato(@RequestParam(value = "userId") long userId, @RequestParam(value = "needAssociation") boolean needAssociation,
+                             @RequestParam(value = "taskName") String taskName){
         return tomatoService.saveEndTomato(userId,needAssociation,taskName);
     }
 

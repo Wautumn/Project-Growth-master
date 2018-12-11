@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="beb8ddf0-666e-4e42-90db-ecde51c4e9de" name="Default Changelist" comment="yyy">
+    <list default="true" id="b67fa8af-ec3c-45a3-be0b-e5d44ec96b88" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Event/NextWeekEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Listener/NextWeekListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/AnalyServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/HistoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/HistoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/FeedbackDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/FeedbackDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/TaskDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/TaskDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/GrowthApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/GrowthApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/AnalyzeDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/AnalyzeDataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/EXAMPLEDAOIMP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/EXAMPLEDAOIMP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/FeedbackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/FeedbackService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/DailySummaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/DailySummaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/FeedbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/FeedbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/GetAnalyzeDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/GetAnalyzeDataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/ShareTomatoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/ShareTomatoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/TaskController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/TomatoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/controller/TomatoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/AnalyzedataBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/AnalyzedataBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Article.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Feedback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/RespBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/RespBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/SequenceId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/SequenceId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Summary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Summary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/EXAMPLEDAOIMPTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/EXAMPLEDAOIMPTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/TaskServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/TaskServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/TomatoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/org/growth/Service/TomatoServiceTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,156 +41,17 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Project_Growth_master$SpringBoot.ic" NAME="SpringBoot Coverage Results" MODIFIED="1544258256232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Project_Growth_master$EXAMPLEDAOIMPTest.ic" NAME="EXAMPLEDAOIMPTest Coverage Results" MODIFIED="1542706246106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.org.growth.Service.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Project_Growth_master$EXAMPLEDAOIMPTest_removeDemo.ic" NAME="EXAMPLEDAOIMPTest.removeDemo Coverage Results" MODIFIED="1542706957836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.org.growth.Service.*</FILTER>
-    </SUITE>
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="338697104">
+    <session id="-463374187">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="15" />
-          <entry key="mybatis-config" value="1" />
-          <entry key="properties" value="1" />
-          <entry key="xml" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="15" />
-          <entry key="Properties" value="1" />
-          <entry key="XML" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="2" />
-          <entry key="mybatis-config" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="2" />
-          <entry key="XML" value="2" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="69190709">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="19" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.13" value="2" />
-          <entry key="project.open.time.14" value="3" />
-          <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.2" value="2" />
-          <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.23" value="2" />
-          <entry key="project.open.time.24" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="2" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="21" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="class" value="10" />
-          <entry key="java" value="26" />
-          <entry key="properties" value="2" />
-          <entry key="xml" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="25" />
-          <entry key="JAVA" value="213" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Properties" value="5" />
-          <entry key="XML" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="1022" />
-          <entry key="properties" value="44" />
-          <entry key="txt" value="67" />
-          <entry key="xml" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="11612" />
-          <entry key="PLAIN_TEXT" value="293" />
-          <entry key="Properties" value="44" />
-          <entry key="XML" value="2" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-1229065295">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="5" />
-          <entry key="PLAIN_TEXT" value="26" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="PLAIN_TEXT" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-1425578799">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.4" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
+      <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="11" />
+          <entry key="java" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -171,178 +59,38 @@
           <entry key="JAVA" value="1" />
         </counts>
       </usages-collector>
-    </session>
-    <session id="-463374187">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="62" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="62" />
-        </counts>
-      </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1034" />
-          <entry key="txt" value="3" />
+          <entry key="java" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1034" />
-          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="JAVA" value="14" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/TomatoServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1045">
-              <caret line="56" column="77" lean-forward="true" selection-start-line="56" selection-start-column="77" selection-end-line="56" selection-end-column="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#739#740#0" expanded="true" />
-                <element signature="e#785#786#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1064">
-              <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeInfoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/TomatoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="564">
-              <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#saveEndTomato#0;class#TomatoService#0" />
-              </folding>
+            <state relative-caret-position="304">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="spring-beans.schema" />
-        <option value="JUnit4 Test Class" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>mongoTemplate1</find>
-      <find>mongoTemplate</find>
-      <find>PostConstruct</find>
-      <find>setTaskDone</find>
-      <find>mongo</find>
-      <find>userFace</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="PREVIOUS_COMMIT_AUTHORS">
-      <list>
-        <option value="RUA" />
-      </list>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Other/SaveEventListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Other/AutoIncrement.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/controller/DailySummaryControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/Service/DailySummaryControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/EXAMPLE.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Feedback.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Service/EXAMPLEDAOIMP.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/RespBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/List.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/ListTree.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/Service/EXAMPLEDAOIMPTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/TaskTreeDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/TomatoHistory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/TomatoHistoryDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/History.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/SummaryDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/controller/DailySummaryController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/TaskDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Service/KeywordRelated.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Service/RecommendService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Service/TaskService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/TaskTree.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/Service/KeywordTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/EntityForTest/UserTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/EntityForTest/TaskTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/EntityForTest/TaskTreeTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/EntityForTest/Summary.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/EntityForTest/SummaryTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/EntityForTest/HistoryTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/EntityForTest/FeedBackTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/EntityForTest/UserTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Task.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/Summary.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Listener/SaveEventListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Service/DailySummaryService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/GrowthApplication.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/Service/DailySummaryServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/controller/LogInController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeSettingController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/UserDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeInfoController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/Service/TaskServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/controller/TaskController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/entity/User.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/org/growth/Service/UserServiceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/org/growth/Service/TomatoServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/DAO/HistoryDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/org/growth/controller/TomatoController.java" />
       </list>
     </option>
   </component>
@@ -353,33 +101,13 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:/Program Files (x86)/apache-maven-3.5.4" />
-        <option name="userSettingsFile" value="C:\Program Files (x86)\apache-maven-3.5.4\conf\settings.xml" />
-      </MavenGeneralSettings>
-    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="growth" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="growth" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-21" />
@@ -387,173 +115,44 @@
     <option name="width" value="798" />
     <option name="height" value="1020" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="growth" type="b2602c69:ProjectViewProjectNode" />
               <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="growth" type="b2602c69:ProjectViewProjectNode" />
               <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="growth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="growth" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="growth" type="462c0819:PsiDirectoryNode" />
-              <item name="DAO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="growth" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="growth" type="462c0819:PsiDirectoryNode" />
-              <item name="Listener" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="growth" type="462c0819:PsiDirectoryNode" />
-              <item name="Other" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="growth" type="462c0819:PsiDirectoryNode" />
-              <item name="Service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="growth" type="b2602c69:ProjectViewProjectNode" />
               <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="growth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project-Growth-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project-Growth-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="growth" type="462c0819:PsiDirectoryNode" />
-              <item name="Service" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/99349/Desktop/workingSpace/JAVAEE_Final_Project/Project-Growth-master/src/main/java/com/org/growth/DAO/HistoryDao.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544452349621" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544496436792" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.org.growth.Service" />
-      <recent name="com.org.growth.controller" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.org.growth.Service" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -567,439 +166,69 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TomatoServiceTest.viewHistoryStatus">
-    <configuration name="TomatoServiceTest.viewHistory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Project-Growth-master" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.org.growth.Service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.org.growth.Service" />
-      <option name="MAIN_CLASS_NAME" value="com.org.growth.Service.TomatoServiceTest" />
-      <option name="METHOD_NAME" value="viewHistory" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TomatoServiceTest.viewHistoryStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Project-Growth-master" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.org.growth.Service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.org.growth.Service" />
-      <option name="MAIN_CLASS_NAME" value="com.org.growth.Service.TomatoServiceTest" />
-      <option name="METHOD_NAME" value="viewHistoryStatus" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.changeEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Project-Growth-master" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.org.growth.Service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.org.growth.Service" />
-      <option name="MAIN_CLASS_NAME" value="com.org.growth.Service.UserServiceTest" />
-      <option name="METHOD_NAME" value="changeEmail" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.changePassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Project-Growth-master" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.org.growth.Service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.org.growth.Service" />
-      <option name="MAIN_CLASS_NAME" value="com.org.growth.Service.UserServiceTest" />
-      <option name="METHOD_NAME" value="changePassword" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.changeUserFace" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Project-Growth-master" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.org.growth.Service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.org.growth.Service" />
-      <option name="MAIN_CLASS_NAME" value="com.org.growth.Service.UserServiceTest" />
-      <option name="METHOD_NAME" value="changeUserFace" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SpringBoot" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="Project-Growth-master" />
+  <component name="RunManager">
+    <configuration name="GrowthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="growth" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.org.growth.GrowthApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="Project-Growth-master" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.org.growth.GrowthApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Spring Boot.SpringBoot" />
-      <item itemvalue="JUnit.UserServiceTest.changePassword" />
-      <item itemvalue="JUnit.UserServiceTest.changeEmail" />
-      <item itemvalue="JUnit.UserServiceTest.changeUserFace" />
-      <item itemvalue="JUnit.TomatoServiceTest.viewHistory" />
-      <item itemvalue="JUnit.TomatoServiceTest.viewHistoryStatus" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.TomatoServiceTest.viewHistoryStatus" />
-        <item itemvalue="JUnit.TomatoServiceTest.viewHistory" />
-        <item itemvalue="JUnit.UserServiceTest.changeUserFace" />
-        <item itemvalue="JUnit.UserServiceTest.changeEmail" />
-        <item itemvalue="JUnit.UserServiceTest.changePassword" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="beb8ddf0-666e-4e42-90db-ecde51c4e9de" name="Default Changelist" comment="" />
-      <created>1542635355902</created>
+      <changelist id="b67fa8af-ec3c-45a3-be0b-e5d44ec96b88" name="Default Changelist" comment="" />
+      <created>1544494144012</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1542635355902</updated>
-      <workItem from="1542635357730" duration="1055000" />
-      <workItem from="1542686833779" duration="192000" />
-      <workItem from="1542687090510" duration="1921000" />
-      <workItem from="1542695341789" duration="6775000" />
-      <workItem from="1542702840022" duration="4286000" />
-      <workItem from="1542715877351" duration="1522000" />
-      <workItem from="1542785660778" duration="16000" />
-      <workItem from="1543150360878" duration="2815000" />
-      <workItem from="1543242613008" duration="2191000" />
-      <workItem from="1543284599735" duration="457000" />
-      <workItem from="1543286342723" duration="453000" />
-      <workItem from="1543412156872" duration="238000" />
-      <workItem from="1543484228812" duration="7784000" />
-      <workItem from="1543499738922" duration="1652000" />
-      <workItem from="1543502646162" duration="36000" />
-      <workItem from="1543543496862" duration="769000" />
-      <workItem from="1543544603545" duration="77000" />
-      <workItem from="1543545438484" duration="621000" />
-      <workItem from="1543644041948" duration="11726000" />
-      <workItem from="1543732200805" duration="13533000" />
-      <workItem from="1543890153684" duration="5496000" />
-      <workItem from="1543906429336" duration="364000" />
-      <workItem from="1543906804805" duration="1500000" />
-      <workItem from="1544161864736" duration="132000" />
-      <workItem from="1544236261444" duration="5616000" />
-      <workItem from="1544255081479" duration="4965000" />
-      <workItem from="1544265310612" duration="8564000" />
-      <workItem from="1544337436594" duration="17496000" />
+      <updated>1544494144012</updated>
+      <workItem from="1544494145702" duration="1217000" />
     </task>
-    <task id="LOCAL-00001" summary="DATABASE CONF">
-      <created>1542716375694</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1542716375694</updated>
-    </task>
-    <task id="LOCAL-00002" summary="DATABASE CONF">
-      <created>1543151006420</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1543151006420</updated>
-    </task>
-    <task id="LOCAL-00003" summary="实现ID自增（有问题!）">
-      <created>1543244785777</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1543244785777</updated>
-    </task>
-    <task id="LOCAL-00004" summary="EXAMPLE id autoincrement">
-      <created>1543284715055</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1543284715055</updated>
-    </task>
-    <task id="LOCAL-00005" summary="structure modified">
-      <created>1543484692718</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1543484692718</updated>
-    </task>
-    <task id="LOCAL-00006" summary="structure modified">
-      <created>1543486344858</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1543486344858</updated>
-    </task>
-    <task id="LOCAL-00007" summary="DailySummary">
-      <created>1543487299476</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1543487299476</updated>
-    </task>
-    <task id="LOCAL-00008" summary="DailySummary">
-      <created>1543501109884</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1543501109884</updated>
-    </task>
-    <task id="LOCAL-00009" summary="part of TomatoService">
-      <created>1543501257197</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1543501257197</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Tomato module">
-      <created>1543650740086</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1543650740086</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Part of Task  and some minor commit">
-      <created>1543739206938</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1543739206938</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Part of Task  and some minor commit">
-      <created>1543739664739</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1543739664739</updated>
-    </task>
-    <task id="LOCAL-00013" summary="RUA~">
-      <created>1543741335078</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1543741335078</updated>
-    </task>
-    <task id="LOCAL-00014" summary="wait for test">
-      <created>1543905048204</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1543905048204</updated>
-    </task>
-    <task id="LOCAL-00015" summary="...">
-      <created>1543908275504</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1543908275504</updated>
-    </task>
-    <task id="LOCAL-00016" summary="TEST DATA">
-      <created>1544239716665</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1544239716665</updated>
-    </task>
-    <task id="LOCAL-00017" summary="remove of test data and my own test">
-      <created>1544277688899</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1544277688899</updated>
-    </task>
-    <task id="LOCAL-00018" summary="yyy">
-      <created>1544339798651</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1544339798652</updated>
-    </task>
-    <task id="LOCAL-00019" summary="yyy">
-      <created>1544341243572</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1544341243573</updated>
-    </task>
-    <task id="LOCAL-00020" summary="yyy">
-      <created>1544342220522</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1544342220522</updated>
-    </task>
-    <task id="LOCAL-00021" summary="yyy">
-      <created>1544343008354</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1544343008354</updated>
-    </task>
-    <task id="LOCAL-00022" summary="yyy">
-      <created>1544344630568</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1544344630568</updated>
-    </task>
-    <task id="LOCAL-00023" summary="yyy">
-      <created>1544345648906</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1544345648906</updated>
-    </task>
-    <task id="LOCAL-00024" summary="yyy">
-      <created>1544347294072</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1544347294072</updated>
-    </task>
-    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="UserServiceTest_changeUsername - 2018.12.09 at 17h 07m 10s.xml">
-      <configuration name="UserServiceTest.changeUsername" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserServiceTest_changePassword - 2018.12.09 at 17h 08m 22s.xml">
-      <configuration name="UserServiceTest.changePassword" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserServiceTest_changeEmail - 2018.12.09 at 17h 09m 08s.xml">
-      <configuration name="UserServiceTest.changeEmail" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserServiceTest_changeUserFace - 2018.12.09 at 17h 09m 53s.xml">
-      <configuration name="UserServiceTest.changeUserFace" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TomatoServiceTest_viewHistory - 2018.12.09 at 17h 14m 43s.xml">
-      <configuration name="TomatoServiceTest.viewHistory" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TomatoServiceTest_viewHistory - 2018.12.09 at 17h 16m 06s.xml">
-      <configuration name="TomatoServiceTest.viewHistory" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TomatoServiceTest_viewHistoryStatus - 2018.12.09 at 17h 17m 36s.xml">
-      <configuration name="TomatoServiceTest.viewHistoryStatus" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TomatoServiceTest_viewHistoryStatus - 2018.12.09 at 17h 19m 04s.xml">
-      <configuration name="TomatoServiceTest.viewHistoryStatus" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TomatoServiceTest_viewHistory - 2018.12.09 at 17h 19m 04s.xml">
-      <configuration name="TomatoServiceTest.viewHistory" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TomatoServiceTest_viewHistoryStatus - 2018.12.09 at 17h 20m 46s.xml">
-      <configuration name="TomatoServiceTest.viewHistoryStatus" configurationId="JUnit" />
-    </history-entry>
-  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102533000" />
+    <option name="totallyTimeSpent" value="1217000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1223" height="735" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33133048" />
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info id="Web" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24978541" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.29187396" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49957082" visible="true" weight="0.38640133" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.5074627" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3281471" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5004292" side_tool="true" weight="0.38640133" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49871245" weight="0.32669982" />
-      <window_info anchor="bottom" id="Spring" order="11" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49871245" weight="0.3283582" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Bean Validation" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" weight="0.3297587" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.32961375" />
-      <window_info anchor="right" id="Bean Validation" order="9" weight="0.3297587" />
-      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.3297587" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3344504" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33002833" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.34844193" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3281471" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3286119" />
-      <window_info anchor="bottom" id="Spring" order="11" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.3286119" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" weight="0.3297587" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.3297587" />
-      <window_info anchor="right" id="Bean Validation" order="9" weight="0.3297587" />
-      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.3297587" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1007,622 +236,20 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="DATABASE CONF" />
-    <MESSAGE value="实现ID自增（有问题!）" />
-    <MESSAGE value="EXAMPLE id autoincrement" />
-    <MESSAGE value="structure modified" />
-    <MESSAGE value="DailySummary" />
-    <MESSAGE value="part of TomatoService" />
-    <MESSAGE value="latest version" />
-    <MESSAGE value="Tomato module" />
-    <MESSAGE value="Part of Task  and some minor commit" />
-    <MESSAGE value="RUA~" />
-    <MESSAGE value="wait for test" />
-    <MESSAGE value="..." />
-    <MESSAGE value="TEST DATA" />
-    <MESSAGE value="remove of test data and my own test" />
-    <MESSAGE value="yyy" />
-    <option name="LAST_COMMIT_MESSAGE" value="yyy" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/EXAMPLEDAOIMPTest.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/Task.java</url>
-          <line>25</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java</url>
-          <line>95</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/DailySummaryServiceTest.java</url>
-          <line>59</line>
-          <properties />
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/DailySummaryServiceTest.java</url>
-          <line>61</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/DailySummaryService.java</url>
-          <line>45</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/org/growth/EntityForTest/UserTest.java</url>
-          <line>13</line>
-          <properties />
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java</url>
-          <line>78</line>
-          <properties />
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/TomatoServiceTest.java</url>
-          <line>49</line>
-          <properties />
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java</url>
-          <line>57</line>
-          <properties />
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java</url>
-          <line>60</line>
-          <properties />
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/DailySummaryService.java</url>
-          <line>48</line>
-          <properties />
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/DailySummaryServiceTest.java</url>
-          <line>47</line>
-          <properties />
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/DailySummaryServiceTest.java</url>
-          <line>68</line>
-          <properties />
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/DailySummaryServiceTest.java</url>
-          <line>67</line>
-          <properties />
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/DailySummaryService.java</url>
-          <line>62</line>
-          <properties />
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/TaskServiceTest.java</url>
-          <line>22</line>
-          <properties />
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TaskService.java</url>
-          <line>67</line>
-          <properties />
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/TaskServiceTest.java</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="JUnit">
-        <watch expression="UserTest.user1" language="JAVA" custom="com.org.growth.EntityForTest.UserTest" />
-        <watch expression="result" />
-        <watch expression="(Integer)integer" language="JAVA" />
-        <watch expression="new Integer(1)" language="JAVA" />
-      </configuration>
-      <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="UserTest.user1" language="JAVA" custom="com.org.growth.EntityForTest.UserTest" />
-      </configuration>
-    </watches-manager>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="watch">
-      <expression>
-        <expression-string>new Integer(1)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>(Integer)integer</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>UserTest.user1</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>com.org.growth.EntityForTest.UserTest</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/EXAMPLE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/EXAMPLEDAOIMPTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="16" selection-start-line="16" selection-end-line="17" selection-end-column="15" />
-          <folding>
-            <element signature="e#1071#1072#0" expanded="true" />
-            <element signature="e#1109#1110#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/5.1.2.RELEASE/spring-test-5.1.2.RELEASE.jar!/org/springframework/test/context/junit4/statements/RunAfterTestExecutionCallbacks.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39440">
-          <caret line="2052" selection-start-line="2052" selection-end-line="2052" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/EntityForTest/UserTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="41" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/EntityForTest/FeedBackTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/EntityForTest/HistoryTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/EntityForTest/SummaryTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/EntityForTest/TaskTest.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.2.RELEASE/spring-context-5.1.2.RELEASE.jar!/org/springframework/context/event/SimpleApplicationEventMulticaster.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.2.RELEASE/spring-context-5.1.2.RELEASE.jar!/org/springframework/context/support/AbstractApplicationContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="171" selection-start-line="171" selection-end-line="171" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/Summary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-          <folding>
-            <element signature="e#603#604#0" expanded="true" />
-            <element signature="e#636#637#0" expanded="true" />
-            <element signature="e#685#686#0" expanded="true" />
-            <element signature="e#729#730#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Other/AutoIncrement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.2.RELEASE/spring-core-5.1.2.RELEASE.jar!/org/springframework/util/ReflectionUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="446" selection-start-line="446" selection-end-line="446" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-mongodb/2.1.2.RELEASE/spring-data-mongodb-2.1.2.RELEASE.jar!/org/springframework/data/mongodb/core/mapping/event/LoggingEventListener.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-mongodb/2.1.2.RELEASE/spring-data-mongodb-2.1.2.RELEASE.jar!/org/springframework/data/mongodb/core/mapping/event/BeforeSaveEvent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/statements/RunAfters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/model/FrameworkMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="e#1464#1658#0" expanded="true" />
-            <element signature="e#1657#1658#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/GrowthApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Listener/SaveEventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-mongodb/2.1.2.RELEASE/spring-data-mongodb-2.1.2.RELEASE.jar!/org/springframework/data/mongodb/core/mapping/event/AbstractMongoEventListener.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-mongodb/2.1.2.RELEASE/spring-data-mongodb-2.1.2.RELEASE.jar!/org/springframework/data/mongodb/core/MongoTemplate.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25308">
-          <caret line="1513" selection-start-line="1513" selection-end-line="1513" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-mongodb/2.1.2.RELEASE/spring-data-mongodb-2.1.2.RELEASE-sources.jar!/org/springframework/data/mongodb/core/mapping/event/AbstractMongoEventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/KeywordTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/DailySummaryServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-mongodb/2.1.2.RELEASE/spring-data-mongodb-2.1.2.RELEASE-sources.jar!/org/springframework/data/mongodb/core/MongoTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30669">
-          <caret line="2241" column="52" selection-start-line="2241" selection-start-column="52" selection-end-line="2241" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/DailySummaryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="69" column="28" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/statements/RunBefores.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/AnalyzeDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-331">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/ArticleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-247">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/DAO/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/AnalyzedataBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/TaskController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/KeywordRelated.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/TaskServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="22" column="99" selection-start-line="22" selection-start-column="99" selection-end-line="22" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/UserServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-951">
-          <caret line="63" column="47" lean-forward="true" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="47" />
-          <folding>
-            <element signature="method#getTomatoWeeklyCount#0;class#UserServiceTest#0" />
-            <element signature="method#tomatoCountReduceOne#0;class#UserServiceTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/org/growth/Service/TomatoServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="41" column="75" lean-forward="true" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TaskService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="55" column="31" lean-forward="true" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/History.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/DAO/HistoryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/SignUpController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/LogInController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeSettingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/ChangeInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/controller/TomatoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/TomatoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#saveEndTomato#0;class#TomatoService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1064">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/org/growth/Service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1045">
-          <caret line="56" column="77" lean-forward="true" selection-start-line="56" selection-start-column="77" selection-end-line="56" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#785#786#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="304">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Spring</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>10</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Project-Growth-master</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>10</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

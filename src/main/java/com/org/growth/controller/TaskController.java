@@ -4,6 +4,7 @@ import com.org.growth.Service.DailySummaryService;
 import com.org.growth.Service.TaskService;
 import com.org.growth.entity.TaskTree;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,38 +20,45 @@ public class TaskController {
     TaskService taskService;
 
     @ResponseBody
-    @GetMapping(value = "addtask")
-    public List addTask(@RequestParam(value = "userid") long userId, @RequestParam(value = "taskname") String taskName,
-                        @RequestParam(value = "deadline") Date deadline, @RequestParam(value = "description") String description,
-                        @RequestParam(value = "expectedtomato") int expectedTomato, @RequestParam(value = "remnidtime") Date remindTime){
-        return taskService.addTask(userId,description,taskName, expectedTomato,deadline,remindTime,new Date());
+    @GetMapping(value = "addTask")
+    public List addTask(@RequestParam(value = "userId") long userId, @RequestParam(value = "taskName") String taskName,
+                        @RequestParam(value = "description") String description, @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")Date setTime,
+                        @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")Date deadline,
+                        @RequestParam(value = "expectedTomato") int expectedTomato, @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") Date remindTime){
+        return taskService.addTask(userId,taskName, description,expectedTomato,setTime,deadline,remindTime);
     }
 
 
     @ResponseBody
-    @GetMapping(value = "starttask")
-    public boolean startTask(@RequestParam(value = "userid") long userId, @RequestParam(value = "taskname") String taskName,
-                             @RequestParam(value = "startTime") Date startTime){
+    @GetMapping(value = "startTask")
+    public boolean startTask(@RequestParam(value = "userId") long userId, @RequestParam(value = "taskName") String taskName,
+                             @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") Date startTime){
         return taskService.startTask(userId, taskName, startTime);
     }
 
     @ResponseBody
-    @GetMapping(value = "breaktask")
-    public boolean breakTask(@RequestParam(value = "userid") long userId, @RequestParam(value = "taskname") String taskName,
-                             @RequestParam(value = "startTime") Date startTime){
+    @GetMapping(value = "breakTask")
+    public boolean breakTask(@RequestParam(value = "userId") long userId, @RequestParam(value = "taskName") String taskName,
+                             @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") Date startTime){
         return taskService.breakTask(userId, taskName, startTime);
     }
 
     @ResponseBody
-    @GetMapping(value = "endtask")
-    public boolean endTask(@RequestParam(value = "userid") long userId, @RequestParam(value = "taskname") String taskName,
-                           @RequestParam(value = "startTime") Date startTime){
+    @GetMapping(value = "endTask")
+    public boolean endTask(@RequestParam(value = "userId") long userId, @RequestParam(value = "taskName") String taskName,
+                           @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") Date startTime){
         return taskService.endTask(userId, taskName, startTime);
     }
     @ResponseBody
-    @GetMapping(value = "addsubtask")
-    public int addSubTask(@RequestParam(value = "taskid") long taskid, @RequestParam(value = "name") String name){
-        return taskService.addSubTask(taskid,name);
+    @GetMapping(value = "addSubTask")
+    public int addSubTask(@RequestParam(value = "taskId") long taskId, @RequestParam(value = "name") String name){
+        return taskService.addSubTask(taskId,name);
+    }
+
+    @ResponseBody
+    @GetMapping(value = "getTask")
+    public List queryTask(@RequestParam(value = "userId") long userId) {
+        return taskService.queryTask(userId);
     }
 
 }

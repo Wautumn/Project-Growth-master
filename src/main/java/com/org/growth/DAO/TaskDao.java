@@ -17,4 +17,6 @@ public interface TaskDao {
     boolean breakTask(long userId, String taskName, Date time);
 
     boolean endTask(long userId, String taskName, Date endTime);
+
+    List queryTask(long userId);
 }

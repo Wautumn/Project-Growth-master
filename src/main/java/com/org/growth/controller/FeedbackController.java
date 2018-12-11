@@ -6,28 +6,32 @@ import com.org.growth.entity.RespBean;
 import com.org.growth.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.Date;
 
-@Controller
+@RestController
 @RequestMapping("/Feedback")
 public class FeedbackController {
+
     @Autowired
     FeedbackService feedbackService=new FeedbackService();
 
-
-
     @RequestMapping(value="/submitFeedback", method = RequestMethod.POST)
-    public RespBean submitFeedback(String feedbackContent){
-        Feedback feedback=new Feedback();
-        feedback.setContent(feedbackContent);
+    public RespBean submitFeedback(@RequestBody String content, @RequestParam(value = "userid")long userid) {
+        Feedback feedback = new Feedback();
+        feedback.setContent(content);
+        feedback.setUserid(userid);
         feedback.setTime(new Date());
-        feedback.setUserid(Util.getCurrentUser().getId());
-        feedbackService.addFeedback(feedback);
-        return new RespBean("success","提交成功");
+        feedback.setUserid(2l);
+        int result=feedbackService.addFeedback(feedback);
+        if(result==1) return new RespBean("success","提交成功");
+        else return new RespBean("failure","提交失败");
 
     }
+
+
+
+
 }
