@@ -24,7 +24,24 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     @Autowired
     MongoTemplate mongoTemplate;
 
-    public static LocalDate earlyData;
+    public String weekday="";
+    public String daytime="";
+
+    public String getWeekday() {
+        return weekday;
+    }
+
+    public void setWeekday(String weekday) {
+        this.weekday = weekday;
+    }
+
+    public String getDaytime() {
+        return daytime;
+    }
+
+    public void setDaytime(String daytime) {
+        this.daytime = daytime;
+    }
 
     public boolean isExistHistoryEnough(long userId){
        Query query=new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC,"starttime"))).limit(1);
@@ -88,6 +105,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         List<AnalyzedataBean> analyzedataBeans = new LinkedList<>();//用链表类型好一点
         Query query = new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC, "starttime"))).limit(1);
         History history = mongoTemplate.findOne(query, History.class);
+        LocalDate earlyData;
         earlyData=DateToLocalDate(history.getStartTime());
        // System.out.println(DateToLocalDate(history.getStartTime())+","+history.getTaskId());//最早的历史记录的时间
         LocalDate startTime=DateToLocalDate(history.getStartTime());
@@ -281,7 +299,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         else if(dd==6)ddd="星期六";
         else if(dd==7)ddd="星期日";
 
-        map.put("最多",dd);
+        weekday=ddd;
 
         AnalyData analyData=new AnalyData(ddd,map);
         return map;
@@ -335,7 +353,11 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         map.put("上午",mor);
         map.put("下午",aft);
         map.put("晚上",eve);
-        map.put("最多",maxtime);
+
+        if(maxtime==1) daytime="上午";
+        else if(maxtime==3) daytime="晚上";
+        else if (maxtime==2) daytime="下午";
+
        // System.out.println("mo"+mor+"af"+aft+"ev"+eve);
        // System.out.println(maxtime);
 
