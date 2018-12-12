@@ -19,7 +19,7 @@ public class ArticleService {
     /*
     获取历史记录
      */
-    public List<String>getHistoryTaskDescription(Long userId){
+    public List<String>getHistoryTaskDescription(long userId){
 
         List<String> recordContent=new LinkedList<>();
         Query query=Query.query(Criteria.where("userId").is(userId));
@@ -27,11 +27,12 @@ public class ArticleService {
         List<History> histories=mongoTemplate.find(query,History.class);
         //通过历史记录去加载任务内容
         for(History h:histories){
-            Long TaskId=h.getTaskId();
+            long TaskId=h.getTaskId();
             Query query1=Query.query(Criteria.where("id").is(TaskId));
-            com.org.growth.entity.Task list=mongoTemplate.findOne(query1, com.org.growth.entity.Task.class);
-            String TaskConntent=list.getDescription();
-            recordContent.add(recordContent.size(),TaskConntent);//顺序
+            com.org.growth.entity.Task task=mongoTemplate.findOne(query1, com.org.growth.entity.Task.class);
+            String TaskConntent=" ";
+            if(task!=null)  TaskConntent=task.getDescription();
+            recordContent.add(TaskConntent+',');//顺序
         }
         return recordContent;
     }
@@ -43,8 +44,8 @@ public class ArticleService {
         List<String> taskContent=getHistoryTaskDescription(userId);
         String allContext="";
         Iterator iterator=taskContent.iterator();
-        while (iterator.hasNext()){
-            allContext=allContext+iterator.next();
+        for(int i=0;i<taskContent.size();i++){
+            allContext=allContext+taskContent.get(i);
 
         }
         return allContext;

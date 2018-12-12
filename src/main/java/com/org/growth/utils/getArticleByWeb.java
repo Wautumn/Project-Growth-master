@@ -36,34 +36,25 @@ public class getArticleByWeb {
             {
                 doc= Jsoup.connect("https://www.csdn.net/nav/other").get();
             }
-           // if(num==0) { doc= Jsoup.connect("https://www.csdn.net/nav/newarticles").get();}
-           // if(num==0) { doc= Jsoup.connect("https://www.csdn.net/nav/newarticles").get();}
-
             Elements titleLinks=doc.select("div.title");
+            Elements IntroLinks=doc.select("div.summary.oneline");
             System.out.println(titleLinks.size());
             for(int i=0;i<titleLinks.size();i++){
                 String title="";
-                title=titleLinks.get(i).select("h2").select("a").text();
-                String uri=titleLinks.get(i).select("h2").select("a").attr("href");
+                title=titleLinks.get(i).select("h2").select("a").text();//标题
+                String uri=titleLinks.get(i).select("h2").select("a").attr("href");//url
+                String intro=IntroLinks.get(i).text();
                 Document doc1=Jsoup.connect(uri).get();//#mainBox > main > div.blog-content-box > div > div > div.article-info-box
-                Elements desLinks=doc1.select("div#content_views");
+                //Elements desLinks=doc1.select("div#content_views");
                 String author="a";
                 author=doc1.select("div.article-bar-top").select("a.follow-nickName").text();
                 String readCount=doc1.select("div.article-bar-top").select("span.read-count").text();
-                String desc="";
-                if(desLinks.size()!=0){
-                    Elements e=desLinks.select("p");
-                    for(int z=0;z<e.size();z++){
-                        desc+=desLinks.html();
-                    }
-                }else{
-                    desc="0";
-                }
-                // Long h=new Long(String.valueOf( i+1 ));
-                Article article=new Article((100*num+i),title,desc,author,readCount,uri,num);//先把他tag设置为1
 
-                //    System.out.println(article.getTitle());
-                mongoTemplate.insert(article);
+                // Long h=new Long(String.valueOf( i+1 ))
+                 Article article=new Article((100*num+i),title,intro,author,readCount,uri,num);//先把他tag设置为1
+
+                //  System.out.println(article.getTitle());
+             //    mongoTemplate.insert(article);
             }
         }catch(Exception e){
             e.printStackTrace();

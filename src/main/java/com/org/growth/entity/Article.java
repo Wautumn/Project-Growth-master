@@ -11,8 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Field;
  */
 @Document(collection = "Article")
 public class Article {
-
-
     @Id
     private long id;
 
@@ -22,8 +20,8 @@ public class Article {
     @Field("title")
     private String title;
 
-    @Field("content")
-    private String content;
+    @Field("intro")
+    private String intro;
 
     @Field("clickcount")
     private String clickcount;
@@ -33,6 +31,33 @@ public class Article {
 
     @Field("url")
     private String url;
+
+
+    public Article(){
+
+    }
+
+
+
+    public Article(int id,String title, String intro, String author, String clickcount, String url,int tags){
+        this.id=id;
+        this.url=url;
+        this.author=author;
+        this.clickcount=clickcount;
+        this.intro=intro;
+        this.tags=tags;
+        this.title=title;
+
+
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public int getTags() {
         return tags;
@@ -50,12 +75,12 @@ public class Article {
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
+    public String getIntro() {
+        return intro;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setIntro(String intro) {
+        this.intro = intro;
     }
 
     public String getClickcount() {
@@ -74,19 +99,11 @@ public class Article {
         this.author = author;
     }
 
-    public Article(int id,String title, String content, String author, String clickcount, String url,int tags){
-        this.id=id;
-        this.url=url;
-        this.author=author;
-        this.clickcount=clickcount;
-        this.content=content;
-        this.tags=tags;
-        this.title=title;
-
-
+    public String getUrl() {
+        return url;
     }
 
-
-
-
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

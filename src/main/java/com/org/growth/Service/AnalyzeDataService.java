@@ -1,10 +1,7 @@
 package com.org.growth.Service;
 
 import com.org.growth.DAO.AnalyzeDataDAO;
-import com.org.growth.entity.AnalyzedataBean;
-import com.org.growth.entity.History;
-import com.org.growth.entity.Summary;
-import com.org.growth.entity.Task;
+import com.org.growth.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -221,10 +218,10 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     /*
     用完成番茄数来衡量平均的一周中 哪天完成的数量比较多，前四周的数据
      */
-    public int getWeekdayData(long userId){
+    public Map<String,Object> getWeekdayData(long userId){
         int Mon=0,Tues=0,Wed=0,Thur=0,Fri=0,Sat=0,Sun=0;
         List<Integer> day=new ArrayList<>();
-
+        Map<String,Object> map=new LinkedHashMap<>();
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
 
         Query query=Query.query(Criteria.where("userId").is(userId));
@@ -263,19 +260,35 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         day.add(Fri);
         day.add(Sat);
         day.add(Sun);
-        int Max = Collections.max(day);
+        map.put("星期一",Mon);
+        map.put("星期二",Tues);
+        map.put("星期三",Wed);
+        map.put("星期四",Thur);
+        map.put("星期五",Fri);
+        map.put("星期六",Sat);
+        map.put("星期日",Sun);
+        int max=Collections.max(day);
         int dd=0;
         for(int i=0;i<7;i++){
-            if(day.get(i).equals(Max))
+            if(day.get(i).equals(max))
                dd=i+1;
         }
-       // Iterator iterator=dd.iterator();
-        //while (iterator.hasNext()) {
-          //  Object o = iterator.next();
-          //  System.out.println(o+"   sssst");
-       // }
-        // System.out.println(Mon+","+Tues+","+Wed+","+Thur+","+Fri+","+Sat+","+Sun+".....");
-        return dd;
+        String ddd="";
+        if(dd==1)ddd="星期一";
+        else if(dd==2)ddd="星期二";
+        else if(dd==3)ddd="星期三";
+        else if(dd==5)ddd="星期五";
+        else if(dd==6)ddd="星期六";
+        else if(dd==7)ddd="星期日";
+
+        map.put("最多",dd);
+
+        AnalyData analyData=new AnalyData(ddd,map);
+        return map;
+
+
+
+}
 
 
 
@@ -284,13 +297,12 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
 
 
 
-
-    }
 
     /*
     哪个时段的完成数较多
      */
-    public int getTimeData(long userId){
+    public Map<String,Object> getTimeData(long userId){
+        Map<String,Object> map=new LinkedHashMap<>();
         List<Integer> time=new LinkedList<>();
         LocalTime localTime0=LocalTime.of(0,0);
         LocalTime localTime1=LocalTime.of(7,0);
@@ -320,9 +332,14 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
             if (time.get(i).equals(max))
                 maxtime=i+1;
         }
+        map.put("上午",mor);
+        map.put("下午",aft);
+        map.put("晚上",eve);
+        map.put("最多",maxtime);
        // System.out.println("mo"+mor+"af"+aft+"ev"+eve);
        // System.out.println(maxtime);
-        return maxtime;
+
+        return map;
 
     }
 
