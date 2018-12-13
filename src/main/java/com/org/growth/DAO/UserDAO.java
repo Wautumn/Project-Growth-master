@@ -15,6 +15,6 @@ public interface UserDAO {
     String changeUserFace(long UserId, String userFace);
 
     long logIn(String username, String password);
-    long signUp(String username, String password, String email, String userFace, int tomatoLength, String music);
+    long signUp(String username, String password, String email);
 
 }

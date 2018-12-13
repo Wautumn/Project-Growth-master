@@ -69,10 +69,7 @@ public class TomatoService implements HistoryDao {
                 .and("userId").is(userId)), History.class);
         return items;
 
-
-
     }
-
 
     /*
     @Override

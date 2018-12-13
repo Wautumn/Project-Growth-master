@@ -11,8 +11,8 @@ public class SignUpController {
 
     @ResponseBody
     @GetMapping(value = "/signUp")
-    public long signUp(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, @RequestParam(value = "email") String email, @RequestParam(value = "userFace") String userFace, @RequestParam(value = "tomatoLength") int tomatoLength, @RequestParam(value = "music") String music){
-        return userService.signUp(username, password, email, userFace, tomatoLength, music);
+    public long signUp(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, @RequestParam(value = "email") String email){
+        return userService.signUp(username, password, email);
     }
 }
 
