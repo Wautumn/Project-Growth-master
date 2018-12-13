@@ -2,6 +2,7 @@ package com.org.growth.controller;
 
 import com.org.growth.Service.ArticleService;
 import com.org.growth.Service.KeywordRelated;
+import com.org.growth.Service.UserService;
 import com.org.growth.entity.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,9 @@ public class ArticleController {
     ArticleService articleService=new ArticleService();
 
     @Autowired
+    UserService userService=new UserService();
+
+    @Autowired
     KeywordRelated keywordRelated=new KeywordRelated();
 
     //热门文章
@@ -26,7 +30,11 @@ public class ArticleController {
     }
 
     @GetMapping(value = "/getRecommendArticle")
-    public List<Article> performRecommendArticle(@RequestParam(value = "userId") Long userId)throws Exception{
+    public List<Article> performRecommendArticle(@RequestParam(value = "userId")long userId)throws Exception{
+
+        if(userService.findByUserId(userId)==null){
+          System.out.println("null");
+        }
         String context=articleService.getStringHistory(userId);
         List<String> keywords=keywordRelated.GetKeywords(context,10);
         List<Integer> keyTags=keywordRelated.getUsertags(keywords);
