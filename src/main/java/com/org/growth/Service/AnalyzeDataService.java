@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
@@ -64,33 +65,25 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     }
 
     /*
-    返回三个月的这个数据结构AnalyzedataBean
+    返回给定日期前两个月的数据
      */
     @Override
-    public List<AnalyzedataBean> getCompletedData(long userId){
+    public List<AnalyzedataBean> getTwoMonthData(long userId,String localTime){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate curdate = LocalDate.parse(localTime,formatter);//当前日期
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
-        Calendar c=Calendar.getInstance();
-        List<AnalyzedataBean> analyzedataBeans=null;//用链表类型好一点
+        LocalDate start=curdate.minusMonths(2);
+      //  System.out.println("start"+start.toString());
 
-       /* Date current=new Date();
-        c.setTime(new Date());
-        c.add(Calendar.MONTH,-3);
-        Date m=c.getTime();//前三个月的Date
+        List<AnalyzedataBean> analyzedataBeans=new LinkedList<>();//用链表类型好一点
 
-        long count=differentDaysByMillisecond(m,current);//总天数
-        for(int i=0;i<count;i++){
-           // AnalyzedataBean analyzedataBean=new AnalyzedataBean();
-            Calendar c2=Calendar.getInstance();
-            c.setTime(new Date());
-            c.add(Calendar.DAY_OF_MONTH,-i);
-            Date time=c.getTime();//日期
-            int tomatoCount=getSomedayTomato(time);
-            int taskCount=getSomedayTask(time);
-            int level=getSomedaySelfEvaluation(time);
-            AnalyzedataBean analyzedataBean=new AnalyzedataBean(tomatoCount,taskCount,time,level);
-            analyzedataBeans.add(analyzedataBean);
+        long diff=ChronoUnit.DAYS.between(start, curdate);
+        int bet=(int) diff;
 
-        }*/
+        for(int i=0;i<bet;++i){
+            analyzedataBeans.add(getDateData(userId,start.plusDays((long)i+1)));
+        }
+
         return analyzedataBeans;
     }
 
@@ -140,7 +133,6 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
 
         int tomatocount=0;
         int taskCount=0;
-        int level=0;
 
         AnalyzedataBean analyzedataBean=new AnalyzedataBean(0,0,current.toString());
         if(dateHistory!=null&&dateHistory.size()>0) {

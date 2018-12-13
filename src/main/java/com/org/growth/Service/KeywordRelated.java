@@ -97,6 +97,13 @@ public class KeywordRelated {
       if(keywords.contains("学习")) tagspage.add(-1);
       if(keywords.contains("看")) tagspage.add(-1);
 
+      if(keywords.size()<3){//通用型
+          tagspage.add(1);
+          tagspage.add(11);
+          tagspage.add(12);
+
+      }
+
 
       return tagspage;
 

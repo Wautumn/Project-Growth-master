@@ -38,9 +38,7 @@ public class ArticleController {
         List<Integer> keyTags=new LinkedList<>();
         List<Article> articles=new LinkedList<>();
         if(userService.findByUserId(userId)==null){
-          System.out.println("null");
-          articles.add(article);
-          return articles;
+          return performPopularArticle();//返回热门文章
         }
         context=articleService.getStringHistory(userId);
         keywords=keywordRelated.GetKeywords(context,10);

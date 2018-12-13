@@ -32,6 +32,9 @@ public class Article {
     @Field("url")
     private String url;
 
+    @Field("img")
+    private String img;
+
     public Article(){
 
     }
@@ -50,9 +53,20 @@ public class Article {
         this.clickcount=clickcount;
         this.intro=intro;
         this.tags=tags;
+        this.img=img;
         this.title=title;
 
 
+    }
+
+    public Article(int id,String title,String intro,String author,String url,int tags,String img){
+        this.id=id;
+        this.url=url;
+        this.author=author;
+        this.img=img;
+        this.intro=intro;
+        this.tags=tags;
+        this.title=title;
     }
 
     public long getId() {

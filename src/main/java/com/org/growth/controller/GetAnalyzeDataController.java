@@ -34,6 +34,18 @@ public class GetAnalyzeDataController {
     }
 
     /*
+    特定时间的图表信息
+     */
+    @RequestMapping(value = "/getTwoMonthHistoryData",method = RequestMethod.GET)
+    public List<AnalyzedataBean> getTwoMonth(@RequestParam(value = "userid") long userId,@RequestParam(value = "date") String date){
+        if(userService.findByUserId(userId)==null) return null;
+        else
+        {
+            return analyzeDataService.getTwoMonthData(userId,date);
+        }
+    }
+
+    /*
     每周的哪一天效率比较高
      */
     @RequestMapping(value = "/getWeekdaySuggestion",method = RequestMethod.GET)
@@ -75,8 +87,6 @@ public class GetAnalyzeDataController {
         return analyData;
 
     }
-
-
 
     /*
     哪个时间
