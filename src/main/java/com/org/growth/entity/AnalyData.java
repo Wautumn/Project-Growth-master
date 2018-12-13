@@ -1,17 +1,20 @@
 package com.org.growth.entity;
 
-import java.util.Map;
+import org.springframework.stereotype.Component;
 
-public class AnalyData {
+import java.util.List;
+
+@Component
+public class AnalyData  {
     private String result;
 
-    private Map<String,Object> data;
+    private List<newData> data;
 
     public AnalyData(){
 
     }
 
-    public AnalyData(String result,Map<String,Object> map){
+    public AnalyData(String result,List<newData> map){
         this.result=result;
         this.data=map;
     }
@@ -24,11 +27,14 @@ public class AnalyData {
         this.result = result;
     }
 
-    public Map<String, Object> getData() {
+    public List<newData> getData() {
         return data;
     }
 
-    public void setData(Map<String, Object> data) {
+
+
+    public void setData(List<newData> data) {
         this.data = data;
     }
+
 }

@@ -1,19 +1,17 @@
 package com.org.growth.Service;
 
 import com.org.growth.DAO.AnalyzeDataDAO;
+import com.org.growth.entity.newData;
 import com.org.growth.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.aggregation.AccumulatorOperators;
-import org.springframework.data.mongodb.core.aggregation.ConvertOperators;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.temporal.ChronoUnit;
@@ -24,7 +22,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     @Autowired
     MongoTemplate mongoTemplate;
 
-    public String weekday="";
+    public String weekday="无";
     public String daytime="";
 
     public String getWeekday() {
@@ -115,7 +113,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         for(int i=0;i<daycliff;i++)
         {
             LocalDate cur=startTime.plusDays(i);
-            AnalyzedataBean analyzedataBean=new AnalyzedataBean(0,0,cur,0);
+            AnalyzedataBean analyzedataBean=new AnalyzedataBean(0,0,cur.toString());
             analyzedataBean = getDateData(userId, cur);
             analyzedataBeans.add(analyzedataBean);
         }
@@ -144,7 +142,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         int taskCount=0;
         int level=0;
 
-        AnalyzedataBean analyzedataBean=new AnalyzedataBean(0,0,current,100);
+        AnalyzedataBean analyzedataBean=new AnalyzedataBean(0,0,current.toString());
         if(dateHistory!=null&&dateHistory.size()>0) {
             for (int i = 0; i < dateHistory.size(); i++) {
                 if (dateHistory.get(i).getStatus() == 2)
@@ -155,12 +153,12 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         }
 
         taskCount=dateTask.size();
-        if(summaries!=null&&summaries.size()>0) level=getOneDayLevel(summaries,current);
 
-        analyzedataBean.setDate(current);
+
+        analyzedataBean.setDate(current.toString());
         analyzedataBean.setTaskCount(taskCount);
         analyzedataBean.setTomatocount(tomatocount);
-        analyzedataBean.setLevel(level);
+
         return analyzedataBean;
 
     }
@@ -204,18 +202,6 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         return dayTasks;
     }
 
-    private int getOneDayLevel(List<Summary> summary,LocalDate day) {
-        List<Summary> summaries = new LinkedList<>();
-        for (int i = 0; i < summary.size(); i++) {
-            Date time = summary.get(i).getTime();
-            LocalDate localDate = DateToLocalDate(time);
-            if (localDate.equals(day)) {
-                summaries.add(summary.get(i));
-            }
-
-        }
-        return summaries.get(0).getSelfRating();
-    }
 
     public LocalDate DateToLocalDate(Date date) {
 
@@ -236,16 +222,21 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     /*
     用完成番茄数来衡量平均的一周中 哪天完成的数量比较多，前四周的数据
      */
-    public Map<String,Object> getWeekdayData(long userId){
+    public List<newData> getWeekdayData(long userId){
         int Mon=0,Tues=0,Wed=0,Thur=0,Fri=0,Sat=0,Sun=0;
+        int tMon=0,tTues=0,tWed=0,tThur=0,tFri=0,tSat=0,tSun=0;
+        List<newData> newDataList=new LinkedList<>();
         List<Integer> day=new ArrayList<>();
         Map<String,Object> map=new LinkedHashMap<>();
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
 
         Query query=Query.query(Criteria.where("userId").is(userId));
+        List<History> tasks=mongoTemplate.find(query,History.class);//所有的任务数
+
         query.addCriteria(Criteria.where("status").is(2));
-        List<History>histories=mongoTemplate.find(query,History.class);//获取所有历史记录
+        List<History>histories=mongoTemplate.find(query,History.class);//获取所有完成的历史记录
         System.out.println("size his"+histories.size());
+        System.out.println("task size his"+tasks.size());
 
         Calendar calendar=Calendar.getInstance();
         calendar.set(Calendar.DAY_OF_WEEK,Calendar.MONDAY);//当前时间的周一时间
@@ -271,6 +262,18 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
             else if (cur.getValue() == 6) Sat ++;
             else if (cur.getValue() == 7) Sun ++;
         }
+
+        for(int i=0;i<tasks.size();++i) {
+            DayOfWeek cur = DateToLocalDate(tasks.get(i).getStartTime()).getDayOfWeek();
+           // System.out.println(cur.toString() + "星期几"+cur.getValue());
+            if (cur.getValue() == 1) tMon ++;
+            else if (cur.getValue() == 2) tTues ++;
+            else if (cur.getValue() == 3) tWed ++;
+            else if (cur.getValue() == 4) tThur ++;
+            else if (cur.getValue() == 5) tFri ++;
+            else if (cur.getValue() == 6) tSat ++;
+            else if (cur.getValue() == 7) tSun ++;
+        }
         day.add(Mon);
         day.add(Tues);
         day.add(Wed);
@@ -278,13 +281,29 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         day.add(Fri);
         day.add(Sat);
         day.add(Sun);
-        map.put("星期一",Mon);
+
+        newData Mondata=new newData("星期一",Mon,tMon);
+        newData Tuesdata=new newData("星期二",Tues,tTues);
+        newData Weddata=new newData("星期三",Wed,tWed);
+        newData Thurdata=new newData("星期四",Thur,tThur);
+        newData Fridata=new newData("星期五",Fri,tFri);
+        newData Satdata=new newData("星期六",Sat,tSat);
+        newData Sundata=new newData("星期日",Sun,tSun);
+        System.out.println("dddddd"+Mondata.getWeekday());
+        newDataList.add(Mondata);
+        newDataList.add(Thurdata);
+        newDataList.add(Weddata);
+        newDataList.add(Thurdata);
+        newDataList.add(Fridata);
+        newDataList.add(Satdata);
+        newDataList.add(Sundata);
+      /*  map.put("星期一",Mon);
         map.put("星期二",Tues);
         map.put("星期三",Wed);
         map.put("星期四",Thur);
         map.put("星期五",Fri);
         map.put("星期六",Sat);
-        map.put("星期日",Sun);
+        map.put("星期日",Sun);*/
         int max=Collections.max(day);
         int dd=0;
         for(int i=0;i<7;i++){
@@ -299,29 +318,22 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         else if(dd==6)ddd="星期六";
         else if(dd==7)ddd="星期日";
 
-        weekday=ddd;
+        weekday=ddd;//完成番茄数最多的天
 
-        AnalyData analyData=new AnalyData(ddd,map);
-        return map;
+      //  AnalyData analyData=new AnalyData(ddd,map);
+        return newDataList;
 
 
 
 }
 
-
-
-
-
-
-
-
-
     /*
     哪个时段的完成数较多
      */
-    public Map<String,Object> getTimeData(long userId){
+    public List<newTimeData> getTimeData(long userId){
         Map<String,Object> map=new LinkedHashMap<>();
         List<Integer> time=new LinkedList<>();
+        List<newTimeData> newTimeDataList=new LinkedList<>();
         LocalTime localTime0=LocalTime.of(0,0);
         LocalTime localTime1=LocalTime.of(7,0);
         LocalTime localTime2=LocalTime.of(11,0);
@@ -354,6 +366,16 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         map.put("下午",aft);
         map.put("晚上",eve);
 
+        newTimeData newTimeData1=new newTimeData("上午",mor);
+        newTimeData newTimeData2=new newTimeData("下午",aft);
+        newTimeData newTimeData3=new newTimeData("晚上",eve);
+
+        newTimeDataList.add(newTimeData1);
+        newTimeDataList.add(newTimeData2);
+        newTimeDataList.add(newTimeData3);
+
+         System.out.println("dd"+newTimeData1.getTime());
+
         if(maxtime==1) daytime="上午";
         else if(maxtime==3) daytime="晚上";
         else if (maxtime==2) daytime="下午";
@@ -361,7 +383,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
        // System.out.println("mo"+mor+"af"+aft+"ev"+eve);
        // System.out.println(maxtime);
 
-        return map;
+        return newTimeDataList;
 
     }
 

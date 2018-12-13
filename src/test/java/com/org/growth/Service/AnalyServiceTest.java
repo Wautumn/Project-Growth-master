@@ -25,7 +25,7 @@ public class AnalyServiceTest {
               System.out.println(a.get(i).getDate()+"time");
               System.out.println(a.get(i).getTomatocount()+"amount");
               System.out.println(a.get(i).getTaskCount()+"taskamount");
-              System.out.println(a.get(i).getLevel()+"level");
+
           }
       }catch (Exception e){
           e.printStackTrace();

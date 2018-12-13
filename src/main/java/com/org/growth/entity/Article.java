@@ -32,8 +32,12 @@ public class Article {
     @Field("url")
     private String url;
 
-
     public Article(){
+
+    }
+
+    public Article(String title){
+        this.title=title;
 
     }
 
