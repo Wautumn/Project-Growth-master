@@ -51,7 +51,7 @@ public class UserService implements UserDAO {
      */
 
     @Override
-    public long signUp(String username, String password, String email, String userFace, int tomatoLength, String music){
+    public long signUp(String username, String password, String email){
         mongoTemplate = mongoTemplate1;
         try {
             Query old = Query.query(Criteria.where("username").is(username));
@@ -64,8 +64,8 @@ public class UserService implements UserDAO {
                 user.setUsername(username);
                 user.setPassword(password);
                 user.setEmail(email);
-                user.setUserface(userFace);
-                user.setTomatoLength(tomatoLength);
+                user.setUserface(null);
+                user.setTomatoLength(30);
                 //user.setMusic(music);
 
                 Query query = Query.query(Criteria.where("id").exists(true));

@@ -38,6 +38,9 @@ public class History {
     @Field("taskid")
     private long taskId;//默认为-1,代表不存在
 
+    @Field("name")
+    private String name;  //新增
+
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
@@ -62,6 +65,10 @@ public class History {
         this.taskId = taskId;
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
+
     public void setTomatoLength(int tomatoLength) {
         this.tomatoLength = tomatoLength;
     }
@@ -80,6 +87,10 @@ public class History {
 
     public long getTaskId() {
         return taskId;
+    }
+
+    public String getName(){
+        return name;
     }
 
     public long getUserId() {
