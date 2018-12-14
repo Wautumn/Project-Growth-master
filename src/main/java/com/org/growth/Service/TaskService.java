@@ -190,6 +190,16 @@ public class TaskService implements TaskDao, TaskTreeDao {
         }
     }
 
+    class Result{
+        class TempResult{
+
+        }
+    }
+    @Override
+    public List queryTaskByYear(long userId, Date time) {
+        return null;
+    }
+
     static public Task findByNameAndUserId(String taskname, long userId) {
 
         try {

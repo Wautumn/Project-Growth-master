@@ -19,4 +19,6 @@ public interface TaskDao {
     boolean endTask(long userId, String taskName, Date endTime);
 
     List queryTask(long userId);
+
+    List queryTaskByYear(long userId, Date time);
 }
