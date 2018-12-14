@@ -9,23 +9,19 @@ import java.util.Date;
 /*
 前端需要图表的数据
  */
-@Document(collection = "analyzeDataBean")
+
 public class AnalyzedataBean {
-    @Field("tomatocount")
+    private String date;
+
     private int tomatocount;
-    @Field("taskCount")
+
     private int taskCount;
-    @Field("date")
-    private LocalDate date;
-    @Field("level")
-    private int level;
 
-
-    public AnalyzedataBean(int tomatocount,int taskCount,LocalDate date,int level){
+    public AnalyzedataBean(int tomatocount,int taskCount,String date){
         this.tomatocount=tomatocount;
         this.taskCount=taskCount;
         this.date=date;
-        this.level=level;
+
     }
 
 
@@ -45,19 +41,13 @@ public class AnalyzedataBean {
         this.taskCount = taskCount;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public int getLevel() {
-        return level;
-    }
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
 }

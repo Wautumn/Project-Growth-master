@@ -25,7 +25,7 @@ public class AnalyServiceTest {
               System.out.println(a.get(i).getDate()+"time");
               System.out.println(a.get(i).getTomatocount()+"amount");
               System.out.println(a.get(i).getTaskCount()+"taskamount");
-              System.out.println(a.get(i).getLevel()+"level");
+
           }
       }catch (Exception e){
           e.printStackTrace();
@@ -41,5 +41,13 @@ public class AnalyServiceTest {
     @Test
     public void test3(){
         analyzeDataService.getTimeData(2);
+    }
+
+    @Test
+    public void test4(){
+        List<AnalyzedataBean> analyzedataBeans=analyzeDataService.getTwoMonthData(2,"2018-09-12");
+        for(int i=0;i<analyzedataBeans.size();i++){
+            System.out.println(analyzedataBeans.get(i).getDate());
+        }
     }
 }

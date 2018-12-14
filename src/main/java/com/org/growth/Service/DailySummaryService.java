@@ -3,6 +3,7 @@
 import com.org.growth.DAO.SummaryDao;
 import com.org.growth.entity.Summary;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -10,8 +11,12 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
  /***
@@ -94,5 +99,47 @@ public class DailySummaryService implements SummaryDao {
          catch (Exception e){
              return false;
          }
+     }
+
+     class Result{
+            private String content;
+            private Date time;
+            private int selfRating;
+
+            Result(String content, Date time, int selfRating){
+                this.content = content;
+                this.time = time;
+                this.selfRating =selfRating;
+            };
+     }
+     @Override
+     public List<Summary> querySummaryByYear(long userId, String year) {
+        List resultList = new ArrayList();
+        //query all summary
+        Criteria criteria = new Criteria();
+        criteria.and("userId").is(userId);
+        Query query = Query.query(criteria);
+        query.with(new Sort(Sort.Direction.ASC, "time"));
+        String startOfYearStr = year + "-01-01 00:00:00";
+        String endOfYearStr = year + "-12-31 23:59:59";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+         Date startOfYear = null;
+         Date endOfYear = null;
+        try {
+            startOfYear= sdf.parse(startOfYearStr);
+            endOfYear =sdf.parse(endOfYearStr);
+         } catch (ParseException e) {
+             return  null;
+         }
+        query.addCriteria(Criteria.where("time").lte(endOfYear).gte(startOfYear));
+        List queryResult = mongoTemplate.find(query, Summary.class);
+        Iterator resultIterator = queryResult.iterator();
+        Summary summary;
+        do {
+            summary = (Summary)resultIterator.next();
+            Result result = new Result(summary.getContent(), summary.getTime(), summary.getSelfRating());
+            resultList.add(result);
+        }while(resultIterator.hasNext());
+        return resultList;
      }
  }

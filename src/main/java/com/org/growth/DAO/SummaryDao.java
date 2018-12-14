@@ -10,4 +10,6 @@ public interface SummaryDao {
     List readSummary(long userId, Date time);
 
     boolean modifySummary(long userId, String content, Date time, int selfRating);
+
+    List querySummaryByYear(long userId, String year);
 }

@@ -1,10 +1,8 @@
 package com.org.growth.controller;
 
+import com.org.growth.entity.*;
 import com.org.growth.Service.AnalyzeDataService;
 import com.org.growth.Service.UserService;
-import com.org.growth.entity.AnalyData;
-import com.org.growth.entity.AnalyzedataBean;
-import com.org.growth.entity.RespBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,9 +27,22 @@ public class GetAnalyzeDataController {
      */
     @RequestMapping(value = "/getHistoryData",method = RequestMethod.GET)
     public List<AnalyzedataBean> getAnalyzeData(@RequestParam(value = "userid") long userId){
+
         List<AnalyzedataBean> analyzedataBeans= analyzeDataService.getAllCompletedData(userId);
         return analyzedataBeans;
 
+    }
+
+    /*
+    特定时间的图表信息
+     */
+    @RequestMapping(value = "/getOneYearHistoryData",method = RequestMethod.GET)
+    public List<AnalyzedataBean> getTwoMonth(@RequestParam(value = "userid") long userId,@RequestParam(value = "date") String date){
+        if(userService.findByUserId(userId)==null) return null;
+        else
+        {
+            return analyzeDataService.getTwoMonthData(userId,date);
+        }
     }
 
     /*
@@ -44,12 +56,14 @@ public class GetAnalyzeDataController {
             map.put("error","用户不存在！");
             //return new AnalyData("error",null);
         }
-        int weekday=0;
-        map =analyzeDataService.getWeekdayData(userId);
+        List<newData> newDataList =analyzeDataService.getWeekdayData(userId);
 
         AnalyData analyData=new AnalyData();
-        analyData.setData(map);
+        analyData.setData(newDataList);
         analyData.setResult(analyzeDataService.getWeekday());
+
+        map.put("result",analyzeDataService.getWeekday());
+        map.put("data",analyData);
         /*int time=0;
         time=analyzeDataService.getTimeData(userId);
         String day="无数据！";
@@ -74,23 +88,22 @@ public class GetAnalyzeDataController {
 
     }
 
-
-
     /*
     哪个时间
      */
     @RequestMapping(value = "/getTimeSuggestion",method = RequestMethod.GET)
-    public AnalyData getTimeSuggestion(@RequestParam(value = "userid") long userId){
+    public AnalyTimeData getTimeSuggestion(@RequestParam(value = "userid") long userId){
 
+        List<newTimeData> newTimeDataList=new LinkedList<>();
         Map<String,Object> map=new HashMap<>();
         if(userService.findByUserId(userId)==null) {
             map.put("error","用户不存在！");
             //return new AnalyData("error",null);
         }
-        map =analyzeDataService.getTimeData(userId);
-        AnalyData analyData=new AnalyData();
+        newTimeDataList =analyzeDataService.getTimeData(userId);
+        AnalyTimeData analyData=new AnalyTimeData();
         analyData.setResult(analyzeDataService.getDaytime());
-        analyData.setData(map);
+        analyData.setData(newTimeDataList);
         /*int time=0;
         time=analyzeDataService.getTimeData(userId);
         String day="无数据！";

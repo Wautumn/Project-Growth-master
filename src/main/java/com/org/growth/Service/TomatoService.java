@@ -157,6 +157,7 @@ public class TomatoService implements HistoryDao {
                 //update
                 Update update3 = new Update();
                 update3.set("taskid", list.getId());
+                update3.set("name",list.getName());
                 mongoTemplate.updateFirst(query, update3, History.class);
 
                 //task exists or not

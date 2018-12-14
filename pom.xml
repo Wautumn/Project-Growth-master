@@ -40,21 +40,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -83,6 +68,7 @@
             <systemPath>${project.basedir}/lib/fudannlp.jar</systemPath>
         </dependency>
 
+
         <dependency>
             <groupId>com.fudannlp.core</groupId>
             <artifactId>fudannlp.core</artifactId>
@@ -90,7 +76,33 @@
             <version>1.2</version>
             <systemPath>${project.basedir}/lib/fnlp-core-2.1-SNAPSHOT.jar</systemPath>
         </dependency>
-
+        <dependency>
+            <groupId>trove</groupId>
+            <artifactId>trove.core</artifactId>
+            <scope>system</scope>
+            <version>1.2</version>
+            <systemPath>${project.basedir}/lib/trove.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
 
 
     </dependencies>

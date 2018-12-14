@@ -12,7 +12,8 @@ public interface AnalyzeDataDAO {
     /*
     获取近六个月的记录，需要的是每天完成的总番茄，每天任务数，日期，每日完成度，用一个数据结构存储
      */
-    List<AnalyzedataBean> getCompletedData(long userId);
+    List<AnalyzedataBean> getTwoMonthData(long userId,String localTime);
+
 
     List<AnalyzedataBean> getAllCompletedData(long userId)throws Exception;
    //void getAllCompletedData(long userId);
