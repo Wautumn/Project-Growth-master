@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -103,15 +104,42 @@ public class DailySummaryService implements SummaryDao {
 
      class Result{
             private String content;
-            private Date time;
+            private String time;
             private int selfRating;
 
-            Result(String content, Date time, int selfRating){
+            Result(){};
+            Result(String content, String time, int selfRating){
                 this.content = content;
-                this.time = time;
+                this.time = time.substring(0,10);
                 this.selfRating =selfRating;
             };
+
+         public String getTime() {
+             return time;
+         }
+
+         public int getSelfRating() {
+             return selfRating;
+         }
+
+         public String getContent() {
+             return content;
+         }
+
+         public void setTime(String time) {
+             this.time = time;
+         }
+
+         public void setSelfRating(int selfRating) {
+             this.selfRating = selfRating;
+         }
+
+         public void setContent(String content) {
+             this.content = content;
+         }
+
      }
+
      @Override
      public List<Summary> querySummaryByYear(long userId, String year) {
         List resultList = new ArrayList();
@@ -137,7 +165,7 @@ public class DailySummaryService implements SummaryDao {
         Summary summary;
         do {
             summary = (Summary)resultIterator.next();
-            Result result = new Result(summary.getContent(), summary.getTime(), summary.getSelfRating());
+            Result result = new Result(summary.getContent(), sdf.format(summary.getTime()), summary.getSelfRating());
             resultList.add(result);
         }while(resultIterator.hasNext());
         return resultList;

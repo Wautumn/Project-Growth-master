@@ -1,10 +1,12 @@
 package com.org.growth.entity;
 
+import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.org.growth.Other.AutoIncrement;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -20,19 +22,15 @@ public class Summary {
     private long id;
 
     @Field("userId")
-    @JsonSerialize
     private long userId;//与User中的Id保持一致
 
     @Field("content")
-    @JsonSerialize
     private String content;
 
     @Field("time")
-    @JsonSerialize
     private Date time;
 
     @Field("selfrating")
-    @JsonSerialize
     private int selfRating;
 
     public int getSelfRating() {
@@ -66,4 +64,18 @@ public class Summary {
     public void setTime(Date time) {
         this.time = time;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
 }
