@@ -1,19 +1,30 @@
 package com.org.growth.Service;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
 import com.org.growth.DAO.HistoryDao;
 import com.org.growth.entity.History;
 import com.org.growth.entity.Task;
 import com.org.growth.entity.User;
+import com.org.growth.utils.Dateparser;
+import javafx.scene.input.DataFormat;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
@@ -199,4 +210,130 @@ public class TomatoService implements HistoryDao {
             return false;
         }
     }
+
+
+    /*
+    返回某天的历史记录
+     */
+    public List<History> getOneDayHistory(long userid,LocalDate date){
+        Query query=Query.query(Criteria.where("userId").is(userid));
+        List<History> histories=mongoTemplate.find(query,History.class);
+        List<History> dayhistory=new LinkedList<>();
+        for(History history:histories){
+            if ( DateToLocalDate(history.getStartTime()).equals(date))
+                dayhistory.add(history);
+        }
+        return  dayhistory;
+
+    }
+
+    class historydata{
+        private String start;
+        private String end;
+        private String text;
+        private int status;
+
+        public historydata(){
+
+        }
+        public historydata(String a,String b,String c,int t){
+            this.start=a;
+            this.end=b;
+            this.text=c;
+            this.status=t;
+
+        }
+
+        public String getStart() {
+            return start;
+        }
+
+        public void setStart(String start) {
+            this.start = start;
+        }
+
+        public String getEnd() {
+            return end;
+        }
+
+        public void setEnd(String end) {
+            this.end = end;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
+        }
+
+        public int getStatus() {
+            return status;
+        }
+
+        public void setStatus(int status) {
+            this.status = status;
+        }
+    }
+
+
+    /*
+    得到一年的历史需要数据
+     */
+    public List<Map> getYearHistory(long userid,String year){
+        DateTimeFormatter dateTimeFormatter0=DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("hh:mm");
+        LocalDate curdate = LocalDate.parse(year,dateTimeFormatter0);//当前日期
+        LocalDate end=curdate.plusYears(1);
+        //System.out.println(curdate.toString()+","+end.toString());
+        List<Map> his=new LinkedList<>();
+
+        long diff= ChronoUnit.DAYS.between(curdate, end);
+        int bet=(int) diff;
+        for(int i=0;i<diff;++i){
+            LocalDate date=curdate.plusDays(i);
+            List<History> histories=getOneDayHistory(userid,date);//当天的所有历史
+            if(histories.size()==0) continue;
+            Map<String,Object> map=new HashMap<>();
+            map.put("date",date.toString());//日期
+            List<historydata> historyday=new LinkedList<>();//存储需要的格式的当天的所有历史
+            for(int j=0;j<histories.size();++j){
+                historydata da=new historydata();
+                da.setStart(DateToLocalTime(histories.get(j).getStartTime()).format(dateTimeFormatter));
+                da.setEnd(DateToLocalTime(histories.get(j).getEndTime()).format(dateTimeFormatter));
+                da.setStatus(histories.get(j).getStatus());
+                da.setText(histories.get(j).getName());
+                historyday.add(da);
+            }
+            map.put("content",historyday);
+            his.add(map);
+        }
+        return his;
+    }
+
+
+
+
+    private LocalDate DateToLocalDate(Date date) {
+
+        Instant instant = date.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+        LocalDate localDate = instant.atZone(zoneId).toLocalDate();//Date转化为LocalDate
+        return localDate;
+    }
+
+    private LocalTime DateToLocalTime(Date date){
+        LocalTime new1=LocalTime.of(00,00);
+        if(date==null) return new1;
+        Instant instant=date.toInstant();
+        ZoneId zoneId=ZoneId.systemDefault();
+        LocalTime localTime=instant.atZone(zoneId).toLocalTime();
+        return localTime;
+    }
+
+
+
+
+
 }
