@@ -84,7 +84,6 @@ public class KeywordRelated {
      */
     public List<Integer> getUsertags(List<String> keywords){
       List<Integer> tagspage= new LinkedList();
-      tagspage.add(0);
       if(keywords.contains("计算机")) tagspage.add(1);
       if(keywords.contains("Java")) tagspage.add(2);
       if(keywords.contains("网络")) tagspage.add(3);
@@ -97,12 +96,6 @@ public class KeywordRelated {
       if(keywords.contains("学习")) tagspage.add(-1);
       if(keywords.contains("看")) tagspage.add(-1);
 
-      if(keywords.size()<3){//通用型
-          tagspage.add(1);
-          tagspage.add(11);
-          tagspage.add(12);
-
-      }
 
 
       return tagspage;

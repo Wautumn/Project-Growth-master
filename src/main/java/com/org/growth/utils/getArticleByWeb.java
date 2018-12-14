@@ -36,7 +36,7 @@ public class getArticleByWeb {
             else if (num == 2) { doc = Jsoup.connect("https://www.csdn.net/nav/lang").get(); }//JAVA，编程语言
             else if (num == 3) { doc = Jsoup.connect("https://www.csdn.net/nav/newarticles").get(); }//网络
             else if (num == 4) { doc = Jsoup.connect("https://www.csdn.net/nav/engineering").get(); }//研发，管理
-            else if (num == 5) { doc = Jsoup.connect("https://www.csdn.net/nav/newarticles").get(); }//数学
+            else if (num == 5) { doc = Jsoup.connect("https://www.csdn.net/nav/game").get(); }//游戏
             else if (num == 6) { doc = Jsoup.connect("https://www.csdn.net/nav/db").get(); }//数据库
             else if (num == 7) { doc = Jsoup.connect("https://www.csdn.net/nav/newarticles").get(); }//软件工程
             else if (num == 8) { doc = Jsoup.connect("https://www.csdn.net/nav/web").get(); }//前端
@@ -62,7 +62,7 @@ public class getArticleByWeb {
             System.out.println(titleLinks.size()+"is"+num);
             for (int i = 0; i < titleLinks.size(); i++) {
                 String title = "";
-                String img="";
+                String img="no";
                 title = titleLinks.get(i).select("h2").select("a").text();//标题
                 String uri = titleLinks.get(i).select("h2").select("a").attr("href");//url
                 String intro = IntroLinks.get(i).text();
