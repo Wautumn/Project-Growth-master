@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class TomatoController {
@@ -21,10 +22,10 @@ public class TomatoController {
         return tomatoService.viewHistory(userId, size, page);
     }
 
-    @ResponseBody
-    @GetMapping(value = "/viewMonthHistory")
-    public java.util.List<History> viewMonthHistory(@RequestParam(value = "userId") long userId, @RequestParam(value = "year") String year){
-        return tomatoService.viewMonthHistory(userId, year);
+
+    @GetMapping(value = "/viewYearHistory")
+    public java.util.List<Map> viewMonthHistory(@RequestParam(value = "userId") long userId, @RequestParam(value = "year") String year){
+        return tomatoService.getYearHistory(userId,year);
     }
 
 

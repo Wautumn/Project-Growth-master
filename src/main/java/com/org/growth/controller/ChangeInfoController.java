@@ -33,6 +33,12 @@ public class ChangeInfoController {
         return userService.changeUserFace(userId, userFace);
     }
 
+    @ResponseBody
+    @GetMapping(value = "/changeTomatoLength ")
+    public int changeTomatoLength(@RequestParam(value = "userId") long userId, @RequestParam(value = "tomatoLength") int tomatoLength){
+        return userService.changeTomatoLength(userId, tomatoLength);
+    }
+
 }
 
 

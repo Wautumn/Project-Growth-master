@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ChangeSettingController {
-    @Autowired
+    /*@Autowired
     UserService userService = new UserService();
 
     @ResponseBody
