@@ -10,7 +10,7 @@ public class SignUpController {
     UserService userService = new UserService();
 
     @ResponseBody
-    @GetMapping(value = "/signUp")
+    @PostMapping(value = "/signUp")
     public long signUp(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password, @RequestParam(value = "email") String email){
         return userService.signUp(username, password, email);
     }

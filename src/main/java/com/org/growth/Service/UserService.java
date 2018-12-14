@@ -38,7 +38,7 @@ public class UserService implements UserDAO {
                 return user.getId();
             }
             else{
-                return -1;
+                return 0;
             }
         } catch (Exception e){
             return -1;

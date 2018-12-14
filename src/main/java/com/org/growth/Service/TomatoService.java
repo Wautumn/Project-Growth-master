@@ -36,10 +36,12 @@ public class TomatoService implements HistoryDao {
 
     }
 
-    private static Date getStartTime(int year, int month) {
+    private static Date getStartTime(String year) {
+
+        int time = Integer.parseInt(year);
         Calendar start = Calendar.getInstance();
-        start.set(Calendar.YEAR, year);
-        start.set(Calendar.MONTH, month-1);
+        start.set(Calendar.YEAR, time);
+        start.set(Calendar.MONTH, 1);
         start.set(Calendar.DATE, 1);
         start.set(Calendar.HOUR_OF_DAY, 0);
         start.set(Calendar.MINUTE, 0);
@@ -48,10 +50,12 @@ public class TomatoService implements HistoryDao {
         return start.getTime();
     }
 
-    private static Date getEndTime(int year, int month) {
+    private static Date getEndTime(String year) {
+
+        int time = Integer.parseInt(year);
         Calendar end = Calendar.getInstance();
-        end.set(Calendar.YEAR, year);
-        end.set(Calendar.MONTH, month-1);
+        end.set(Calendar.YEAR, time);
+        end.set(Calendar.MONTH, 12);
         end.set(Calendar.DATE, 31);
         end.set(Calendar.HOUR_OF_DAY, 23);
         end.set(Calendar.MINUTE, 59);
@@ -61,11 +65,11 @@ public class TomatoService implements HistoryDao {
     }
 
     @Override
-    public java.util.List<History> viewMonthHistory(long userId, int year, int month){
+    public java.util.List<History> viewMonthHistory(long userId, String year){
 
         java.util.List<History> items = mongoTemplate.find(Query.query(where("starttime")
-                .gte(getStartTime(year, month))
-                .lte(getEndTime(year, month))
+                .gte(getStartTime(year))
+                .lte(getEndTime(year))
                 .and("userId").is(userId)), History.class);
         return items;
 

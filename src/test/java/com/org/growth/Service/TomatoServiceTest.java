@@ -38,8 +38,8 @@ public class TomatoServiceTest {
 
     @Test
     public void viewMonthHistory() {
-        if (tomatoService.viewMonthHistory(100,2018,12) != null){
-            System.out.println(tomatoService.viewMonthHistory(100,2018,12));
+        if (tomatoService.viewMonthHistory(2,"2018") != null){
+            System.out.println(tomatoService.viewMonthHistory(2,"2018"));
         }else {
             System.out.println("Test Failed");
         }
