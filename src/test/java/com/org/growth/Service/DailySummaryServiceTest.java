@@ -82,4 +82,9 @@ public class DailySummaryServiceTest {
         else
             System.out.println("Test failed");
     }
+
+    @Test
+    public void querySummaryByYear() {
+        dailySummaryService.querySummaryByYear(2,"2018");
+    }
 }

@@ -68,6 +68,7 @@
             <systemPath>${project.basedir}/lib/fudannlp.jar</systemPath>
         </dependency>
 
+
         <dependency>
             <groupId>com.fudannlp.core</groupId>
             <artifactId>fudannlp.core</artifactId>

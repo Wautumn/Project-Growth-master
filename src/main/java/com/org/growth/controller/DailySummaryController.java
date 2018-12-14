@@ -1,6 +1,7 @@
 package com.org.growth.controller;
 
 import com.org.growth.Service.DailySummaryService;
+import com.org.growth.entity.Summary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -36,9 +37,16 @@ public class DailySummaryController {
     }
 
     @ResponseBody
+    @GetMapping(value = "/querybyyear")
+    public List<Summary> queryDailySummaryByYear(@RequestParam(value = "userid") long userId, @RequestParam(value = "year") String year){
+        return dailySummaryService.querySummaryByYear(userId,year);
+    }
+
+    @ResponseBody
     @GetMapping(value = "/update")
     public boolean updateDailySummary(@RequestParam(value = "userid") long userId, @RequestParam(value = "content")String content,
                                       @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")Date time, @RequestParam(value = "selfRating") int selfRating){
+
         return dailySummaryService.modifySummary(userId,content,time,selfRating);
     }
 }
