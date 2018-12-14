@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ArticleController {
@@ -26,30 +28,39 @@ public class ArticleController {
 
     //热门文章
     @GetMapping(value = "/getPopularArticle")
-    public List<Article> performPopularArticle(){
-        return articleService.getPopularArticle();
+    public Map<String,Object> performPopularArticle(){
+        Map<String,Object> map=new HashMap<>();
+
+        map.put("Article",articleService.getPopularArticle());
+        map.put("tags",articleService.keyanftag(articleService.getTags()));
+        return map;
     }
 
     @GetMapping(value = "/getRecommendArticle")
-    public List<Article> performRecommendArticle(@RequestParam(value = "userId")long userId)throws Exception{
+    public Map<String,Object> performRecommendArticle(@RequestParam(value = "userId")long userId)throws Exception{
         Article article=new Article("sorry....");
         String context="";
         List<String> keywords=new LinkedList<>();
         List<Integer> keyTags=new LinkedList<>();
         List<Article> articles=new LinkedList<>();
+        Map<String,Object> map=new HashMap<>();
         if(userService.findByUserId(userId)==null){
-          System.out.println("null");
-          articles.add(article);
-          return articles;
+          return performPopularArticle();//返回热门文章
         }
         context=articleService.getStringHistory(userId);
         keywords=keywordRelated.GetKeywords(context,10);
         keyTags=keywordRelated.getUsertags(keywords);
         articles=articleService.getRecommendArticle(keyTags);
         if(articles==null){articles.add(article);}
-        return articles;
+       // map.put("tags",articleService.getTags());
+        map.put("tags",articleService.keyanftag(articleService.getTags()));
+        map.put("Article",articles);
+        return map;
 
     }
+
+
+
 
 
 
