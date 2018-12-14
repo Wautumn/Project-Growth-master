@@ -72,16 +72,16 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate curdate = LocalDate.parse(localTime,formatter);//当前日期
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
-        LocalDate start=curdate.minusMonths(2);
+        LocalDate end=curdate.plusYears(1);
       //  System.out.println("start"+start.toString());
 
         List<AnalyzedataBean> analyzedataBeans=new LinkedList<>();//用链表类型好一点
 
-        long diff=ChronoUnit.DAYS.between(start, curdate);
+        long diff=ChronoUnit.DAYS.between(curdate, end);
         int bet=(int) diff;
 
         for(int i=0;i<bet;++i){
-            analyzedataBeans.add(getDateData(userId,start.plusDays((long)i+1)));
+            analyzedataBeans.add(getDateData(userId,curdate.plusDays((long)i)));
         }
 
         return analyzedataBeans;

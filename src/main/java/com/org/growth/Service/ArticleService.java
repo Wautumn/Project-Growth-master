@@ -83,8 +83,8 @@ public class ArticleService {
             else if(tags.get(i)==17)keytag.put(17,"旅游");
             else if(tags.get(i)==18)keytag.put(18,"人文");
             else if(tags.get(i)==19)keytag.put(19,"科技");
-            else if(tags.get(i)==20)keytag.put(20,"科技");
-            else keytag.put(0,"程序人生");
+            else if(tags.get(i)==20)keytag.put(20,"美食");
+
         }
         return keytag;
     }

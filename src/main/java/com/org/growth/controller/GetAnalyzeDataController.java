@@ -36,7 +36,7 @@ public class GetAnalyzeDataController {
     /*
     特定时间的图表信息
      */
-    @RequestMapping(value = "/getTwoMonthHistoryData",method = RequestMethod.GET)
+    @RequestMapping(value = "/getOneYearHistoryData",method = RequestMethod.GET)
     public List<AnalyzedataBean> getTwoMonth(@RequestParam(value = "userid") long userId,@RequestParam(value = "date") String date){
         if(userService.findByUserId(userId)==null) return null;
         else

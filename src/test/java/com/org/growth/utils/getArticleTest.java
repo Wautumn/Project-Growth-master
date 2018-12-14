@@ -15,8 +15,8 @@ public class getArticleTest {
 
     @Test
     public void testArticle(){
-        //for(int i=0;i<21;++i) {
-            getArticleByWebt.get(11);
-      //  }
+        for(int i=0;i<21;++i) {
+            getArticleByWebt.get(i);
+       }
     }
 }
