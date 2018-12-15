@@ -315,7 +315,8 @@ public class TomatoService implements HistoryDao {
 
 
     private LocalDate DateToLocalDate(Date date) {
-
+        LocalDate newd= LocalDate.of(2018,12,18);
+        if(date==null) return  newd;
         Instant instant = date.toInstant();
         ZoneId zoneId = ZoneId.systemDefault();
         LocalDate localDate = instant.atZone(zoneId).toLocalDate();//Date转化为LocalDate
