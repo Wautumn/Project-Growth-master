@@ -195,52 +195,62 @@ public class TaskService implements TaskDao, TaskTreeDao {
             return null;
         }
     }
+    class TempResult{
+        String time;
+        String content;
+        int status;
 
-    class Result{
-        class TempResult{
-                String time;
-                String content;
-                int status;
-
-            public String getContent() {
-                return content;
-            }
-
-            public int getStatus() {
-                return status;
-            }
-
-            public String getTime() {
-                return time;
-            }
-
-            public void setContent(String content) {
-                this.content = content;
-            }
-
-            public void setTime(String time) {
-                this.time = time;
-            }
-
-            public void setStatus(int status) {
-                this.status = status;
-            }
+        public String getContent() {
+            return content;
         }
-        private TempResult tempResult;
+
+        public int getStatus() {
+            return status;
+        }
+
+        public String getTime() {
+            return time;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
+
+        public void setTime(String time) {
+            this.time = time;
+        }
+
+        public void setStatus(int status) {
+            this.status = status;
+        }
+        public TempResult(String time, String content, int status){
+            this.time =time;
+            this.content = content;
+            this.status =status;
+        }
+    }
+    class Result{
+
+        public List<TempResult> tempResult;
         private String date;
 
-        public Result(String time, String content, int status){
-            tempResult = new TempResult();
-            tempResult.setContent(content);
+        public Result(){
+            tempResult = new ArrayList<TempResult>();
+            date = null;
+            /*tempResult.setContent(content);
             tempResult.setStatus(status);
             tempResult.setTime(time.substring(11,19));
-            this.setDate(time.substring(0,10));
+            this.setDate(time.substring(0,10));*/
         }
         public String getDate() {
             return date;
         }
 
-        public TempResult getTempResult() {
+        public void setTempResult(List<TempResult> tempResult) {
+            this.tempResult = tempResult;
+        }
+
+        public List<TempResult> getTempResult() {
             return tempResult;
         }
 
@@ -248,9 +258,6 @@ public class TaskService implements TaskDao, TaskTreeDao {
             this.date = date;
         }
 
-        public void setTempResult(TempResult tempResult) {
-            this.tempResult = tempResult;
-        }
     }
     @Override
     public List queryTaskByYear(long userId, int startYear, int endYear) {
@@ -273,13 +280,72 @@ public class TaskService implements TaskDao, TaskTreeDao {
         query.addCriteria(Criteria.where("finishedTime").lte(endOfYear).gte(startOfYear));
         List queryResult = mongoTemplate.find(query, Task.class);
         Iterator resultIterator = queryResult.iterator();
-        Task task;
+        Task task=(Task)resultIterator.next();;
         do {
-            task = (Task)resultIterator.next();
-            TaskService.Result result = new TaskService.Result(sdf.format(task.getFinishedTime()),task.getDescription(),task.getStatus());
+            Result result = new Result();
+            String tempDate = sdf.format(task.getFinishedTime()).substring(0,10);
+            result.setDate(tempDate);
+            String tempTime = sdf.format(task.getFinishedTime()).substring(11,19);
+            List<TempResult> list = new ArrayList<TempResult>();
+            TempResult tempResult = new TempResult(tempTime,task.getDescription(),task.getStatus());
+            list.add(tempResult);
+            while (resultIterator.hasNext()){
+                task = (Task)resultIterator.next();
+                if(tempDate.equals(sdf.format(task.getFinishedTime()).substring(0,10))){
+                    tempTime = sdf.format(task.getFinishedTime()).substring(11,19);
+                    tempResult = new TempResult(tempTime,task.getDescription(),task.getStatus());
+                    list.add(tempResult);
+                }else
+                    break;
+            }
+            result.setTempResult(list);
             resultList.add(result);
         }while(resultIterator.hasNext());
         return resultList;
+    }
+
+    @Override
+    public boolean removeTaskByName(long userId, String name) {
+        try {
+
+            Criteria criteria = new Criteria();
+            criteria.and("userId").is(userId);
+            criteria.and("name").is(name);
+            Query query = Query.query(criteria);
+            mongoTemplate.remove(query, Task.class);
+            return true;
+        }
+        catch (Exception e){
+            return  false;
+        }
+    }
+
+    @Override
+    public boolean modifyTask(long userId, String taskName, String property, String value) {
+        Criteria criteria = new Criteria();
+        Update update = new Update();
+        criteria.and("userId").is(userId);
+        criteria.and("name").is(taskName);
+        try {
+            if (property.equals("userId")) {
+                long newId = Long.parseLong(value);
+                update.set("userId", newId);
+            } else if (property.equals("name") || property.equals("description")) {
+                update.set(property, value);
+            } else if (property.equals("expectedTomato") || property.equals("tomatoCompleted") || property.equals("status")) {
+                int newValue = Integer.parseInt(value);
+                update.set(property, newValue);
+            } else if (property.equals("setTime") || property.equals("deadline") || property.equals("remindTime") || property.equals("finishedTime")) {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                update.set(property, sdf.parse(value));
+            }
+            Query query = Query.query(criteria);
+            mongoTemplate.updateFirst(query, update, Task.class);
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 
     static public Task findByNameAndUserId(String taskname, long userId) {

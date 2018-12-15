@@ -21,4 +21,8 @@ public interface TaskDao {
     List queryTask(long userId);
 
     List queryTaskByYear(long userId, int startYear, int endYear);
+
+    boolean removeTaskByName(long userId, String name);
+
+    boolean modifyTask(long userId, String taskName, String property, String value);
 }

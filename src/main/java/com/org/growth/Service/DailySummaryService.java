@@ -104,18 +104,18 @@ public class DailySummaryService implements SummaryDao {
 
      class Result{
             private String content;
-            private String time;
+            private String date;
             private int selfRating;
 
             Result(){};
             Result(String content, String time, int selfRating){
                 this.content = content;
-                this.time = time.substring(0,10);
+                this.date = time.substring(0,10);
                 this.selfRating =selfRating;
             };
 
          public String getTime() {
-             return time;
+             return date;
          }
 
          public int getSelfRating() {
@@ -127,7 +127,7 @@ public class DailySummaryService implements SummaryDao {
          }
 
          public void setTime(String time) {
-             this.time = time;
+             this.date = time;
          }
 
          public void setSelfRating(int selfRating) {

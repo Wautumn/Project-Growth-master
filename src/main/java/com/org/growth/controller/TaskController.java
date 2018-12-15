@@ -64,4 +64,16 @@ public class TaskController {
     public List queryTaskByYear(@RequestParam(value = "userId") long userId, @RequestParam(value = "startyear") int startYear, @RequestParam(value = "endyear") int endYear) {
         return taskService.queryTaskByYear(userId, startYear, endYear);
     }
+
+    @ResponseBody
+    @GetMapping(value = "deleteTask")
+    public boolean deleteTaskByName(@RequestParam(value = "userId") long userId, @RequestParam(value = "taskName") String name) {
+        return taskService.removeTaskByName(userId, name);
+    }
+
+    @ResponseBody
+    @GetMapping(value = "modifyTask")
+    public boolean deleteTaskByName(@RequestParam(value = "userId") long userId, @RequestParam(value = "taskName") String name, @RequestParam(value = "property") String property, @RequestParam(value = "value") String value) {
+        return taskService.modifyTask(userId, name,property,value);
+    }
 }
