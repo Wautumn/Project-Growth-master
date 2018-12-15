@@ -41,7 +41,7 @@ public class GetAnalyzeDataController {
         if(userService.findByUserId(userId)==null) return null;
         else
         {
-            return analyzeDataService.getTwoMonthData(userId,date);
+            return analyzeDataService.getOneYearData(userId,date);
         }
     }
 
