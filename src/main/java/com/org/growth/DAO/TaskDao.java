@@ -20,5 +20,5 @@ public interface TaskDao {
 
     List queryTask(long userId);
 
-    List queryTaskByYear(long userId, Date time);
+    List queryTaskByYear(long userId, int startYear, int endYear);
 }

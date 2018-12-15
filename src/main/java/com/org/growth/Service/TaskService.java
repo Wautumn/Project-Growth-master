@@ -3,8 +3,10 @@ package com.org.growth.Service;
 import com.org.growth.DAO.TaskDao;
 import com.org.growth.DAO.TaskTreeDao;
 import com.org.growth.entity.History;
+import com.org.growth.entity.Summary;
 import com.org.growth.entity.Task;
 import com.org.growth.entity.TaskTree;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -13,8 +15,11 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /***
@@ -182,6 +187,7 @@ public class TaskService implements TaskDao, TaskTreeDao {
             Criteria criteria = new Criteria();
             criteria.and("userId").is(userId);
             Query  query = Query.query(criteria);
+            query.with(new Sort(Sort.Direction.ASC, "status"));
             List taskList = mongoTemplate.find(query,Task.class);
             return taskList;
         }
@@ -192,12 +198,88 @@ public class TaskService implements TaskDao, TaskTreeDao {
 
     class Result{
         class TempResult{
+                String time;
+                String content;
+                int status;
 
+            public String getContent() {
+                return content;
+            }
+
+            public int getStatus() {
+                return status;
+            }
+
+            public String getTime() {
+                return time;
+            }
+
+            public void setContent(String content) {
+                this.content = content;
+            }
+
+            public void setTime(String time) {
+                this.time = time;
+            }
+
+            public void setStatus(int status) {
+                this.status = status;
+            }
+        }
+        private TempResult tempResult;
+        private String date;
+
+        public Result(String time, String content, int status){
+            tempResult = new TempResult();
+            tempResult.setContent(content);
+            tempResult.setStatus(status);
+            tempResult.setTime(time.substring(11,19));
+            this.setDate(time.substring(0,10));
+        }
+        public String getDate() {
+            return date;
+        }
+
+        public TempResult getTempResult() {
+            return tempResult;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
+        }
+
+        public void setTempResult(TempResult tempResult) {
+            this.tempResult = tempResult;
         }
     }
     @Override
-    public List queryTaskByYear(long userId, Date time) {
-        return null;
+    public List queryTaskByYear(long userId, int startYear, int endYear) {
+        List resultList = new ArrayList();
+        Criteria criteria = new Criteria();
+        criteria.and("userId").is(userId);
+        Query query = Query.query(criteria);
+        query.with(new Sort(Sort.Direction.ASC, "finishedTime"));
+        String startOfYearStr = startYear + "-01-01 00:00:00";
+        String endOfYearStr = endYear + "-12-31 23:59:59";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date startOfYear = null;
+        Date endOfYear = null;
+        try {
+            startOfYear= sdf.parse(startOfYearStr);
+            endOfYear =sdf.parse(endOfYearStr);
+        } catch (ParseException e) {
+            return  null;
+        }
+        query.addCriteria(Criteria.where("finishedTime").lte(endOfYear).gte(startOfYear));
+        List queryResult = mongoTemplate.find(query, Task.class);
+        Iterator resultIterator = queryResult.iterator();
+        Task task;
+        do {
+            task = (Task)resultIterator.next();
+            TaskService.Result result = new TaskService.Result(sdf.format(task.getFinishedTime()),task.getDescription(),task.getStatus());
+            resultList.add(result);
+        }while(resultIterator.hasNext());
+        return resultList;
     }
 
     static public Task findByNameAndUserId(String taskname, long userId) {

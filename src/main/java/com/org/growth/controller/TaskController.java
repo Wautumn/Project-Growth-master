@@ -5,14 +5,12 @@ import com.org.growth.Service.TaskService;
 import com.org.growth.entity.TaskTree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
 
+@RequestMapping(value = "task")
 @RestController
 public class TaskController {
 
@@ -61,4 +59,9 @@ public class TaskController {
         return taskService.queryTask(userId);
     }
 
+    @ResponseBody
+    @GetMapping(value = "querybyyear")
+    public List queryTaskByYear(@RequestParam(value = "userId") long userId, @RequestParam(value = "startyear") int startYear, @RequestParam(value = "endyear") int endYear) {
+        return taskService.queryTaskByYear(userId, startYear, endYear);
+    }
 }
