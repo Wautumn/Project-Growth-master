@@ -181,14 +181,140 @@ public class TaskService implements TaskDao, TaskTreeDao {
         }
     }
 
+    class ResultTask{
+        private long id;
+        private long userId;
+        private String name;
+        private String description;
+        private int expectedTomato;
+        private int tomatoCompleted;
+        private String setTime;
+        private String deadline;
+        private String remindTime;
+        private String finishedTime;
+        private int status;
+
+        public ResultTask(Task task){
+            try {
+                this.userId = task.getUserId();
+                this.id = task.getId();
+                this.name = task.getName();
+                this.description = task.getDescription();
+                this.expectedTomato = task.getExpectedTomato();
+                this.tomatoCompleted = task.getTomatoCompleted();
+                this.status = task.getStatus();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                this.setTime = sdf.format(task.getSetTime());
+                this.deadline = sdf.format(task.getDeadline());
+                this.remindTime = sdf.format(task.getRemindTime());
+                this.finishedTime = sdf.format(task.getFinishedTime());
+            }catch (Exception e){}
+        }
+
+        public void setId(long id) {
+            this.id = id;
+        }
+
+        public long getId() {
+            return id;
+        }
+
+        public int getExpectedTomato() {
+            return expectedTomato;
+        }
+
+        public int getTomatoCompleted() {
+            return tomatoCompleted;
+        }
+
+        public String getDeadline() {
+            return deadline;
+        }
+
+        public int getStatus() {
+            return status;
+        }
+
+        public long getUserId() {
+            return userId;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getFinishedTime() {
+            return finishedTime;
+        }
+
+        public String getRemindTime() {
+            return remindTime;
+        }
+
+        public String getSetTime() {
+            return setTime;
+        }
+
+        public void setUserId(long userId) {
+            this.userId = userId;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public void setDeadline(String deadline) {
+            this.deadline = deadline;
+        }
+
+        public void setStatus(int status) {
+            this.status = status;
+        }
+
+        public void setExpectedTomato(int expectedTomato) {
+            this.expectedTomato = expectedTomato;
+        }
+
+        public void setFinishedTime(String finishedTime) {
+            this.finishedTime = finishedTime;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setRemindTime(String remindTime) {
+            this.remindTime = remindTime;
+        }
+
+        public void setSetTime(String setTime) {
+            this.setTime = setTime;
+        }
+
+        public void setTomatoCompleted(int tomatoCompleted) {
+            this.tomatoCompleted = tomatoCompleted;
+        }
+    }
     @Override
     public List queryTask(long userId) {
         try{
+            List taskList = new ArrayList();
             Criteria criteria = new Criteria();
             criteria.and("userId").is(userId);
             Query  query = Query.query(criteria);
             query.with(new Sort(Sort.Direction.ASC, "status"));
-            List taskList = mongoTemplate.find(query,Task.class);
+            List resultList = mongoTemplate.find(query,Task.class);
+            Iterator iterator = resultList.iterator();
+            Task task;
+            while(iterator.hasNext()){
+                task = (Task)iterator.next();
+                ResultTask resultTask = new ResultTask(task);
+                taskList.add(resultTask);
+            }
             return taskList;
         }
         catch (Exception e){
