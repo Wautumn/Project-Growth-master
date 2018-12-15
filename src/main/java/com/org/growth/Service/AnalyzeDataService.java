@@ -65,41 +65,68 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     }
 
     /*
-    返回给定日期前两个月的数据
+    返回给定日期一年的数据
      */
     @Override
-    public List<AnalyzedataBean> getTwoMonthData(long userId,String localTime){
+    public List<AnalyzedataBean> getOneYearData(long userId,String localTime){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate curdate = LocalDate.parse(localTime,formatter);//当前日期
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
-        LocalDate end=curdate.plusYears(1);
-      //  System.out.println("start"+start.toString());
-
         List<AnalyzedataBean> analyzedataBeans=new LinkedList<>();//用链表类型好一点
+        LocalDate end=curdate.plusYears(1);
+        LocalDate earlytime=getEarlyTime(userId);
+        System.out.println("start"+earlytime.toString());
+        if(earlytime.isAfter(end)){//这一年没有数据
+            
+        }
+        else if(earlytime.isBefore(end)&&earlytime.isAfter(curdate)){
+            long diff=ChronoUnit.DAYS.between(earlytime, end);
+            int bet=(int) diff;
+            for(int i=0;i<bet;++i){
+                AnalyzedataBean analyzedataBean=getDateData(userId,earlytime.plusDays(i));
+                if(analyzedataBean.getTaskCount()==0&&analyzedataBean.getTomatocount()==0) continue;
+                analyzedataBeans.add(analyzedataBean);
+            }
+            System.out.println("1");
 
-        long diff=ChronoUnit.DAYS.between(curdate, end);
-        int bet=(int) diff;
-
-        for(int i=0;i<bet;++i){
-            analyzedataBeans.add(getDateData(userId,curdate.plusDays((long)i)));
+           // return analyzedataBeans;
         }
 
+        else {
+            long diff = ChronoUnit.DAYS.between(curdate, end);
+            int bet = (int) diff;
+
+            for (int i = 0; i < bet; ++i) {
+                AnalyzedataBean analyzedataBean = getDateData(userId, curdate.plusDays(i));
+                analyzedataBeans.add(analyzedataBean);
+                System.out.println("2");
+            }
+        }
         return analyzedataBeans;
     }
 
     /*
     从用户最早的历史记录开始所有的图表数据
      */
+
+    public LocalDate getEarlyTime(long Id){
+        Query query = new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC, "starttime"))).limit(1);
+        History history = mongoTemplate.findOne(query, History.class);
+        System.out.println("id"+history.getId());
+        LocalDate earlyData;
+        earlyData=DateToLocalDate(history.getStartTime());
+        return earlyData;
+    }
     @Override
     public List<AnalyzedataBean> getAllCompletedData(long userId){
 
         List<AnalyzedataBean> analyzedataBeans = new LinkedList<>();//用链表类型好一点
-        Query query = new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC, "starttime"))).limit(1);
+       /* Query query = new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC, "starttime"))).limit(1);
         History history = mongoTemplate.findOne(query, History.class);
         LocalDate earlyData;
-        earlyData=DateToLocalDate(history.getStartTime());
+        earlyData=DateToLocalDate(history.getStartTime());*/
        // System.out.println(DateToLocalDate(history.getStartTime())+","+history.getTaskId());//最早的历史记录的时间
-        LocalDate startTime=DateToLocalDate(history.getStartTime());
+        LocalDate startTime=getEarlyTime(userId);
         LocalDate nowTime=LocalDate.now();
         long between= ChronoUnit.DAYS.between(startTime,nowTime);
         int daycliff=(int) between;
@@ -196,7 +223,8 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
 
 
     public LocalDate DateToLocalDate(Date date) {
-
+        LocalDate localDate0=LocalDate.of(2018,01,01);
+        if(date==null) return null;
         Instant instant = date.toInstant();
         ZoneId zoneId = ZoneId.systemDefault();
         LocalDate localDate = instant.atZone(zoneId).toLocalDate();//Date转化为LocalDate
@@ -204,6 +232,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     }
 
     public LocalTime DateToLocalTime(Date date){
+        if(date==null) return null;
         Instant instant=date.toInstant();
         ZoneId zoneId=ZoneId.systemDefault();
         LocalTime localTime=instant.atZone(zoneId).toLocalTime();
