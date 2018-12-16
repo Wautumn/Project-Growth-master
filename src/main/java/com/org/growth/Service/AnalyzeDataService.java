@@ -75,9 +75,14 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         List<AnalyzedataBean> analyzedataBeans=new LinkedList<>();//用链表类型好一点
         LocalDate end=curdate.plusYears(1);
         LocalDate earlytime=getEarlyTime(userId);
+        if(earlytime==null) {
+            System.out.println("null time");
+            return null;
+        }
         System.out.println("start"+earlytime.toString());
         if(earlytime.isAfter(end)){//这一年没有数据
-            
+            System.out.println("this year");
+            return null;
         }
         else if(earlytime.isBefore(end)&&earlytime.isAfter(curdate)){
             long diff=ChronoUnit.DAYS.between(earlytime, end);
@@ -110,9 +115,12 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
      */
 
     public LocalDate getEarlyTime(long Id){
-        Query query = new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC, "starttime"))).limit(1);
+       // Query query= Query.query(Criteria.where("userId").is(Id));
+        Query query = new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC, "starttime", Sort.NullHandling.NULLS_LAST))).limit(1);
+        query.addCriteria(Criteria.where("userId").is(Id));
         History history = mongoTemplate.findOne(query, History.class);
-        System.out.println("id"+history.getId());
+      //  System.out.println("id"+history.getId());
+      //  System.out.println("id"+history.getStartTime());
         LocalDate earlyData;
         earlyData=DateToLocalDate(history.getStartTime());
         return earlyData;
@@ -285,6 +293,8 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         }
 
         for(int i=0;i<tasks.size();++i) {
+            Date date=tasks.get(i).getStartTime();
+            if(date==null) continue;
             DayOfWeek cur = DateToLocalDate(tasks.get(i).getStartTime()).getDayOfWeek();
            // System.out.println(cur.toString() + "星期几"+cur.getValue());
             if (cur.getValue() == 1) tMon ++;
@@ -312,7 +322,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         newData Sundata=new newData("星期日",Sun,tSun);
         System.out.println("dddddd"+Mondata.getWeekday());
         newDataList.add(Mondata);
-        newDataList.add(Thurdata);
+        newDataList.add(Tuesdata);
         newDataList.add(Weddata);
         newDataList.add(Thurdata);
         newDataList.add(Fridata);
