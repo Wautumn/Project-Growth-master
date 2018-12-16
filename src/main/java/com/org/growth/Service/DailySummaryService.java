@@ -142,32 +142,33 @@ public class DailySummaryService implements SummaryDao {
 
      @Override
      public List<Summary> querySummaryByYear(long userId, String year) {
-        List resultList = new ArrayList();
-        //query all summary
-        Criteria criteria = new Criteria();
-        criteria.and("userId").is(userId);
-        Query query = Query.query(criteria);
-        query.with(new Sort(Sort.Direction.ASC, "time"));
-        String startOfYearStr = year + "-01-01 00:00:00";
-        String endOfYearStr = year + "-12-31 23:59:59";
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-         Date startOfYear = null;
-         Date endOfYear = null;
-        try {
-            startOfYear= sdf.parse(startOfYearStr);
-            endOfYear =sdf.parse(endOfYearStr);
-         } catch (ParseException e) {
+         try {
+             List resultList = new ArrayList();
+             //query all summary
+             Criteria criteria = new Criteria();
+             criteria.and("userId").is(userId);
+             Query query = Query.query(criteria);
+             query.with(new Sort(Sort.Direction.ASC, "time"));
+             String startOfYearStr = year + "-01-01 00:00:00";
+             String endOfYearStr = year + "-12-31 23:59:59";
+             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+             Date startOfYear = null;
+             Date endOfYear = null;
+             startOfYear = sdf.parse(startOfYearStr);
+             endOfYear = sdf.parse(endOfYearStr);
+
+             query.addCriteria(Criteria.where("time").lte(endOfYear).gte(startOfYear));
+             List queryResult = mongoTemplate.find(query, Summary.class);
+             Iterator resultIterator = queryResult.iterator();
+             Summary summary;
+             do {
+                 summary = (Summary) resultIterator.next();
+                 Result result = new Result(summary.getContent(), sdf.format(summary.getTime()), summary.getSelfRating());
+                 resultList.add(result);
+             } while (resultIterator.hasNext());
+             return resultList;
+         }catch (Exception e){
              return  null;
          }
-        query.addCriteria(Criteria.where("time").lte(endOfYear).gte(startOfYear));
-        List queryResult = mongoTemplate.find(query, Summary.class);
-        Iterator resultIterator = queryResult.iterator();
-        Summary summary;
-        do {
-            summary = (Summary)resultIterator.next();
-            Result result = new Result(summary.getContent(), sdf.format(summary.getTime()), summary.getSelfRating());
-            resultList.add(result);
-        }while(resultIterator.hasNext());
-        return resultList;
      }
  }

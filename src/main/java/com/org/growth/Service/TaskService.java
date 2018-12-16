@@ -387,47 +387,49 @@ public class TaskService implements TaskDao, TaskTreeDao {
     }
     @Override
     public List queryTaskByYear(long userId, int startYear, int endYear) {
-        List resultList = new ArrayList();
-        Criteria criteria = new Criteria();
-        criteria.and("userId").is(userId);
-        Query query = Query.query(criteria);
-        query.with(new Sort(Sort.Direction.ASC, "finishedTime"));
-        String startOfYearStr = startYear + "-01-01 00:00:00";
-        String endOfYearStr = endYear + "-12-31 23:59:59";
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date startOfYear = null;
-        Date endOfYear = null;
         try {
-            startOfYear= sdf.parse(startOfYearStr);
-            endOfYear =sdf.parse(endOfYearStr);
-        } catch (ParseException e) {
+            List resultList = new ArrayList();
+            Criteria criteria = new Criteria();
+            criteria.and("userId").is(userId);
+            Query query = Query.query(criteria);
+            query.with(new Sort(Sort.Direction.ASC, "finishedTime"));
+            String startOfYearStr = startYear + "-01-01 00:00:00";
+            String endOfYearStr = endYear + "-12-31 23:59:59";
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date startOfYear = null;
+            Date endOfYear = null;
+            startOfYear = sdf.parse(startOfYearStr);
+            endOfYear = sdf.parse(endOfYearStr);
+
+            query.addCriteria(Criteria.where("finishedTime").lte(endOfYear).gte(startOfYear));
+            List queryResult = mongoTemplate.find(query, Task.class);
+            Iterator resultIterator = queryResult.iterator();
+            Task task = (Task) resultIterator.next();
+            ;
+            do {
+                Result result = new Result();
+                String tempDate = sdf.format(task.getFinishedTime()).substring(0, 10);
+                result.setDate(tempDate);
+                String tempTime = sdf.format(task.getFinishedTime()).substring(11, 19);
+                List<TempResult> list = new ArrayList<TempResult>();
+                TempResult tempResult = new TempResult(tempTime, task.getDescription(), task.getStatus());
+                list.add(tempResult);
+                while (resultIterator.hasNext()) {
+                    task = (Task) resultIterator.next();
+                    if (tempDate.equals(sdf.format(task.getFinishedTime()).substring(0, 10))) {
+                        tempTime = sdf.format(task.getFinishedTime()).substring(11, 19);
+                        tempResult = new TempResult(tempTime, task.getDescription(), task.getStatus());
+                        list.add(tempResult);
+                    } else
+                        break;
+                }
+                result.setTempResult(list);
+                resultList.add(result);
+            } while (resultIterator.hasNext());
+            return resultList;
+        }catch (Exception e){
             return  null;
         }
-        query.addCriteria(Criteria.where("finishedTime").lte(endOfYear).gte(startOfYear));
-        List queryResult = mongoTemplate.find(query, Task.class);
-        Iterator resultIterator = queryResult.iterator();
-        Task task=(Task)resultIterator.next();;
-        do {
-            Result result = new Result();
-            String tempDate = sdf.format(task.getFinishedTime()).substring(0,10);
-            result.setDate(tempDate);
-            String tempTime = sdf.format(task.getFinishedTime()).substring(11,19);
-            List<TempResult> list = new ArrayList<TempResult>();
-            TempResult tempResult = new TempResult(tempTime,task.getDescription(),task.getStatus());
-            list.add(tempResult);
-            while (resultIterator.hasNext()){
-                task = (Task)resultIterator.next();
-                if(tempDate.equals(sdf.format(task.getFinishedTime()).substring(0,10))){
-                    tempTime = sdf.format(task.getFinishedTime()).substring(11,19);
-                    tempResult = new TempResult(tempTime,task.getDescription(),task.getStatus());
-                    list.add(tempResult);
-                }else
-                    break;
-            }
-            result.setTempResult(list);
-            resultList.add(result);
-        }while(resultIterator.hasNext());
-        return resultList;
     }
 
     @Override
