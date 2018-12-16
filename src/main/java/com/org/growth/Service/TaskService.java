@@ -106,7 +106,7 @@ public class TaskService implements TaskDao, TaskTreeDao {
             history.setTomatoLength(UserService.findById(userId).getTomatoLength());
             history.setName(taskName);
             mongoTemplate.insert(history);
-            return  true;
+            return true;
         }
         catch (Exception e){
             return false;
