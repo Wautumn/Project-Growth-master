@@ -26,42 +26,42 @@ public class ArticleService {
         img[3]="http://p1.pstatp.com/origin/2a4100008d310b5fd8a8";
         img[4]="http://p3.pstatp.com/origin/2a4200001e17dc84eb58";
         img[5]="http://soft.yesky.com/imagelist/2009/114/5pw6st9wo3c3.jpg";
-        img[6]="http://img.ivsky.com/img/tupian/pre/201804/16/maomi_senlin.jpg";
-        img[7]="http://img.ivsky.com/img/tupian/pre/201804/16/maomi_senlin-003.jpg";
-        img[8]="http://img.ivsky.com/img/tupian/pre/201804/07/hupo.jpg";
-        img[9]="http://img.ivsky.com/img/tupian/pre/201804/07/hupo-003.jpg";
-        img[10]="http://img.ivsky.com/img/tupian/pre/201804/07/hupo-012.jpg";
-        img[11]="http://img.ivsky.com/img/tupian/pre/201803/19/meilidehaitan.jpg";
-        img[12]="http://img.ivsky.com/img/tupian/pre/201805/19/shanmai_senlin-001.jpg";
-        img[13]="http://img.ivsky.com/img/tupian/pre/201805/19/shanmai_senlin-008.jpg";
-        img[14]="http://img.ivsky.com/img/tupian/pre/201804/11/tiankong_baiyun-002.jpg";
-        img[15]="http://img.ivsky.com/img/tupian/pre/201804/11/tiankong_baiyun-012.jpg";
-        img[16]="http://img.ivsky.com/img/tupian/pre/201804/10/fanxing_yekong.jpg";
-        img[17]="http://img.ivsky.com/img/tupian/pre/201804/10/fanxing_yekong-003.jpg";
-        img[18]="http://img.ivsky.com/img/tupian/pre/201804/10/fanxing_yekong-012.jpg";
-        img[19]="http://img.ivsky.com/img/tupian/pre/201804/10/xiyang_jingse-001.jpg";
-        img[20]="http://img.ivsky.com/img/tupian/pre/201804/10/xiyang_jingse-008.jpg";
-        img[21]="http://img.ivsky.com/img/tupian/pre/201804/10/xiyang_jingse-014.jpg";
-        img[22]="http://img.ivsky.com/img/tupian/pre/201801/23/dongjidehubian-006.jpg";
-        img[23]="http://img.ivsky.com/img/tupian/pre/201801/23/dongjidehubian-009.jpg";
-        img[24]="http://img.ivsky.com/img/tupian/pre/201801/26/wuhoudehaibian-003.jpg";
-        img[25]="http://img.ivsky.com/img/tupian/pre/201801/18/luozaidishangdeshuye.jpg";
-        img[26]="http://img.ivsky.com/img/tupian/pre/201801/18/luozaidishangdeshuye-009.jpg";
-        img[27]="http://img.ivsky.com/img/tupian/pre/201801/18/luozaidishangdeshuye-013.jpg";
-        img[28]="http://img.ivsky.com/img/tupian/pre/201712/30/xuejing-022.jpg";
-        img[29]="http://img.ivsky.com/img/tupian/pre/201712/30/jiebaiwuxiadexuejingtupian.jpg";
-        img[30]="http://img.ivsky.com/img/tupian/pre/201712/30/shushangdejixuetupian-001.jpg";
-        img[31]="http://img.ivsky.com/img/tupian/pre/201711/01/shitou-006.jpg";
-        img[32]="http://img.ivsky.com/img/tupian/pre/201710/28/haimian-002.jpg";
-        img[33]="http://img.ivsky.com/img/tupian/pre/201710/28/fanzhebowendepingjinghaimiantupian.jpg";
-        img[34]="http://img.ivsky.com/img/tupian/pre/201711/27/yangguang-005.jpg";
-        img[35]="http://img.ivsky.com/img/tupian/pre/201711/27/yangguang-014.jpg";
-        img[36]="http://img.ivsky.com/img/tupian/pre/201711/22/zhaoyaojinlaideyangguang-002.jpg";
-        img[37]="http://img.ivsky.com/img/tupian/pre/201711/21/haitan.jpg";
-        img[38]="http://img.ivsky.com/img/tupian/pre/201711/21/haitan-011.jpg";
-        img[39]="http://img.ivsky.com/img/tupian/pre/201712/14/meilidexuehua-010.jpg";
-        img[40]="http://img.ivsky.com/img/tupian/pre/201712/14/meilideshulin-007.jpg";
-        img[41]="http://img.ivsky.com/img/tupian/pre/201712/30/xuejing-001.jpg";
+        img[6]="http://upload.art.ifeng.com/2017/0425/1493105660290.jpg";
+        img[7]="https://a.bbkz.net/forum/gallery/images/1343/large/1_DSC03604a.jpg";
+        img[8]="http://tu.587kan.com/c171108/15100F4214c30-19143.jpg";
+        img[9]="https://www.dilianna.com/wp-content/uploads/2018/07/1508759490-2807984048.jpg";
+        img[10]="http://seopic.699pic.com/photo/50053/8949.jpg_wh1200.jpg";
+        img[11]="http://pic.sc.chinaz.com/files/pic/pic9/201801/bpic5121.jpg";
+        img[12]="https://5b0988e595225.cdn.sohucs.com/images/20180604/850558d4a27e4c9bb01bec3a945ee535.jpeg";
+        img[13]="http://pic.zsucai.com/files/2013/1022/gududechangy1.jpg";
+        img[14]="https://s11.sinaimg.cn/mw690/004hgq0Ozy7eVD9tgFA5a&690";
+        img[15]="http://statics.logohhh.com/forum/201811/12/212547voc41v6awsckoxc7.jpg";
+        img[16]="http://soft.yesky.com/imagelist/2009/114/5pw6st9wo3c3.jpg";
+        img[17]="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/00/ChMkJlbKw0WIcjXGAA--xnhwdi4AALG0QOAIDAAD77e961.jpg";
+        img[18]="http://images.xuejuzi.cn/1505/1_150511223801_1.jpg";
+        img[19]="http://img.mp.itc.cn/upload/20170517/110d32467aa346279231b85562664e03_th.jpg";
+        img[20]="http://youmeitu.oss-cn-hongkong.aliyuncs.com/docs/allimg/180317/4-1P31G31934.jpg";
+        img[21]="http://pic1.win4000.com/wallpaper/9/57a1484ad776c.jpg";
+        img[22]="http://img.h1365.cn/uploads3/sc/jpgs/1808/zzpic13803_sc115.com.jpg";
+        img[23]="http://img1.xiazaizhijia.com/walls/20160801/1440x900_f771bfcd95db53a.jpg";
+        img[24]="http://upload.art.ifeng.com/2016/0322/1458614532688.jpg";
+        img[25]="http://pic1.win4000.com/wallpaper/9/59dadcc07f9e4.jpg";
+        img[26]="http://588ku.qiao88.com/back_pic/04/85/24/9158dd079dc09e0.jpg!/fw/650";
+        img[27]="http://img1.xiazaizhijia.com/walls/20160801/1440x900_f771bfcd95db53a.jpg";
+        img[28]="http://www.xinhuanet.com/tw/2016-09/10/129275383_14734037448631n.jpeg";
+        img[29]="http://wlzb.net/community/data/attachment/group/0f/group_639_banner.jpg";
+        img[30]="https://i3.3conline.com/images/piclib/201112/11/batch/1/120397/1323616140104fb8czmk2uu.jpg";
+        img[31]="https://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/63d9f2d3572c11df23821de8642762d0f603c2ae.jpg";
+        img[32]="http://pic1.win4000.com/wallpaper/f/59801be5b47c7.jpg";
+        img[33]="http://img2.manshijian.com/upload/member/image/31911/d7b07256b5aca4da493d9ef5acf6dce0.jpg";
+        img[34]="https://img.91ddcc.com/14803153228639.jpg";
+        img[35]="http://www.52desktop.cn/upimg/allimg/080519/12111631AN04a549.jpg";
+        img[36]="http://a1.att.hudong.com/72/39/01300000857962127234391168755.jpg";
+        img[37]="http://mmweb.tw/sys/ieb/pic/m85416_2b.jpg";
+        img[38]="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/08/00/ChMkJ1exsLCIULDFAAedtOIaCSsAAUdOAE_UEYAB53M287.jpg";
+        img[39]="http://5b0988e595225.cdn.sohucs.com/images/20180421/5a1115697f3a43b6a7841c12cfaf87b8.jpeg";
+        img[40]="http://5b0988e595225.cdn.sohucs.com/images/20180421/b21060e5de854c8e87c0157a4dedff09.jpeg";
+        img[41]="http://5b0988e595225.cdn.sohucs.com/images/20180421/193a3464c8ba4713ac2d3f2fb93829c7.jpeg";
     }
 
 
@@ -229,7 +229,8 @@ public class ArticleService {
         for(int i=0;i<recommendArticle.size();i++){
           //  System.out.println(i+"i  "+Integer.parseInt(value[i].toString()));
          //   System.out.println("img  "+img[Integer.parseInt(value[i].toString())-1]);
-            recommendArticle.get(i).setImg(img[Integer.parseInt(value[i].toString())]);
+           recommendArticle.get(i).setImg(img[Integer.parseInt(value[i].toString())]);
+           // recommendArticle.get(i).setImg(img[1]);
         }
 
         return  recommendArticle;
