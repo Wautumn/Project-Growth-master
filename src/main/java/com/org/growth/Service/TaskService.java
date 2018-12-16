@@ -154,7 +154,7 @@ public class TaskService implements TaskDao, TaskTreeDao {
             //update task
             Criteria criteria = new Criteria();
             criteria.and("userId").is(userId);
-            criteria.and("taskName").is(taskName);
+            criteria.and("name").is(taskName);
             Query query = Query.query(criteria);
             Task task = mongoTemplate.findOne(query,Task.class);
 

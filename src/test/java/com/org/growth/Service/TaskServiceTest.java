@@ -67,7 +67,7 @@ public class TaskServiceTest {
 
     @Test
     public void endTask() {
-        if (taskService.endTask(2, "你啊啊好", new Date())){
+        if (taskService.endTask(8, "he", new Date())){
             System.out.println("Test Succeed");
         }
         else {

@@ -24,7 +24,7 @@ public class TomatoController {
 
 
     @GetMapping(value = "/viewYearHistory")
-    public java.util.List<Map> viewMonthHistory(@RequestParam(value = "userId") long userId, @RequestParam(value = "year") String year){
+    public java.util.List<Map> viewYearHistory(@RequestParam(value = "userId") long userId, @RequestParam(value = "year") String year){
         return tomatoService.getYearHistory(userId,year);
     }
 
