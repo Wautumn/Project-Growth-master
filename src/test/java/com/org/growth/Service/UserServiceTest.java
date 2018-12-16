@@ -68,10 +68,9 @@ public class UserServiceTest {
 
     @Test
     public void logIn() {
-        if( userService.logIn("user0", "pass0") != -1 )
-            System.out.println("Test succeed");
-        else
-            System.out.println("Test fail");
+
+            System.out.println(userService.logIn("123", "123"));
+
     }
 
     @Test
@@ -120,7 +119,7 @@ public class UserServiceTest {
 
     @Test
     public void changeUserFace() {
-        if( userService.changeUserFace(2L, "faceAfter").equals("error") )
+        if( userService.changeUserFace(8L, "faceAfter").equals("error") )
             System.out.println("Test fail");
         else
             System.out.println("Test succeed");

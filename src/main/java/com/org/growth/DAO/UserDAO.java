@@ -2,6 +2,8 @@ package com.org.growth.DAO;
 
 import com.org.growth.entity.User;
 
+import java.util.List;
+
 public interface UserDAO {
 
     int getTomatoWeeklyCount(Long UserId);
@@ -14,7 +16,7 @@ public interface UserDAO {
     String changeEmail(long UserId, String email);
     String changeUserFace(long UserId, String userFace);
 
-    long logIn(String username, String password);
+    List logIn(String username, String password);
     long signUp(String username, String password, String email);
 
 }

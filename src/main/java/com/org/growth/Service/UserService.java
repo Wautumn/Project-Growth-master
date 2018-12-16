@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class UserService implements UserDAO {
@@ -28,22 +30,32 @@ public class UserService implements UserDAO {
         mongoTemplate = mongoTemplate1;
     }
     @Override
-    public long logIn(String username, String password){
+    public List logIn(String username, String password){
         mongoTemplate = mongoTemplate1;
+        List list = new ArrayList();
         try{
             Query query = Query.query(Criteria.where("username").is(username));
             User user = mongoTemplate.findOne(query, User.class);
             String pass = user.getPassword();
             if( password.equals(pass) ){
-                return user.getId();
+
+                list.add(user.getId().toString());
+                list.add(user.getUsername());
+                list.add(user.getEmail());
+                list.add(user.getUserface());
+                String s = String.valueOf(user.getTomatoLength());
+                list.add(s);
+
+                return list;
             }
             else{
-                return 0;
+                list.add("Wrong password!");
+                return list;
             }
         } catch (Exception e){
-            return -1;
+            list.add("No user!");
+            return list;
         }
-
     }
 
     /*
