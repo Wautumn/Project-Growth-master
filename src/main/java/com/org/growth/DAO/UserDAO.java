@@ -10,7 +10,6 @@ public interface UserDAO {
 
     int changeTomatoLength(long UserId, int tomatoLength);
     //boolean changeMusic(long UserId, String music);
-
     String changeUsername(long UserId, String username);
     boolean changePassword(long userId, String oldPassword, String newPassword);
     String changeEmail(long UserId, String email);

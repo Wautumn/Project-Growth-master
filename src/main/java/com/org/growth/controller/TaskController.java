@@ -73,7 +73,7 @@ public class TaskController {
 
     @ResponseBody
     @GetMapping(value = "modifyTask")
-    public boolean deleteTaskByName(@RequestParam(value = "userId") long userId, @RequestParam(value = "taskName") String name, @RequestParam(value = "property") String property, @RequestParam(value = "value") String value) {
+    public boolean modifyTaskByName(@RequestParam(value = "userId") long userId, @RequestParam(value = "taskName") String name, @RequestParam(value = "property") String property, @RequestParam(value = "value") String value) {
         return taskService.modifyTask(userId, name,property,value);
     }
 }
