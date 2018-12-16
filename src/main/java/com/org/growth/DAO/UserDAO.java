@@ -12,7 +12,7 @@ public interface UserDAO {
     //boolean changeMusic(long UserId, String music);
 
     String changeUsername(long UserId, String username);
-    boolean changePassword(String username, String oldPassword, String newPassword);
+    boolean changePassword(long userId, String oldPassword, String newPassword);
     String changeEmail(long UserId, String email);
     String changeUserFace(long UserId, String userFace);
 

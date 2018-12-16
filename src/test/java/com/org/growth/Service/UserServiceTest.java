@@ -75,7 +75,7 @@ public class UserServiceTest {
 
     @Test
     public void changeTomatoLength() {
-        if( userService.changeTomatoLength(2L, 50) != -1 )
+        if( userService.changeTomatoLength(8L, 30) != -1 )
             System.out.println("Test succeed");
         else
             System.out.println("Test fail");
@@ -93,7 +93,7 @@ public class UserServiceTest {
 
     @Test
     public void changeUsername() {
-        if( userService.changeUsername(2L, "zzz").equals("error") )
+        if( userService.changeUsername(8, "123").equals("error") )
             System.out.println("Test fail");
         else
             System.out.println("Test succeed");
@@ -102,7 +102,7 @@ public class UserServiceTest {
 
     @Test
     public void changePassword() {
-        if( userService.changePassword("zzz", "newPass", "word") )
+        if( userService.changePassword(8, "word2", "123") )
             System.out.println("Test succeed");
         else
             System.out.println("Test fail");
@@ -110,7 +110,7 @@ public class UserServiceTest {
 
     @Test
     public void changeEmail() {
-        if( userService.changeEmail(2L, "emailAfter").equals("error") )
+        if( userService.changeEmail(8, "emailAfter").equals("error") )
             System.out.println("Test fail");
         else
             System.out.println("Test succeed");
@@ -119,7 +119,7 @@ public class UserServiceTest {
 
     @Test
     public void changeUserFace() {
-        if( userService.changeUserFace(8L, "faceAfter").equals("error") )
+        if( userService.changeUserFace(8, "faceChanged").equals("error") )
             System.out.println("Test fail");
         else
             System.out.println("Test succeed");

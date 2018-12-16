@@ -17,8 +17,8 @@ public class ChangeInfoController {
 
     @ResponseBody
     @PostMapping(value = "/changePassword ")
-    public boolean changePassword(@RequestParam(value = "username") String username, @RequestParam(value = "oldPassword") String oldPassword, @RequestParam(value = "newPassword") String newPassword){
-        return userService.changePassword(username, oldPassword, newPassword);
+    public boolean changePassword(@RequestParam(value = "userId") long userId, @RequestParam(value = "oldPassword") String oldPassword, @RequestParam(value = "newPassword") String newPassword){
+        return userService.changePassword(userId, oldPassword, newPassword);
     }
 
     @ResponseBody

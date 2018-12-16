@@ -115,11 +115,11 @@ public class UserService implements UserDAO {
      */
 
     @Override
-    public boolean changePassword(String username, String oldPassword, String newPassword){
+    public boolean changePassword(long userId, String oldPassword, String newPassword){
         mongoTemplate = mongoTemplate1;
         try{
-            Query query = Query.query(Criteria.where("username").is(username));
-            User user = mongoTemplate.findOne(query, User.class);
+            Query query = Query.query(Criteria.where("id").is(userId));
+            User user = mongoTemplate.findOne(query,User.class);
             if( user.getPassword().equals(oldPassword) ){
                 Update update= new Update().set("password", newPassword);
                 mongoTemplate.updateFirst(query, update, User.class);
