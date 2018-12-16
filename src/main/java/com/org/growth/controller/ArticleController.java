@@ -48,6 +48,11 @@ public class ArticleController {
           return performPopularArticle();//返回热门文章
         }
         context=articleService.getStringHistory(userId);
+        if(context=="")  {
+            System.out.println("null");
+            return performPopularArticle();//返回热门文章
+        }
+        System.out.println("not null"+context);
         keywords=keywordRelated.GetKeywords(context,10);
         keyTags=keywordRelated.getUsertags(keywords);
         articles=articleService.getRecommendArticle(keyTags);

@@ -24,6 +24,9 @@ public class KeywordRelated {
 
     public List<String> GetKeywords(String News, int keywordsNumber) throws Exception {
         ArrayList<String> keywords = new ArrayList<String>();
+        if(News==null) {
+           //News="我爱学习,人文，美食，学习，计算机，音乐，生活，自然，填空，学习，信息，大学生，看书";
+        }
         Map<String, Object> keywordandvalue = new HashMap<String, Object>();
 
         Resource resource=new ClassPathResource("models/seg.m");
@@ -56,17 +59,15 @@ public class KeywordRelated {
         }
         String pathCWS=somethingFile.getPath();
         String pathSW=path.toString();
-        System.out.println(pathCWS+"swwwwww");
-        System.out.println(somethingFile+"dsdsdssds");
+     //   System.out.println(pathCWS+"swwwwww");
+      //  System.out.println(somethingFile+"dsdsdssds");
 
         CWSTagger seg = new CWSTagger(pathCWS);
         StopWords sw = new StopWords(pathSW);
         AbstractExtractor key = new WordExtract(seg, sw);
-       /* StopWords sw = new StopWords("models/stopwords");
-        CWSTagger seg = new CWSTagger("models/seg.m");
-        AbstractExtractor key = new WordExtract(seg, sw);*/
 
-        Map<String, Integer> ans = key.extract(News, keywordsNumber);
+        Map<String, Integer> ans = new HashMap<>();
+        ans= key.extract(News, keywordsNumber);
 
         for (Map.Entry<String, Integer> entry : ans.entrySet()) {
             String keymap = entry.getKey().toString();
@@ -84,6 +85,10 @@ public class KeywordRelated {
      */
     public List<Integer> getUsertags(List<String> keywords){
       List<Integer> tagspage= new LinkedList();
+      if(keywords.size()==0)
+        {
+            return tagspage;
+        }
       if(keywords.contains("计算机")) tagspage.add(1);
       if(keywords.contains("Java")) tagspage.add(2);
       if(keywords.contains("网络")) tagspage.add(3);
