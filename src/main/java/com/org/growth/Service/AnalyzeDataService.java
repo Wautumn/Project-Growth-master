@@ -23,6 +23,10 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     @Autowired
     MongoTemplate mongoTemplate;
 
+    @Autowired
+    UserService userService=new UserService();
+
+
     public String weekday="无";
     public String daytime="";
 
@@ -69,22 +73,28 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
      */
     @Override
     public List<AnalyzedataBean> getOneYearData(long userId,String localTime){
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate curdate = LocalDate.parse(localTime,formatter);//当前日期
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
         List<AnalyzedataBean> analyzedataBeans=new LinkedList<>();//用链表类型好一点
+        if(userService.findByUserId(userId)==null)
+        {
+            System.out.println("null");
+            return analyzedataBeans;
+        }
         LocalDate end=curdate.plusYears(1);
         LocalDate earlytime=getEarlyTime(userId);
         if(earlytime==null) {
             System.out.println("null time");
-            return null;
+            return analyzedataBeans;
         }
         System.out.println("start"+earlytime.toString());
         if(earlytime.isAfter(end)){//这一年没有数据
             System.out.println("this year");
-            return null;
+            return analyzedataBeans;
         }
-        else if(earlytime.isBefore(end)&&earlytime.isAfter(curdate)){
+        else if(earlytime.isBefore(end)&&earlytime.isAfter(curdate)){//中间
             long diff=ChronoUnit.DAYS.between(earlytime, end);
             int bet=(int) diff;
             for(int i=0;i<bet;++i){
@@ -97,7 +107,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
            // return analyzedataBeans;
         }
 
-        else {
+        else {//之前
             long diff = ChronoUnit.DAYS.between(curdate, end);
             int bet = (int) diff;
 
@@ -116,12 +126,19 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
 
     public LocalDate getEarlyTime(long Id){
        // Query query= Query.query(Criteria.where("userId").is(Id));
-        Query query = new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC, "starttime", Sort.NullHandling.NULLS_LAST))).limit(1);
-        query.addCriteria(Criteria.where("userId").is(Id));
-        History history = mongoTemplate.findOne(query, History.class);
-      //  System.out.println("id"+history.getId());
-      //  System.out.println("id"+history.getStartTime());
+        if(userService.findByUserId(Id)==null) return null;
+        History history=new History();
+        while (history.getStartTime()==null)
+        {
+           Query query = new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC, "starttime", Sort.NullHandling.NULLS_LAST))).limit(1);
+           query.addCriteria(Criteria.where("userId").is(Id));
+           history = mongoTemplate.findOne(query, History.class);
+           if(history==null) break;
+           if(history.getStartTime()==null)
+               mongoTemplate.remove(history);
+       }
         LocalDate earlyData;
+        if(history==null) return null;
         earlyData=DateToLocalDate(history.getStartTime());
         return earlyData;
     }
