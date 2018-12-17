@@ -312,8 +312,10 @@ public class TaskService implements TaskDao, TaskTreeDao {
             Task task;
             while(iterator.hasNext()){
                 task = (Task)iterator.next();
-                ResultTask resultTask = new ResultTask(task);
-                taskList.add(resultTask);
+                if(task.getStatus() != -1) {
+                    ResultTask resultTask = new ResultTask(task);
+                    taskList.add(resultTask);
+                }
             }
             return taskList;
         }
@@ -405,23 +407,57 @@ public class TaskService implements TaskDao, TaskTreeDao {
             List queryResult = mongoTemplate.find(query, Task.class);
             Iterator resultIterator = queryResult.iterator();
             Task task = (Task) resultIterator.next();
-            ;
+            /*Result result = new Result();
+            String tempDate = sdf.format(task.getFinishedTime()).substring(0, 10);
+            result.setDate(tempDate);
+            String tempTime = sdf.format(task.getFinishedTime()).substring(11, 19);
+            List<TempResult> list = new ArrayList<TempResult>();
+            TempResult tempResult = new TempResult(tempTime, task.getDescription(), task.getStatus());
+            list.add(tempResult);*/
             do {
                 Result result = new Result();
                 String tempDate = sdf.format(task.getFinishedTime()).substring(0, 10);
                 result.setDate(tempDate);
+
                 String tempTime = sdf.format(task.getFinishedTime()).substring(11, 19);
                 List<TempResult> list = new ArrayList<TempResult>();
                 TempResult tempResult = new TempResult(tempTime, task.getDescription(), task.getStatus());
                 list.add(tempResult);
+
                 while (resultIterator.hasNext()) {
                     task = (Task) resultIterator.next();
                     if (tempDate.equals(sdf.format(task.getFinishedTime()).substring(0, 10))) {
                         tempTime = sdf.format(task.getFinishedTime()).substring(11, 19);
                         tempResult = new TempResult(tempTime, task.getDescription(), task.getStatus());
                         list.add(tempResult);
-                    } else
+                    } else {
+                        if(!resultIterator.hasNext()){
+                            result.setTempResult(list);
+                            resultList.add(result);
+
+                            tempDate = sdf.format(task.getFinishedTime()).substring(0, 10);
+                            result = new Result();
+                            result.setDate(tempDate);
+                            tempTime = sdf.format(task.getFinishedTime()).substring(11, 19);
+                            list = new ArrayList<TempResult>();
+                            tempResult = new TempResult(tempTime, task.getDescription(), task.getStatus());
+                            list.add(tempResult);
+                            result.setTempResult(list);
+                            resultList.add(result);
+                            return resultList;
+                        }
+                            /*result.setTempResult(list);
+                            resultList.add(result);
+                            tempDate = sdf.format(task.getFinishedTime()).substring(0, 10);
+                            result.setDate(tempDate);
+                            tempTime = sdf.format(task.getFinishedTime()).substring(11, 19);
+                            list = new ArrayList<TempResult>();
+                            tempResult = new TempResult(tempTime, task.getDescription(), task.getStatus());
+                            list.add(tempResult);
+                            result.setTempResult(list);
+                            resultList.add(result);*/
                         break;
+                    }
                 }
                 result.setTempResult(list);
                 resultList.add(result);

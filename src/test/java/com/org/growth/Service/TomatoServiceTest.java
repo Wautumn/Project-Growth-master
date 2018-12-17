@@ -1,13 +1,19 @@
 package com.org.growth.Service;
 
+import com.org.growth.entity.TaskTree;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
 @RunWith(SpringRunner.class)
@@ -15,7 +21,8 @@ import java.util.Date;
 public class TomatoServiceTest {
     @Autowired
     TomatoService tomatoService;
-
+@Resource
+    MongoTemplate mongoTemplate;
     Date time;
     long userId;
     @Before
@@ -55,35 +62,12 @@ public class TomatoServiceTest {
     }*/
 
     @Test
-    public void saveStartTomato() {
-        if (tomatoService.saveStartTomato(userId)){
-            System.out.println("Test succeed");
-        }else {
-            System.out.println("Test Failed");
-        }
-    }
-
-    @Test
-    public void saveBreakTomato() {
-        if(tomatoService.saveBreakTomato(userId))
-            System.out.println("Test Succeed");
-        else
-            System.out.println("Test Failed");
-    }
-
-    @Test
-    public void saveEndTomato() {
-        if(tomatoService.saveEndTomato(userId, false))
-            System.out.println("Test Succeed");
-        else
-            System.out.println("Test Failed");
-    }
-
-    @Test
-    public void saveEndTomato1() {
-        if(tomatoService.saveEndTomato(userId, true,"Rua"))
-            System.out.println("Test Succeed");
-        else
-            System.out.println("Test Failed");
+    public void myOwnTest() {
+        Criteria criteria = new Criteria();
+        criteria.and("parenttaskid").is(3);
+        Query query = Query.query(criteria);
+        Update update = new Update();
+        update.set("sontaskname","fasd");
+        mongoTemplate.updateFirst(query,update, TaskTree.class);
     }
 }

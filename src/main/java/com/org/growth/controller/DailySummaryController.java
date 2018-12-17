@@ -26,7 +26,7 @@ public class DailySummaryController {
     public boolean saveDailySummary(@RequestParam(value = "userid") long userId, @RequestParam(value = "content")
             String content,
                                     @DateTimeFormat(pattern = "yyyy-MM-dd")Date time,
-                                    @RequestParam(value = "selfRating") int selfRating){
+                                    @RequestParam(value = "selfRating") double selfRating){
         return dailySummaryService.saveSummary(userId,content,time,selfRating);
     }
 

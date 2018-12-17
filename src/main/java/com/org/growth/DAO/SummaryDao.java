@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface SummaryDao {
 
-    boolean saveSummary(long userId, String content, Date time, int selfRating);
+    boolean saveSummary(long userId, String content, Date time, double selfRating);
     //return status and object
     List readSummary(long userId, Date time);
 

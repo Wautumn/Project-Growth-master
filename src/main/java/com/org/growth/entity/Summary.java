@@ -31,13 +31,13 @@ public class Summary {
     private Date time;
 
     @Field("selfrating")
-    private int selfRating;
+    private double selfRating;
 
-    public int getSelfRating() {
+    public double getSelfRating() {
         return selfRating;
     }
 
-    public void setSelfRating(int selfRating) {
+    public void setSelfRating(double selfRating) {
         this.selfRating = selfRating;
     }
 

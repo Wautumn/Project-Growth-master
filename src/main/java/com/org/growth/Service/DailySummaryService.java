@@ -32,7 +32,7 @@ public class DailySummaryService implements SummaryDao {
 
 
     @Override
-    public boolean saveSummary(long userId, String content, Date time,int selfRating) {
+    public boolean saveSummary(long userId, String content, Date time,double selfRating) {
         try {
             //isExisted
             Criteria criteria = new Criteria();
@@ -105,10 +105,10 @@ public class DailySummaryService implements SummaryDao {
      class Result{
             private String content;
             private String date;
-            private int selfRating;
+            private double selfRating;
 
             Result(){};
-            Result(String content, String time, int selfRating){
+            Result(String content, String time, double selfRating){
                 this.content = content;
                 this.date = time.substring(0,10);
                 this.selfRating =selfRating;
@@ -118,7 +118,7 @@ public class DailySummaryService implements SummaryDao {
              return date;
          }
 
-         public int getSelfRating() {
+         public double getSelfRating() {
              return selfRating;
          }
 
@@ -130,7 +130,7 @@ public class DailySummaryService implements SummaryDao {
              this.date = time;
          }
 
-         public void setSelfRating(int selfRating) {
+         public void setSelfRating(double selfRating) {
              this.selfRating = selfRating;
          }
 
