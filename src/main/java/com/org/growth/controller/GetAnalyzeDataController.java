@@ -38,11 +38,11 @@ public class GetAnalyzeDataController {
      */
     @RequestMapping(value = "/getOneYearHistoryData",method = RequestMethod.GET)
     public List<AnalyzedataBean> getTwoMonth(@RequestParam(value = "userid") long userId,@RequestParam(value = "date") String date){
-        if(userService.findByUserId(userId)==null) return null;
-        else
-        {
+      //  if(userService.findByUserId(userId)==null) return null;
+      //  else
+      //  {
             return analyzeDataService.getOneYearData(userId,date);
-        }
+       // }
     }
 
     /*
