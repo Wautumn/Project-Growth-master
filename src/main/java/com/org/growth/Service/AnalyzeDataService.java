@@ -277,10 +277,10 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
 
         Query query=Query.query(Criteria.where("userId").is(userId));
-        List<History> tasks=mongoTemplate.find(query,History.class);//所有的任务数
+        List<Task> tasks=mongoTemplate.find(query,Task.class);//所有的任务
 
-        query.addCriteria(Criteria.where("status").is(2));
-        List<History>histories=mongoTemplate.find(query,History.class);//获取所有完成的历史记录
+        query.addCriteria(Criteria.where("status").is(1));
+        List<History>histories=mongoTemplate.find(query,History.class);//获取所有完成的番茄
         System.out.println("size his"+histories.size());
         System.out.println("task size his"+tasks.size());
 
@@ -310,9 +310,9 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         }
 
         for(int i=0;i<tasks.size();++i) {
-            Date date=tasks.get(i).getStartTime();
+            Date date=tasks.get(i).getSetTime();
             if(date==null) continue;
-            DayOfWeek cur = DateToLocalDate(tasks.get(i).getStartTime()).getDayOfWeek();
+            DayOfWeek cur = DateToLocalDate(tasks.get(i).getSetTime()).getDayOfWeek();
            // System.out.println(cur.toString() + "星期几"+cur.getValue());
             if (cur.getValue() == 1) tMon ++;
             else if (cur.getValue() == 2) tTues ++;
@@ -391,8 +391,8 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         int aft=0;
         int eve=0;
         Query query=Query.query(Criteria.where("userId").is(userId));
-        query.addCriteria(Criteria.where("status").is(2));
-        List<History>histories=mongoTemplate.find(query,History.class);//获取所有完成的历史记录
+        query.addCriteria(Criteria.where("status").is(1));
+        List<History>histories=mongoTemplate.find(query,History.class);//获取所有完成番茄的历史记录
         System.out.println("size"+histories.size());
         for(History history:histories){
             LocalTime now= DateToLocalTime(history.getStartTime());
