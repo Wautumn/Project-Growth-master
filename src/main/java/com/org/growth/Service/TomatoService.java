@@ -32,8 +32,6 @@ public class TomatoService implements HistoryDao {
     @Resource
     private MongoTemplate mongoTemplate;
 
-    Date startTime, endTime;
-
     @Override
     public Page<History> viewHistory(long userId, int size, int page) {
 
@@ -100,9 +98,8 @@ public class TomatoService implements HistoryDao {
     */
 
     @Override
-    public boolean saveStartTomato(long userId) {
+    public boolean saveStartTomato(long userId, Date startTime) {
         try {
-            this.startTime = new Date();
             History history = new History();
             history.setStartTime(startTime);
             history.setUserId(userId);
@@ -118,9 +115,8 @@ public class TomatoService implements HistoryDao {
     }
 
     @Override
-    public boolean saveBreakTomato(long userId) {
+    public boolean saveBreakTomato(long userId, Date startTime, Date endTime) {
         try{
-            endTime = new Date();
             Update update = new Update();
             Criteria criteria = new Criteria();
             criteria.and("userId").is(userId);
@@ -136,14 +132,13 @@ public class TomatoService implements HistoryDao {
     }
 
     @Override
-    public boolean saveEndTomato(long userId, boolean needAssociation) {
-        return saveEndTomato(userId, needAssociation, "");
+    public boolean saveEndTomato(long userId, boolean needAssociation,Date startTime,Date endTime) {
+        return saveEndTomato(userId, needAssociation, "",startTime,endTime);
     }
 
     @Override
-    public boolean saveEndTomato(long userId, boolean needAssociation, String taskName){
+    public boolean saveEndTomato(long userId, boolean needAssociation, String taskName,Date startTime,Date endTime){
         try{
-            endTime = new Date();
 
             //query
             Criteria criteria = new Criteria();
