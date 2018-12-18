@@ -55,6 +55,7 @@ public class ArticleController {
         System.out.println("not null"+context);
         keywords=keywordRelated.GetKeywords(context,10);
         keyTags=keywordRelated.getUsertags(keywords);
+       // System.out.println(keywords.size()+"size");
         articles=articleService.getRecommendArticle(keyTags);
         if(articles==null){articles.add(article);}
        // map.put("tags",articleService.getTags());

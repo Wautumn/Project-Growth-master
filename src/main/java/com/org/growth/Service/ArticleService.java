@@ -110,8 +110,9 @@ public class ArticleService {
 
     public Map<Integer,String> keyanftag(List<Integer> tags){
         Map<Integer,String> keytag=new HashMap<>();
+        System.out.println("tags"+tags.size());
         for(int i=0;i<tags.size();++i){
-            if(tags.get(i)==0)keytag.put(0,"程序人生");
+            if(tags.get(i)==0)keytag.put(0,"热门");
             else if(tags.get(i)==1)keytag.put(1,"计算机");
             else if(tags.get(i)==2)keytag.put(2,"java");
             else if(tags.get(i)==3)keytag.put(3,"网络");
@@ -121,7 +122,7 @@ public class ArticleService {
             else if(tags.get(i)==7)keytag.put(7,"软件工程");
             else if(tags.get(i)==8)keytag.put(8,"前端");
             else if(tags.get(i)==9)keytag.put(9,"机器学习");
-           // else if(tags.get(i)==10)keytag.put(10,"程序人生");
+            else if(tags.get(i)==10)keytag.put(10,"程序人生");
             else if(tags.get(i)==11)keytag.put(11,"热门");
             else if(tags.get(i)==12)keytag.put(12,"读书");
             else if(tags.get(i)==13)keytag.put(13,"生活");
@@ -208,10 +209,11 @@ public class ArticleService {
         }
         Object[] values = new Object[5];
         values= hashMap.keySet().toArray();
+      //  System.out.println("val"+values.length);
         for(int i = 0;i < values.length;i++) {
             tags.add((int)values[i]);
         }
-
+        System.out.println("val"+tags.size());
         this.tags=tags;
       //  System.out.println(this.tags.size()+"ssssss");
 

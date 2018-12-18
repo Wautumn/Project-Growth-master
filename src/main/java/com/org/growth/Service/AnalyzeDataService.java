@@ -175,7 +175,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
 
         List<History> histories=mongoTemplate.find(query,History.class);
         List<Task> tasks=mongoTemplate.find(query,Task.class);
-        List<Summary> summaries=mongoTemplate.find(query,Summary.class);
+
 
         List<History> dateHistory=new LinkedList<>();
         List<Task> dateTask=new LinkedList<>();
@@ -189,7 +189,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         AnalyzedataBean analyzedataBean=new AnalyzedataBean(0,0,current.toString());
         if(dateHistory!=null&&dateHistory.size()>0) {
             for (int i = 0; i < dateHistory.size(); i++) {
-                if (dateHistory.get(i).getStatus() == 2)
+                if (dateHistory.get(i).getStatus() == 1)
                     tomatocount++;
             }
         }else{
