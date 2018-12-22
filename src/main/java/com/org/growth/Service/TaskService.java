@@ -426,21 +426,21 @@ public class TaskService implements TaskDao, TaskTreeDao {
 
                 while (resultIterator.hasNext()) {
                     task = (Task) resultIterator.next();
-                    if (tempDate.equals(sdf.format(task.getFinishedTime()).substring(0, 10))) {
-                        tempTime = sdf.format(task.getFinishedTime()).substring(11, 19);
-                        tempResult = new TempResult(tempTime, task.getDescription(), task.getStatus());
+                    if (tempDate.equals(sdf.format(task.getSetTime()).substring(0, 10))) {
+                        tempTime = sdf.format(task.getSetTime()).substring(11, 19);
+                        tempResult = new TempResult(tempTime, task.getName(), task.getStatus());
                         list.add(tempResult);
                     } else {
                         if(!resultIterator.hasNext()){
                             result.setTempResult(list);
                             resultList.add(result);
 
-                            tempDate = sdf.format(task.getFinishedTime()).substring(0, 10);
+                            tempDate = sdf.format(task.getSetTime()).substring(0, 10);
                             result = new Result();
                             result.setDate(tempDate);
-                            tempTime = sdf.format(task.getFinishedTime()).substring(11, 19);
+                            tempTime = sdf.format(task.getSetTime()).substring(11, 19);
                             list = new ArrayList<TempResult>();
-                            tempResult = new TempResult(tempTime, task.getDescription(), task.getStatus());
+                            tempResult = new TempResult(tempTime, task.getName(), task.getStatus());
                             list.add(tempResult);
                             result.setTempResult(list);
                             resultList.add(result);
