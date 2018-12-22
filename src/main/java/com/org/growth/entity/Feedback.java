@@ -16,6 +16,7 @@ public class Feedback {
 
     @AutoIncrement
     @Id
+    @Field("id")
     private long id;
 
     @Field("time")
@@ -26,6 +27,9 @@ public class Feedback {
 
     @Field("content")
     private String content;
+
+    @Field("status")
+    private int status;//1为已经处理好的，0为未处理
 
     @Field("answer")
     private String answer;//反馈情况，可为空，就还没来得及反馈
@@ -61,5 +65,21 @@ public class Feedback {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
