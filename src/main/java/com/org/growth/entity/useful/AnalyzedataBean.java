@@ -1,4 +1,4 @@
-package com.org.growth.entity;
+package com.org.growth.entity.useful;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;

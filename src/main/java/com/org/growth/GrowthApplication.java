@@ -20,7 +20,7 @@ public class GrowthApplication {
 
     @RequestMapping("/")
     String home(){
-        return "Hello World!";
+        return "Hello Growth!";
     }
 
     public static void main(String[] args) {

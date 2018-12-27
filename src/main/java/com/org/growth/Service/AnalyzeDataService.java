@@ -1,8 +1,10 @@
 package com.org.growth.Service;
 
 import com.org.growth.DAO.AnalyzeDataDAO;
-import com.org.growth.entity.newData;
+import com.org.growth.entity.useful.newData;
 import com.org.growth.entity.*;
+import com.org.growth.entity.useful.AnalyzedataBean;
+import com.org.growth.entity.useful.newTimeData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -72,7 +74,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     返回给定日期一年的数据
      */
     @Override
-    public List<AnalyzedataBean> getOneYearData(long userId,String localTime){
+    public List<AnalyzedataBean> getOneYearData(long userId, String localTime){
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate curdate = LocalDate.parse(localTime,formatter);//当前日期

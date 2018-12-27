@@ -1,14 +1,12 @@
 package com.org.growth.Service;
 
-import com.org.growth.entity.AnalyzedataBean;
-import com.org.growth.entity.History;
+import com.org.growth.entity.useful.AnalyzedataBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 @RunWith(SpringRunner.class)

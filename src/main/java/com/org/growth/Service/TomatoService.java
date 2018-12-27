@@ -1,16 +1,11 @@
 package com.org.growth.Service;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
-import com.org.growth.DAO.HistoryDao;
+import com.org.growth.DAO.TomatoDao;
 import com.org.growth.entity.History;
 import com.org.growth.entity.Task;
 import com.org.growth.entity.User;
-import javafx.scene.input.DataFormat;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
@@ -28,7 +23,7 @@ import java.util.*;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 @Component
-public class TomatoService implements HistoryDao {
+public class TomatoService implements TomatoDao {
     @Resource
     private MongoTemplate mongoTemplate;
 
@@ -82,20 +77,6 @@ public class TomatoService implements HistoryDao {
         return items;
 
     }
-
-    /*
-    @Override
-    public Page<History> viewHistoryStatus(long userId, int size, int page, int status) {
-
-        Sort sort = new Sort(Sort.Direction.DESC, "starttime");
-        Pageable pageable = new PageRequest(page-1, size, sort);
-        Query query = Query.query(Criteria.where("userId").is(userId).and("status").is(status));
-        java.util.List<History> items = mongoTemplate.find(query.with(pageable), History.class);
-        long total = mongoTemplate.count(query, History.class);
-        return new PageImpl(items, pageable, total);
-
-    }
-    */
 
     @Override
     public boolean saveStartTomato(long userId, Date startTime) {
@@ -280,7 +261,6 @@ public class TomatoService implements HistoryDao {
         DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("hh:mm");
         LocalDate curdate = LocalDate.parse(year,dateTimeFormatter0);//当前日期
         LocalDate end=curdate.plusYears(1);
-        //System.out.println(curdate.toString()+","+end.toString());
         List<Map> his=new LinkedList<>();
 
         long diff= ChronoUnit.DAYS.between(curdate, end);
@@ -310,8 +290,8 @@ public class TomatoService implements HistoryDao {
 
 
     private LocalDate DateToLocalDate(Date date) {
-        LocalDate newd= LocalDate.of(2018,12,18);
-        if(date==null) return  newd;
+        LocalDate newd;
+        if(date==null) return  null;
         Instant instant = date.toInstant();
         ZoneId zoneId = ZoneId.systemDefault();
         LocalDate localDate = instant.atZone(zoneId).toLocalDate();//Date转化为LocalDate

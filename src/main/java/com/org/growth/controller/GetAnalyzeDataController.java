@@ -1,8 +1,8 @@
 package com.org.growth.controller;
 
-import com.org.growth.entity.*;
 import com.org.growth.Service.AnalyzeDataService;
 import com.org.growth.Service.UserService;
+import com.org.growth.entity.useful.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

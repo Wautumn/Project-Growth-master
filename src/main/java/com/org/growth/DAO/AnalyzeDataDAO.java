@@ -1,7 +1,6 @@
 package com.org.growth.DAO;
 
-import com.org.growth.entity.AnalyzedataBean;
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
+import com.org.growth.entity.useful.AnalyzedataBean;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;

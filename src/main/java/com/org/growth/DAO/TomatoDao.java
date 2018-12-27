@@ -6,7 +6,8 @@ import org.springframework.data.domain.Page;
 import java.util.Date;
 import java.util.List;
 
-public interface HistoryDao {
+public interface TomatoDao {
+
     Page<History> viewHistory(long userId, int size, int page);
     java.util.List<History> viewMonthHistory(long userId, String year);
     //Page<History> viewHistoryStatus(long userId, int size, int page, int status);

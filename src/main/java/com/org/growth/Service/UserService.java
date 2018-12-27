@@ -15,7 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class UserService implements UserDAO {
+public class
+UserService implements UserDAO {
     @Resource
     private  MongoTemplate mongoTemplate1;
 
@@ -167,10 +168,6 @@ public class UserService implements UserDAO {
         }
     }
 
-    /*
-    得到一周的番茄数
-     */
-
     static User findById(long userId){
         Criteria criteria = new Criteria();
         criteria.and("id").is(userId);
@@ -184,6 +181,9 @@ public class UserService implements UserDAO {
         Query query = Query.query(criteria);
         return  mongoTemplate.findOne(query,User.class);
     }
+ /*
+    得到一周的番茄数
+     */
 
     @Override
     public int getTomatoWeeklyCount(Long userId){
