@@ -9,6 +9,10 @@ public interface UserDAO {
     int getTomatoWeeklyCount(Long UserId);
 
     int changeTomatoLength(long UserId, int tomatoLength);
+    int changeDayGoal(long UserId, int dayGoal);
+    int changeWeekGoal(long UserId, int weekGoal);
+    int changeMonthGoal(long UserId, int monthGoal);
+
     //boolean changeMusic(long UserId, String music);
     String changeUsername(long UserId, String username);
     boolean changePassword(long userId, String oldPassword, String newPassword);

@@ -33,6 +33,15 @@ public class User {
     @Field("userFace")
     private String userFace;//头像
 
+    @Field("dayGoal")
+    private int dayGoal;//番茄日目标
+
+    @Field("weekGoal")
+    private int weekGoal;//番茄周目标
+
+    @Field("monthGoal")
+    private int monthGoal;//番茄月目标
+
     //@Field("music")
     //private String music;
 
@@ -98,6 +107,30 @@ public class User {
 
     public void setUserface(String userface) {
         this.userFace = userFace;
+    }
+
+    public int getDayGoal() {
+        return dayGoal;
+    }
+
+    public void setDayGoal(int dayGoal) {
+        this.dayGoal = dayGoal;
+    }
+
+    public int getWeekGoal() {
+        return weekGoal;
+    }
+
+    public void setWeekGoal(int weekGoal) {
+        this.weekGoal = weekGoal;
+    }
+
+    public int getMonthGoal() {
+        return monthGoal;
+    }
+
+    public void setMonthGoal(int monthGoal) {
+        this.monthGoal = monthGoal;
     }
 
     /*public String getMusic() {

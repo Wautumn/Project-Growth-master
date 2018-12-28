@@ -44,8 +44,14 @@ UserService implements UserDAO {
                 list.add(user.getUsername());
                 list.add(user.getEmail());
                 list.add(user.getUserface());
-                String s = String.valueOf(user.getTomatoLength());
-                list.add(s);
+                String tomatoLength = String.valueOf(user.getTomatoLength());
+                list.add(tomatoLength);
+                String dayGoal = String.valueOf(user.getDayGoal());
+                list.add(dayGoal);
+                String weekGoal = String.valueOf(user.getWeekGoal());
+                list.add(weekGoal);
+                String monthGoal = String.valueOf(user.getMonthGoal());
+                list.add(monthGoal);
 
                 return list;
             }
@@ -79,6 +85,9 @@ UserService implements UserDAO {
                 user.setEmail(email);
                 user.setUserface(null);
                 user.setTomatoLength(30);
+                user.setDayGoal(0);
+                user.setWeekGoal(0);
+                user.setMonthGoal(0);
                 //user.setMusic(music);
 
                 Query query = Query.query(Criteria.where("id").exists(true));
@@ -232,6 +241,57 @@ UserService implements UserDAO {
             Update update= new Update().set("tomatoLength", tomatoLength);
             mongoTemplate.updateFirst(query, update, User.class);
             return tomatoLength;
+        } catch (Exception e){
+            return -1;
+        }
+
+    }
+
+    /*
+    修改番茄日目标
+     */
+    @Override
+    public int changeDayGoal(long userId, int dayGoal){
+        mongoTemplate = mongoTemplate1;
+        try{
+            Query query = Query.query(Criteria.where("id").is(userId));
+            Update update= new Update().set("dayGoal", dayGoal);
+            mongoTemplate.updateFirst(query, update, User.class);
+            return dayGoal;
+        } catch (Exception e){
+            return -1;
+        }
+
+    }
+
+    /*
+    修改番茄周目标
+     */
+    @Override
+    public int changeWeekGoal(long userId, int weekGoal){
+        mongoTemplate = mongoTemplate1;
+        try{
+            Query query = Query.query(Criteria.where("id").is(userId));
+            Update update= new Update().set("weekGoal", weekGoal);
+            mongoTemplate.updateFirst(query, update, User.class);
+            return weekGoal;
+        } catch (Exception e){
+            return -1;
+        }
+
+    }
+
+    /*
+    修改番茄月目标
+     */
+    @Override
+    public int changeMonthGoal(long userId, int monthGoal){
+        mongoTemplate = mongoTemplate1;
+        try{
+            Query query = Query.query(Criteria.where("id").is(userId));
+            Update update= new Update().set("monthGoal", monthGoal);
+            mongoTemplate.updateFirst(query, update, User.class);
+            return monthGoal;
         } catch (Exception e){
             return -1;
         }

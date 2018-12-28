@@ -60,7 +60,7 @@ public class UserServiceTest {
 
     @Test
     public void signUp() {
-        if( (userService.signUp("user2", "pass2", "email2" ) > 0) )
+        if( (userService.signUp("12345", "12345", "email12345" ) > 0) )
             System.out.println("Test succeed");
         else
             System.out.println("Test fail");
@@ -80,6 +80,31 @@ public class UserServiceTest {
         else
             System.out.println("Test fail");
     }
+
+    @Test
+    public void changeDayGoal() {
+        if( userService.changeDayGoal(11L, 2) != -1 )
+            System.out.println("Test succeed");
+        else
+            System.out.println("Test fail");
+    }
+
+    @Test
+    public void changeWeekGoal() {
+        if( userService.changeWeekGoal(11L, 5) != -1 )
+            System.out.println("Test succeed");
+        else
+            System.out.println("Test fail");
+    }
+
+    @Test
+    public void changeMonthGoal() {
+        if( userService.changeMonthGoal(11L, 8) != -1 )
+            System.out.println("Test succeed");
+        else
+            System.out.println("Test fail");
+    }
+
 
     /*
     @Test

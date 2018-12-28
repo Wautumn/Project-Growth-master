@@ -26,8 +26,6 @@ public class UserController {
         return userService.signUp(username, password, email);
     }
 
-
-
     @ResponseBody
     @GetMapping(value = "/changeUsername ")
     public String changeUsername(@RequestParam(value = "userId") long userId, @RequestParam(value = "username") String username){
@@ -56,6 +54,24 @@ public class UserController {
     @GetMapping(value = "/changeTomatoLength ")
     public int changeTomatoLength(@RequestParam(value = "userId") long userId, @RequestParam(value = "tomatoLength") int tomatoLength){
         return userService.changeTomatoLength(userId, tomatoLength);
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/changeDayGoal ")
+    public int changeDayGoal(@RequestParam(value = "userId") long userId, @RequestParam(value = "dayGoal") int dayGoal){
+        return userService.changeDayGoal(userId, dayGoal);
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/changeWeekGoal ")
+    public int changeWeekGoal(@RequestParam(value = "userId") long userId, @RequestParam(value = "weekGoal") int weekGoal){
+        return userService.changeWeekGoal(userId, weekGoal);
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/changeMonthGoal ")
+    public int changeMonthGoal(@RequestParam(value = "userId") long userId, @RequestParam(value = "monthGoal") int monthGoal){
+        return userService.changeMonthGoal(userId, monthGoal);
     }
 
     /*
