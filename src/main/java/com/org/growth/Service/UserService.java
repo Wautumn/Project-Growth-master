@@ -12,7 +12,12 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
+
+
+
+
 
 @Component
 public class
@@ -37,7 +42,11 @@ UserService implements UserDAO {
         try{
             Query query = Query.query(Criteria.where("username").is(username));
             User user = mongoTemplate.findOne(query, User.class);
-            String pass = user.getPassword();
+
+            String encoded = user.getPassword();
+            final Base64.Decoder decoder = Base64.getDecoder();
+            String pass = new String(decoder.decode(encoded), "UTF-8");
+
             if( password.equals(pass) ){
 
                 list.add(user.getId().toString());
@@ -79,9 +88,15 @@ UserService implements UserDAO {
                 return -1;
             }
             else{
+
+                final Base64.Encoder encoder = Base64.getEncoder(); //加密
+                final String text = password;
+                final byte[] textByte = text.getBytes("UTF-8");
+                final String encoded = encoder.encodeToString(textByte);
+
                 User user = new User();
                 user.setUsername(username);
-                user.setPassword(password);
+                user.setPassword(encoded);
                 user.setEmail(email);
                 user.setUserface(null);
                 user.setTomatoLength(30);

@@ -60,7 +60,7 @@ public class UserServiceTest {
 
     @Test
     public void signUp() {
-        if( (userService.signUp("12345", "12345", "email12345" ) > 0) )
+        if( (userService.signUp("1234567", "1234567", "email1234567" ) > 0) )
             System.out.println("Test succeed");
         else
             System.out.println("Test fail");
@@ -69,7 +69,7 @@ public class UserServiceTest {
     @Test
     public void logIn() {
 
-            System.out.println(userService.logIn("123", "123"));
+            System.out.println(userService.logIn("1234567", "1234567"));
 
     }
 
