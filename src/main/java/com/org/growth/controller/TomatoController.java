@@ -18,30 +18,6 @@ public class TomatoController {
     TomatoService tomatoService;
 
     @ResponseBody
-    @GetMapping(value = "/viewHistory")
-    public Page<History> viewHistory(@RequestParam(value = "userId") long userId, @RequestParam(value = "size") int size,
-                                     @RequestParam(value = "page") int page){
-        return tomatoService.viewHistory(userId, size, page);
-    }
-
-
-    @GetMapping(value = "/viewYearHistory")
-    public java.util.List<Map> viewYearHistory(@RequestParam(value = "userId") long userId, @RequestParam(value = "year") String year){
-        return tomatoService.getYearHistory(userId,year);
-    }
-
-
-
-    /*
-    @ResponseBody
-    @GetMapping(value = "/viewHistoryStatus")
-    public Page<History> viewHistoryStatus(@RequestParam(value = "userId") long userId, @RequestParam(value = "size") int size,
-                                           @RequestParam(value = "page") int page, @RequestParam(value = "status") int status){
-        return tomatoService.viewHistoryStatus(userId, size, page, status);
-    }
-    */
-
-    @ResponseBody
     @GetMapping(value = "/startTomato")
     public boolean startTomato(@RequestParam(value = "userId") long userId,@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") Date startTime){
         return tomatoService.saveStartTomato(userId,startTime);

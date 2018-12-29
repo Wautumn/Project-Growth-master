@@ -1,13 +1,11 @@
 package com.org.growth.controller;
 
 import com.org.growth.Service.AnalyzeDataService;
+import com.org.growth.Service.TomatoService;
 import com.org.growth.Service.UserService;
 import com.org.growth.entity.useful.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -15,12 +13,22 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-public class GetAnalyzeDataController {
+public class HistoryDataController {
+
+    @Autowired
+    TomatoService tomatoService;
+
     @Autowired
     AnalyzeDataService analyzeDataService=new AnalyzeDataService();
 
     @Autowired
     UserService userService=new UserService();
+
+    @GetMapping(value = "/viewYearHistory")
+    public java.util.List<Map> viewYearHistory(@RequestParam(value = "userId") long userId, @RequestParam(value = "year") String year){
+        return tomatoService.getYearHistory(userId,year);
+    }
+
 
     /*
     获取历史的图表信息
@@ -38,11 +46,8 @@ public class GetAnalyzeDataController {
      */
     @RequestMapping(value = "/getOneYearHistoryData",method = RequestMethod.GET)
     public List<AnalyzedataBean> getTwoMonth(@RequestParam(value = "userid") long userId,@RequestParam(value = "date") String date){
-      //  if(userService.findByUserId(userId)==null) return null;
-      //  else
-      //  {
-            return analyzeDataService.getOneYearData(userId,date);
-       // }
+        return analyzeDataService.getOneYearData(userId,date);
+        // }
     }
 
     /*
@@ -64,26 +69,6 @@ public class GetAnalyzeDataController {
 
         map.put("result",analyzeDataService.getWeekday());
         map.put("data",analyData);
-        /*int time=0;
-        time=analyzeDataService.getTimeData(userId);
-        String day="无数据！";
-        String daytime="无数据！";
-        if(weekday==1)day="星期一";
-        else if(weekday==2)day="星期二";
-        else if(weekday==3)day="星期三";
-        else if(weekday==4)day="星期四";
-        else if(weekday==5)day="星期五";
-        else if(weekday==6)day="星期六";
-        else if(weekday==7)day="星期日";
-
-        if(time==1) daytime="上午
-        else if(time==3) daytime="晚上";";
-        else if (time==2) daytime="下午";
-
-        map.put("day",day);
-        //map.put("time",daytime);
-        map.put("TomatoNum",)*/
-
         return analyData;
 
     }
@@ -104,27 +89,13 @@ public class GetAnalyzeDataController {
         AnalyTimeData analyData=new AnalyTimeData();
         analyData.setResult(analyzeDataService.getDaytime());
         analyData.setData(newTimeDataList);
-        /*int time=0;
-        time=analyzeDataService.getTimeData(userId);
-        String day="无数据！";
-        String daytime="无数据！";
-        if(weekday==1)day="星期一";
-        else if(weekday==2)day="星期二";
-        else if(weekday==3)day="星期三";
-        else if(weekday==4)day="星期四";
-        else if(weekday==5)day="星期五";
-        else if(weekday==6)day="星期六";
-        else if(weekday==7)day="星期日";
-
-        if(time==1) daytime="上午";
-        else if (time==2) daytime="下午";
-        else if(time==3) daytime="晚上";
-
-        map.put("day",day);
-        //map.put("time",daytime);
-        map.put("TomatoNum",)*/
 
         return analyData;
 
     }
+
+
+
+
+
 }
