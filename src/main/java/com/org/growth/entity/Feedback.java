@@ -1,5 +1,6 @@
 package com.org.growth.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.org.growth.Other.AutoIncrement;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,14 +17,18 @@ public class Feedback {
 
     @AutoIncrement
     @Id
+    @JsonIgnore
     @Field("id")
     private long id;
 
     @Field("time")
-    private Date time;
+    private String time;
 
     @Field("userid")
     private Long userid;
+
+    @Field("title")
+    private String title;
 
     @Field("content")
     private String content;
@@ -34,6 +39,13 @@ public class Feedback {
     @Field("answer")
     private String answer;//反馈情况，可为空，就还没来得及反馈
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getAnswer() {
         return answer;
@@ -43,11 +55,11 @@ public class Feedback {
         this.answer = answer;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

@@ -4,15 +4,16 @@ import com.org.growth.Service.FeedbackService;
 import com.org.growth.Service.UserService;
 import com.org.growth.entity.Feedback;
 import com.org.growth.entity.useful.RespBean;
+import javafx.scene.input.DataFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Feedback")
 public class FeedbackController {
 
     @Autowired
@@ -25,8 +26,8 @@ public class FeedbackController {
     提交反馈
      */
     @RequestMapping(value="/submitFeedback", method = RequestMethod.POST)
-    public RespBean submitFeedback(@RequestBody String content, @RequestParam(value = "userid")long userid) {
-        int result=feedbackService.addFeedback(userid,content);
+    public RespBean submitFeedback(@RequestParam String content, @RequestParam(value = "userid")long userid,@RequestParam String title) {
+        int result=feedbackService.addFeedback(userid,content,title);
         if(result==1) return new RespBean("success","提交成功");
         else return new RespBean("failure","提交失败");
 
@@ -39,6 +40,11 @@ public class FeedbackController {
     public List getOwnFeedback(@RequestParam long userid){
         List<Feedback> feedbacks=new LinkedList<>();
         if(userService.findByUserId(userid)==null) return feedbacks;
+        feedbacks=feedbackService.getMyFeedback(userid);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        for (Feedback feedback:feedbacks){
+
+        }
         return feedbackService.getMyFeedback(userid);
 
     }
@@ -48,16 +54,26 @@ public class FeedbackController {
     */
     @RequestMapping(value = "/getAllFeedback",method = RequestMethod.GET)
     public List getOwnFeedback(){
-        return feedbackService.getFeedback();
+
+        return feedbackService.getauthorFeedback();
     }
 
+
+
     /*
-    管理员查看未处理的反馈
+    handle feedback
      */
-    @RequestMapping(value = "/getUnhandledFeedback",method = RequestMethod.GET)
-    public List getunhandled(){
-        return feedbackService.getUnhandled();
+    @RequestMapping(value = "/handleFeedback",method = RequestMethod.POST)
+    public RespBean handleFeedback(@RequestParam long userid,@RequestParam String answer,@RequestParam String time){
+       int result=feedbackService.handleFeedback(userid,answer,time);
+       if(result==1) return new RespBean("success","处理成功");
+       else return new RespBean("failuer","失败");
+
     }
+
+
+
+
 
 
 

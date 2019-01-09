@@ -5,17 +5,15 @@ import com.org.growth.entity.Feedback;
 import java.util.List;
 
 public interface FeedbackDAO {
-    int addFeedback(long userid,String content);
+    int addFeedback(long userid,String content,String title);//user add feedback
 
-    void deleteFeedback(long feedBackId);
+    List<Feedback> getFeedback();//getallfeedbacks
 
-    List<Feedback> getFeedback();//get 10 feedbacks to show,pagedesign
+    List<Feedback> getUnhandled();//status 0
 
-    List<Feedback> getUnhandled();
+    List<Feedback> getMyFeedback(long userId);//user feedbacks
 
-    List<Feedback> getMyFeedback(long userId);
-
-    int handleFeedback(long id,String answer);
+    int handleFeedback(long userid,String answer,String date);
 
 
 
