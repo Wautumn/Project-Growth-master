@@ -100,9 +100,9 @@ UserService implements UserDAO {
                 user.setEmail(email);
                 user.setUserface(null);
                 user.setTomatoLength(30);
-                user.setDayGoal(0);
-                user.setWeekGoal(0);
-                user.setMonthGoal(0);
+                user.setDayGoal(1);
+                user.setWeekGoal(7);
+                user.setMonthGoal(30);
                 //user.setMusic(music);
 
                 Query query = Query.query(Criteria.where("id").exists(true));
