@@ -19,28 +19,28 @@ public class User {
     private String password;
 
     @Field("tomatoLength")
-    private int tomatoLength;//以分钟为单位
+    private int tomatoLength;//minutes
 
     @Field("tomatoAmount")
     private int tomatoAmount;
 
     @Field("tomatoWeekly")
-    private int tomatoWeekly;//本周已经完成的番茄数量
+    private int tomatoWeekly;//the amount of tomatoes finished this week
 
     @Field("email")
     private String email;
 
     @Field("userFace")
-    private String userFace;//头像
+    private String userFace;
 
     @Field("dayGoal")
-    private int dayGoal;//番茄日目标
+    private int dayGoal;
 
     @Field("weekGoal")
-    private int weekGoal;//番茄周目标
+    private int weekGoal;
 
     @Field("monthGoal")
-    private int monthGoal;//番茄月目标
+    private int monthGoal;
 
     //@Field("music")
     //private String music;

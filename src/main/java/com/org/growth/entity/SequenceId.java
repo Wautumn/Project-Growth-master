@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 /***
  * @author rubick
- * 用于实现id自增
+ * realize auto-increment
  */
 @Document(collection = "sys_sequence")
 public class SequenceId {

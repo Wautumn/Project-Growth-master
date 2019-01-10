@@ -12,7 +12,7 @@ import java.util.Date;
 
 /***
  * @author  rubick
- * 用于存放每日总结
+ * store daily summary
  */
 @Document(collection = "Summary")
 public class Summary {
@@ -22,7 +22,7 @@ public class Summary {
     private long id;
 
     @Field("userId")
-    private long userId;//与User中的Id保持一致
+    private long userId;//same with Id in User
 
     @Field("content")
     private String content;

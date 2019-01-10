@@ -6,8 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 /*
-推荐文章板块
-每一个文章有一些标签，用户关键词与标签匹配
+recommended articles with tags matched with user keywords
  */
 @Document(collection = "Article")
 public class Article {

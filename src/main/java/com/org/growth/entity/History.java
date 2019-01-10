@@ -21,7 +21,7 @@ public class History {
 
     //userid and starttime are primary key
     @Field("userId")
-    private long userId;//与User中的Id保持一致
+    private long userId;//same with id in User
 
     @Field("starttime")
     private Date startTime;
@@ -30,16 +30,16 @@ public class History {
     private Date endTime;
 
     @Field("tomatolength")
-    private int tomatoLength;//需与User中的时常一致
+    private int tomatoLength;//same with tomatoLength in User
 
     @Field("status")
-    private int status;//1为正常结束，-1为被中断
+    private int status;//1:end normally -1:interrupted
 
     @Field("taskid")
-    private long taskId;//默认为-1,代表不存在
+    private long taskId;//-1 as default : not exist
 
     @Field("name")
-    private String name;  //新增
+    private String name;  //newly add
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;

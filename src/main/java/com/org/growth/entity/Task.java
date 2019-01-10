@@ -9,15 +9,15 @@ import java.util.Date;
 
 /***
  * @author rubick
- * 用于存放任务信息
+ * store info of tasks
  */
 @Document(collection = "Task")
 public class Task {
     @AutoIncrement
     @Id
-    private long id;//即任务id
+    private long id;//task id
 
-    //userId and name 不可重复
+    //userId and name : no repetition!!
     @Field("userId")
     private long userId;
 
@@ -33,7 +33,7 @@ public class Task {
     private int tomatoCompleted;
 
     @Field("setTime")
-    private Date setTime;//任务设置时间
+    private Date setTime;//time of setting the task
 
     @Field("deadline")
     private Date deadline;
@@ -45,7 +45,7 @@ public class Task {
     private Date finishedTime;
 
     @Field("status")
-    private int status;//-1为放弃，0为未开始,1为正在进行，2为已完成
+    private int status;//-1:give up   0:not begin yet  1:in process   2: done
 
     public void setId(long id) {
         this.id = id;

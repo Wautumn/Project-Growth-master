@@ -33,10 +33,10 @@ public class Feedback {
     private String content;
 
     @Field("status")
-    private int status;//1为已经处理好的，0为未处理
+    private int status;//1:handled  0:unhandled
 
     @Field("answer")
-    private String answer;//反馈情况，可为空，就还没来得及反馈
+    private String answer;//answer: null or reply
 
     public String getTitle() {
         return title;
