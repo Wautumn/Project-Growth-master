@@ -38,13 +38,7 @@ public class FeedbackService implements FeedbackDAO {
 
     @Override//get 10 feedbacks to show,pagedesign
     public List<Feedback> getFeedback(){
-        class Authorfeedback{
-            String name;
-            String title;
-            String content;
-            String date;
-            int status;
-        }
+
         List<Feedback> feedbacks=mongoTemplate.findAll(Feedback.class);
         for(Feedback feedback:feedbacks){
           Authorfeedback authorfeedback=new Authorfeedback();
@@ -66,9 +60,8 @@ public class FeedbackService implements FeedbackDAO {
     }
 
     @Override
-    public int handleFeedback(long userid,String answer,String date){
-        Query query=Query.query(Criteria.where("userid").is(userid));
-        query.addCriteria(Criteria.where("time").is(date));
+    public int handleFeedback(long id,String answer){
+        Query query=Query.query(Criteria.where("id").is(id));
         Feedback feedback=mongoTemplate.findOne(query,Feedback.class);
         if(feedback==null) return 0;
         System.out.println(feedback.getId());
@@ -78,12 +71,21 @@ public class FeedbackService implements FeedbackDAO {
         return 1;
     }
     class Authorfeedback{
+        long id;
         String name;
         String title;
         String content;
         String date;
         String answer;
         int status;
+
+        public long getId() {
+            return id;
+        }
+
+        public void setId(long id) {
+            this.id = id;
+        }
 
         public String getAnswer() {
             return answer;
@@ -140,6 +142,7 @@ public class FeedbackService implements FeedbackDAO {
         List<Authorfeedback> authorfeedbacks=new LinkedList<>();
         for(Feedback feedback:feedbacks){
             Authorfeedback authorfeedback=new Authorfeedback();
+            authorfeedback.setId(feedback.getId());
             authorfeedback.setContent(feedback.getContent());
             authorfeedback.setDate(feedback.getTime());
             authorfeedback.setName(UserService.findById(feedback.getUserid()).getUsername());
