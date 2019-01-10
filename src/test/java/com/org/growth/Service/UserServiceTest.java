@@ -60,7 +60,7 @@ public class UserServiceTest {
 
     @Test
     public void signUp() {
-        if( (userService.signUp("1234567", "1234567", "email1234567" ) > 0) )
+        if( (userService.signUp("123456789", "123456789", "email123456789" ) > 0) )
             System.out.println("Test succeed");
         else
             System.out.println("Test fail");
@@ -69,7 +69,7 @@ public class UserServiceTest {
     @Test
     public void logIn() {
 
-            System.out.println(userService.logIn("1234567", "1234567"));
+            System.out.println(userService.logIn("123456789", "123456"));
 
     }
 
@@ -118,16 +118,15 @@ public class UserServiceTest {
 
     @Test
     public void changeUsername() {
-        if( userService.changeUsername(8, "123").equals("error") )
-            System.out.println("Test fail");
-        else
-            System.out.println("Test succeed");
+
+            System.out.println(userService.changeUsername(20, "12345678"));
+
 
     }
 
     @Test
     public void changePassword() {
-        if( userService.changePassword(8, "word2", "123") )
+        if( userService.changePassword(20, "123456789", "123456") )
             System.out.println("Test succeed");
         else
             System.out.println("Test fail");

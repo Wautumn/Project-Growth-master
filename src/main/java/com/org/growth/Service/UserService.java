@@ -125,13 +125,20 @@ UserService implements UserDAO {
     @Override
     public String changeUsername(long UserId, String username){
         mongoTemplate = mongoTemplate1;
-        try{
-            Query query = Query.query(Criteria.where("id").is(UserId));
-            Update update= new Update().set("username", username);
-            mongoTemplate.updateFirst(query, update, User.class);
-            return username;
-        } catch (Exception e){
-            return "error";
+        Query old = Query.query(Criteria.where("username").is(username));
+        User exist= mongoTemplate.findOne(old, User.class);
+        if( exist != null){
+            return "User exist! Please change another username.";
+        }
+        else {
+            try {
+                Query query = Query.query(Criteria.where("id").is(UserId));
+                Update update = new Update().set("username", username);
+                mongoTemplate.updateFirst(query, update, User.class);
+                return username;
+            } catch (Exception e) {
+                return "error";
+            }
         }
     }
 
@@ -145,8 +152,19 @@ UserService implements UserDAO {
         try{
             Query query = Query.query(Criteria.where("id").is(userId));
             User user = mongoTemplate.findOne(query,User.class);
-            if( user.getPassword().equals(oldPassword) ){
-                Update update= new Update().set("password", newPassword);
+
+            String encoded = user.getPassword();
+            final Base64.Decoder decoder = Base64.getDecoder();
+            String pass = new String(decoder.decode(encoded), "UTF-8");
+
+            if( pass.equals(oldPassword) ){
+
+                final Base64.Encoder encoder = Base64.getEncoder(); //加密
+                final String text = newPassword;
+                final byte[] textByte = text.getBytes("UTF-8");
+                final String result = encoder.encodeToString(textByte);
+
+                Update update= new Update().set("password", result);
                 mongoTemplate.updateFirst(query, update, User.class);
                 return true;
             }
