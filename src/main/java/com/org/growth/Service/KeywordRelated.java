@@ -18,9 +18,7 @@ import java.util.*;
 
 @Component
 public class KeywordRelated {
-    /*
-    获取输入一段string中的关键词，数目可选,因为关键词获取有误差，所以前多少个都是吧，value先丢弃，后面要再去写
-     */
+
 
     public List<String> GetKeywords(String News, int keywordsNumber) throws Exception {
         ArrayList<String> keywords = new ArrayList<String>();
@@ -79,10 +77,7 @@ public class KeywordRelated {
         return keywords;
     }
 
-    /*
-    得到关键词以后，去进行关键词tag匹配,每个用户维持一个tag表
 
-     */
     public List<Integer> getUsertags(List<String> keywords){
       List<Integer> tagspage= new LinkedList();
       if(keywords.size()==0)

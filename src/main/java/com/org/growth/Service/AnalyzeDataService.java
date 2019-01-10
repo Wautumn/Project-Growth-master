@@ -64,22 +64,22 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         int month=currentcal.get(Calendar.MONTH )-earliestcalendar.get(Calendar.MONTH);
 
         if(month<3)
-            return false;//没有三个月的信息
+            return false;//not enough
         else
             return true;
 
     }
 
     /*
-    返回给定日期一年的数据
+    one year
      */
     @Override
     public List<AnalyzedataBean> getOneYearData(long userId, String localTime){
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate curdate = LocalDate.parse(localTime,formatter);//当前日期
+        LocalDate curdate = LocalDate.parse(localTime,formatter);//current date
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
-        List<AnalyzedataBean> analyzedataBeans=new LinkedList<>();//用链表类型好一点
+        List<AnalyzedataBean> analyzedataBeans=new LinkedList<>();
         if(userService.findByUserId(userId)==null)
         {
             System.out.println("null");
@@ -92,11 +92,11 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
             return analyzedataBeans;
         }
         System.out.println("start"+earlytime.toString());
-        if(earlytime.isAfter(end)){//这一年没有数据
+        if(earlytime.isAfter(end)){
             System.out.println("this year");
             return analyzedataBeans;
         }
-        else if(earlytime.isBefore(end)&&earlytime.isAfter(curdate)){//中间
+        else if(earlytime.isBefore(end)&&earlytime.isAfter(curdate)){//middle
             long diff=ChronoUnit.DAYS.between(earlytime, end);
             int bet=(int) diff;
             for(int i=0;i<bet;++i){
@@ -109,7 +109,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
            // return analyzedataBeans;
         }
 
-        else {//之前
+        else {//before
             long diff = ChronoUnit.DAYS.between(curdate, end);
             int bet = (int) diff;
 
@@ -123,7 +123,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     }
 
     /*
-    从用户最早的历史记录开始所有的图表数据
+   all infor
      */
 
     public LocalDate getEarlyTime(long Id){
@@ -147,7 +147,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
     @Override
     public List<AnalyzedataBean> getAllCompletedData(long userId){
 
-        List<AnalyzedataBean> analyzedataBeans = new LinkedList<>();//用链表类型好一点
+        List<AnalyzedataBean> analyzedataBeans = new LinkedList<>();
        /* Query query = new BasicQuery("{}").with(new Sort(new Sort.Order(Sort.Direction.ASC, "starttime"))).limit(1);
         History history = mongoTemplate.findOne(query, History.class);
         LocalDate earlyData;
@@ -169,7 +169,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
 
 
     /*
-    某天的分析
+    one day
      */
     @Override
     public AnalyzedataBean getDateData(long userId, LocalDate current){
@@ -182,7 +182,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         List<History> dateHistory=new LinkedList<>();
         List<Task> dateTask=new LinkedList<>();
 
-        if(histories!=null&&histories.size()>0) dateHistory=getOneDayHistory(histories,current);//获取当前用户某一天的记录数
+        if(histories!=null&&histories.size()>0) dateHistory=getOneDayHistory(histories,current);
         if(tasks!=null&&tasks.size()>0)    dateTask=getOneDayTask(tasks,current);
 
         int tomatocount=0;
@@ -279,10 +279,10 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
 
         Query query=Query.query(Criteria.where("userId").is(userId));
-        List<Task> tasks=mongoTemplate.find(query,Task.class);//所有的任务
+        List<Task> tasks=mongoTemplate.find(query,Task.class);
 
         query.addCriteria(Criteria.where("status").is(1));
-        List<History>histories=mongoTemplate.find(query,History.class);//获取所有完成的番茄
+        List<History>histories=mongoTemplate.find(query,History.class);//
         System.out.println("size his"+histories.size());
         System.out.println("task size his"+tasks.size());
 
@@ -347,13 +347,7 @@ public class AnalyzeDataService implements AnalyzeDataDAO {
         newDataList.add(Fridata);
         newDataList.add(Satdata);
         newDataList.add(Sundata);
-      /*  map.put("星期一",Mon);
-        map.put("星期二",Tues);
-        map.put("星期三",Wed);
-        map.put("星期四",Thur);
-        map.put("星期五",Fri);
-        map.put("星期六",Sat);
-        map.put("星期日",Sun);*/
+
         int max=Collections.max(day);
         int dd=0;
         for(int i=0;i<7;i++){
