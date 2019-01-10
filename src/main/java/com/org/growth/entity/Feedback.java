@@ -17,7 +17,6 @@ public class Feedback {
 
     @AutoIncrement
     @Id
-    @JsonIgnore
     @Field("id")
     private long id;
 

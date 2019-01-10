@@ -13,7 +13,7 @@ public interface FeedbackDAO {
 
     List<Feedback> getMyFeedback(long userId);//user feedbacks
 
-    int handleFeedback(long userid,String answer,String date);
+    int handleFeedback(long id,String answer);
 
 
 

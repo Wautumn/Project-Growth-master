@@ -64,10 +64,10 @@ public class FeedbackController {
     handle feedback
      */
     @RequestMapping(value = "/handleFeedback",method = RequestMethod.POST)
-    public RespBean handleFeedback(@RequestParam long userid,@RequestParam String answer,@RequestParam String time){
-       int result=feedbackService.handleFeedback(userid,answer,time);
+    public RespBean handleFeedback(@RequestParam long id,@RequestParam String answer){
+       int result=feedbackService.handleFeedback(id,answer);
        if(result==1) return new RespBean("success","处理成功");
-       else return new RespBean("failuer","失败");
+       else return new RespBean("failure","失败");
 
     }
 
