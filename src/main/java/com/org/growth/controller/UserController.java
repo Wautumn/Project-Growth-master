@@ -96,11 +96,11 @@ public class UserController {
         Long userId = user.getId();
         int count = userService.getTomatoWeeklyCount(userId);
         if (count < 1) {
-            //无法分享
+            //share fail
             return new RespBean("error", "没有足够的番茄");
         } else {
             userService.TomatoCountReduceOne(userId);//数量减一
-            //唤起分享接口
+            //share interface evoke
             return new RespBean("success", "分享成功！");
         }
     }

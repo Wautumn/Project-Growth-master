@@ -26,7 +26,7 @@ public class ArticleController {
     @Autowired
     KeywordRelated keywordRelated=new KeywordRelated();
 
-    //热门文章
+    //popular article
     @GetMapping(value = "/getPopularArticle")
     public Map<String,Object> performPopularArticle(){
         Map<String,Object> map=new HashMap<>();
@@ -45,12 +45,12 @@ public class ArticleController {
         List<Article> articles=new LinkedList<>();
         Map<String,Object> map=new HashMap<>();
         if(userService.findByUserId(userId)==null){
-          return performPopularArticle();//返回热门文章
+          return performPopularArticle();//return popular article
         }
         context=articleService.getStringHistory(userId);
         if(context=="")  {
             System.out.println("null");
-            return performPopularArticle();//返回热门文章
+            return performPopularArticle();//return popular article
         }
         System.out.println("not null"+context);
         keywords=keywordRelated.GetKeywords(context,10);

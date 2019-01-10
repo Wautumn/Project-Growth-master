@@ -31,7 +31,7 @@ public class HistoryDataController {
 
 
     /*
-    获取历史的图表信息
+    get history info for graphs and charts
      */
     @RequestMapping(value = "/getHistoryData",method = RequestMethod.GET)
     public List<AnalyzedataBean> getAnalyzeData(@RequestParam(value = "userid") long userId){
@@ -42,7 +42,7 @@ public class HistoryDataController {
     }
 
     /*
-    特定时间的图表信息
+    graphs and charts of certain period
      */
     @RequestMapping(value = "/getOneYearHistoryData",method = RequestMethod.GET)
     public List<AnalyzedataBean> getTwoMonth(@RequestParam(value = "userid") long userId,@RequestParam(value = "date") String date){
@@ -51,7 +51,7 @@ public class HistoryDataController {
     }
 
     /*
-    每周的哪一天效率比较高
+    which day of the week is the most efficient one
      */
     @RequestMapping(value = "/getWeekdaySuggestion",method = RequestMethod.GET)
     public AnalyData getWeekdaySuggestion(@RequestParam(value = "userid") long userId){
@@ -74,7 +74,7 @@ public class HistoryDataController {
     }
 
     /*
-    哪个时间
+    which time
      */
     @RequestMapping(value = "/getTimeSuggestion",method = RequestMethod.GET)
     public AnalyTimeData getTimeSuggestion(@RequestParam(value = "userid") long userId){

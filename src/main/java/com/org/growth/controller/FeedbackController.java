@@ -23,7 +23,7 @@ public class FeedbackController {
     UserService userService=new UserService();
 
     /*
-    提交反馈
+    send feedback
      */
     @RequestMapping(value="/submitFeedback", method = RequestMethod.POST)
     public RespBean submitFeedback(@RequestParam String content, @RequestParam(value = "userid")long userid,@RequestParam String title) {
@@ -34,7 +34,7 @@ public class FeedbackController {
     }
 
     /*
-    用户查看自己的反馈
+    users check their own feedback reply
      */
     @RequestMapping(value = "/getMyFeedback",method = RequestMethod.GET)
     public List getOwnFeedback(@RequestParam long userid){
@@ -50,7 +50,7 @@ public class FeedbackController {
     }
 
     /*
-    管理员查看所有反馈
+    admin check all feedback submissions
     */
     @RequestMapping(value = "/getAllFeedback",method = RequestMethod.GET)
     public List getOwnFeedback(){
