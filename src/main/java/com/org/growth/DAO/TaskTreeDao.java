@@ -1,6 +1,7 @@
 package com.org.growth.DAO;
 
 public interface TaskTreeDao {
-    // -1 错误， 0插入重复， 1 成功
+
+    //false:-1   repetition:0   success:1
     int addSubTask(long parentId, String sonName);
 }

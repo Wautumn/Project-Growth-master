@@ -9,7 +9,10 @@ import java.util.List;
 @Component
 public interface AnalyzeDataDAO {
     /*
-    获取近六个月的记录，需要的是每天完成的总番茄，每天任务数，日期，每日完成度，用一个数据结构存储
+    get records of recent 6 months
+    attributes needed:
+    tomato daily, task daily, date, completion
+    build a data structure to store it
      */
     List<AnalyzedataBean> getOneYearData(long userId,String localTime);
 

@@ -8,17 +8,17 @@ import java.util.Map;
 
 public interface ArticleDAO {
     /*
-    获取用户关键词权值
+    get weight of user keywords
      */
     List<Article> getArticleById(Long UserId);
 
     /*
-    关键词匹配
+    keywords matching
      */
    // int[] getUserTags(Long userId);
 
     /*
-    给出推荐文章
+    provide recommended articles
      */
    // List<String> getAdvistoryArticle(Long userId);
 }
