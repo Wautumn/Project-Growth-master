@@ -1,6 +1,6 @@
 # Project-Growth-master
-Java project
+## Java project
 
-## A todolist project using tomato time managing tool.
+### A todolist project using tomato time managing tool.
 
-## Use spring boot and Vue to finish this project.
+### Use spring boot and Vue to finish this project.
